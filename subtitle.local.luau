@@ -481,13 +481,14 @@ susprmpt.Triggered:Connect(function()
 				sitH.JumpHeight = sitJH
 				
 				local drZn = workspace:FindFirstChild("DoorZone", true)
-				local drprmt = workspace.bthdoor.bathdoormur:FindFirstChild("DoorPrompt", true)
+				local drprmt = workspace.bthdoor.bathdoormur:FindFirstChild("DoorPrompt")
 				local talk = false
+				drprmt.Enabled = false
 				
 				drZn.Touched:Connect(function(hit)
 				if hit.Parent == player.Character and talk == false then
 					talk=true
-					drprmt.Enabled = false
+					
 					label.Text= "<Shery asks for hepl>"
 					label.Visible = true
 					nxt.Visible = true
@@ -505,10 +506,43 @@ susprmpt.Triggered:Connect(function()
 					drprmt.Enabled = true
 				end
 				end)
-				
-				
+					
 			end
 		end)
 	end)
+	
+	local bodyPrompt = workspace.CherryMainDED.HumanoidRootPart:FindFirstChild("BodyPrompt",true)
+    bodyPrompt.Enabled = true
+	bodyPrompt.Triggered:Connect(function()
+		bodyPrompt.Enabled= false
+
+		label.Text="<Me: Checks if alive>"
+		label.Visible =true
+		nxt.Visible=true
+
+		press = false
+		while press == false do
+			local input = UserIS.InputBegan:Wait()
+			if input.KeyCode == Enum.KeyCode.F then
+				press = true
+			end
+		end
+		label.Text = "<Me: She's dead , call the police!>"
+
+		press = false
+		while press == false do
+			local input = UserIS.InputBegan:Wait()
+			if input.KeyCode == Enum.KeyCode.F then
+				press = true
+			end
+		end
+
+		label.Visible = false
+		nxt.Visible = false
+
+		local sceneTitle=scenegui.BlackFrame.SceneTitle
+		sceneTitle.Text="Police Arrives"
+		scenegui.Enabled = true
+	end)	
 	
 end)       
