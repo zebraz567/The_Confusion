@@ -111,7 +111,6 @@ end)
 
 
 c1.Triggered:Connect(function()
-	print("c1 triggered")
 	c1.Enabled = false
 	
 	label.Text = "<Your first line>"
@@ -333,10 +332,12 @@ susprmpt.Triggered:Connect(function()
 	local houseprompt = sherryHouse:WaitForChild("HumanoidRootPart"):WaitForChild("ProximityPrompt")
 	
 	houseprompt.Triggered:Connect(function()
-		houseprompt.Enabled = false
 		label.Text="<Sherry in house ...First line>"
 		label.Visible=true
 		nxt.Visible=true
+		
+		houseprompt.Enabled = false
+
 		
 		press = false
 		while press == false do 
@@ -503,6 +504,7 @@ susprmpt.Triggered:Connect(function()
 					label.Visible = false
 					nxt.Visible = false
 					
+					pTr:Stop()
 					drprmt.Enabled = true
 				end
 				end)
@@ -541,8 +543,56 @@ susprmpt.Triggered:Connect(function()
 		nxt.Visible = false
 
 		local sceneTitle=scenegui.BlackFrame.SceneTitle
-		sceneTitle.Text="Police Arrives"
+		sceneTitle.Text="Police Arrives... You explain the incident to the police"
 		scenegui.Enabled = true
+		
+		press=false
+		local cn = 0
+		while press == false do
+			local input = UserIS.InputBegan:Wait()
+			if input.KeyCode == Enum.KeyCode.E then
+				press = true
+				cn = 1
+			end
+		end
+		if cn == 1 then 
+			local chr = player.Character
+			local tp = workspace:WaitForChild("TpPart")
+			chr.HumanoidRootPart.CFrame = tp.CFrame
+		end
+		
+		local sel = game:GetService("Selection")
+		local parts={}
+		
+		for _, descendent in pairs(workspace.Police1:GetDescendants()) do
+			if descendent:IsA("BasePart") then
+				table.insert(parts, descendent)	
+			end
+		end
+		for _, part in pairs(parts) do
+			part.Transparency = 0
+			part.CanCollide = true
+			part.Anchored = true
+		end
+		
+		local k = workspace.Police1.Head:WaitForChild("faceee")
+		k.Transparency=0 
+		
+		scenegui.Enabled = false
+		
+		label.Text = "<Police: After observing all the incident ... this case seems like a su*c*de>"
+		label.Visible =true
+		nxt.Visible= true
+		
+		press =false
+		while press == false do
+			local input = UserIS.InputBegan:Wait()
+			if input.KeyCode == Enum.KeyCode.F then
+				press =true
+			end
+		end
+		label.Text= "<Police: But we still have to investigate it for confimation>"
+		
 	end)	
 	
 end)       
