@@ -307,6 +307,7 @@ susprmpt.Triggered:Connect(function()
 	label.Visible=false
 	nxt.Visible = false
 	
+	
 	local sceneTitle=scenegui.BlackFrame.SceneTitle
 	sceneTitle.Text="SCENE 3"
 	scenegui.Enabled = true
@@ -318,6 +319,39 @@ susprmpt.Triggered:Connect(function()
 			press = true
 		end
 	end
+
+    local sel=game:GetService("Selection")
+	local parts={}
+
+	for _, desendents in pairs(workspace.Police1:GetDescendants()) do
+		if desendents:IsA("BasePart") then
+			table.insert(parts, desendents)
+		end
+	end
+	for _, part in pairs(parts) do
+		part.Transparency=1
+		part.CanCollide = false
+		part.Anchored = true
+	end
+	local k =workspace.Police1.Head:WaitForChild("Decal")
+	k.Transparency=1;
+
+	local s = game:GetService("Selection")
+	local p={}
+
+	for _, d in pairs(workspace.police2:GetDescendants()) do
+		if d:IsA("BasePart") then
+			table.insert(p,d)
+		end
+	end
+	for _, part in pairs(p) do
+		part.Transparency=1
+		part.CanCollide = false
+		part.Anchored = true
+	end 
+	local f = workspace.police2.Head:WaitForChild("Decal")
+	f.Transparency=1;
+	
 	
 	hum.Sit = false
 	task.wait()
@@ -575,8 +609,26 @@ susprmpt.Triggered:Connect(function()
 			part.Anchored = true
 		end
 		
-		local k = workspace.Police1.Head:WaitForChild("faceee")
+		local k = workspace.Police1.Head:WaitForChild("Decal")
 		k.Transparency=0 
+		
+		
+		local s=game:GetService("Selection")
+		local prt={}
+		
+		for _, d in pairs(workspace.police2:GetDescendants()) do
+			if d:IsA("BasePart") then
+				table.insert(prt,d)
+			end
+		end
+		for _, p in pairs(prt) do
+			p.Transparency = 0
+			p.CanCollide = true
+			p.Anchored = true
+		end
+		
+		local f =workspace.police2.Head:WaitForChild("Decal")
+		f.Transparency=0;
 		
 		scenegui.Enabled = false
 		
@@ -592,7 +644,62 @@ susprmpt.Triggered:Connect(function()
 			end
 		end
 		label.Text= "<Police: But we still have to investigate it for confimation>"
+		press = false
+		while press == false do
+			local input=UserIS.InputBegan:Wait()
+			if input.KeyCode == Enum.KeyCode.F then
+				press = true
+			end
+		end
+		label.Text= "<Police: I will have some discussion and then state the decision>"
+		press = false
+		while press == false do
+			local input = UserIS.InputBegan:Wait()
+			if input.KeyCode == Enum.KeyCode.F then 
+				press = true
+			end
+		end
 		
-	end)	
+		label.Visible = false
+		nxt.Visible = false 
+		
+		
+		local pthFolder = workspace:FindFirstChild("Pol1path")
+		local j = #pthFolder:GetChildren()
+		local pol1hum = workspace.Police1:WaitForChild("Humanoid")
+		local pol1root = workspace.Police1:WaitForChild("HumanoidRootPart")
+		local animtr = pol1hum:WaitForChild("Animator")
+		local pol_wl = Instance.new("Animation")
+		pol_wl.AnimationId = "rbxassetid://180426354"
+		local polTr = animtr:LoadAnimation(pol_wl)
+		
+		local prts={}
+
+		for _, descendent in pairs(workspace.Police1:GetDescendants()) do
+			if descendent:IsA("BasePart") then
+				table.insert(prts, descendent)	
+			end
+		end
+		for _, pts in pairs(prts) do
+			pts.CanCollide = true
+			pts.Anchored = false
+		end
+		
+		polTr.Looped =true
+		polTr:Play()
+		
+		for i=1, j do
+			local pt = pthFolder:FindFirstChild(tostring(i))
+			local d2 = (pol1root.Position-pt.Position).Magnitude
+			while d2>=2 do
+				pol1hum:MoveTo(pt.Position)
+				local reach2 = pol1hum.MoveToFinished:Wait()
+				d2 = (pol1root.Position - pt.Position).Magnitude
+			end
+		end     
+		
+		polTr:Stop()                                                                          
+		  
+	end)	                                                                                                   
 	
-end)       
+end)                                                                         
