@@ -366,6 +366,18 @@ susprmpt.Triggered:Connect(function()
 	local houseprompt = sherryHouse:WaitForChild("HumanoidRootPart"):WaitForChild("ProximityPrompt")
 	
 	houseprompt.Triggered:Connect(function()
+		
+		local pt = {}
+		for _,desen in pairs(workspace.CherryMainDED:GetDescendants()) do
+			if desen:IsA("BasePart") then
+				table.insert(pt, desen)
+			end
+		end
+		for _, pts in pairs(pt) do
+			pts.CanCollide = false
+			pts.Anchored = true
+		end
+		
 		label.Text="<Sherry in house ...First line>"
 		label.Visible=true
 		nxt.Visible=true
@@ -396,31 +408,11 @@ susprmpt.Triggered:Connect(function()
 		walkTrack:Play()
 		
 		rootPart.Anchored = false 
+        wait(1)
+		local pt1_1 = Vector3.new(854.291 , 7.82 , 552.661)
 
-		if walkTrgt and sherryhum then
-			print("MoveTo called, waiting for finish...")
-		
-			local distance = (rootPart.Position - walkTrgt.Position).Magnitude
-			while distance > 4 do 
-				
-				task.wait(1)
-				sherryhum:MoveTo(walkTrgt.Position)
-
-				local reached = sherryhum.MoveToFinished:Wait() 
-
-				distance = (rootPart.Position - walkTrgt.Position).Magnitude
-				
-				
-
-				if not reached and distance > 4 then
-					print("MoveTo timed out, resuming walk...")
-				end
-			end
-
-			print("Finished moving successfully!")
-		else
-			print("Error: Target or Humanoid missing!")
-		end	
+		sherryhum:MoveTo(pt1_1)
+		sherryhum.MoveToFinished:Wait()
 		
 		walkTrack:Stop()
 		
@@ -453,8 +445,6 @@ susprmpt.Triggered:Connect(function()
 				sitH.JumpPower = 0
 				sitH.JumpHeight = 0
 				
-				local pathFolder = workspace:FindFirstChild("Sherry2Path",true)
-				local c = #pathFolder:GetChildren()
 				
 				local wkani2 = Instance.new("Animation")
 				wkani2.AnimationId = "rbxassetid://180426354"
@@ -462,15 +452,24 @@ susprmpt.Triggered:Connect(function()
 				wkTr2.Looped = true
 				wkTr2:Play()
 				
-				for i=1, c do
-					local pt = pathFolder:FindFirstChild(tostring(i))
-					local d2 = (rootPart.Position-pt.Position).Magnitude
-					while d2>4 do
-						sherryhum:MoveTo(pt.Position)
-						local reach2 = sherryhum.MoveToFinished:Wait()
-						d2 = (rootPart.Position - pt.Position).Magnitude
-					end
-				end
+				rootPart.Anchored = false 
+				
+				wait(1)
+				local pt2_1 = Vector3.new(847.8 , 1.22 , 553.5)
+
+				sherryhum:MoveTo(pt2_1)
+				sherryhum.MoveToFinished:Wait()
+				
+				local pt2_2 = Vector3.new(842.491 , 1.49 , 568.439)
+				
+				sherryhum:MoveTo(pt2_2)
+				sherryhum.MoveToFinished:Wait()
+				
+				local pt2_3 = Vector3.new(830.383 , 1.49 , 570.178)
+				
+				sherryhum:MoveTo(pt2_3)
+				sherryhum.MoveToFinished:Wait()
+				
 				wkTr2:Stop()
 				
 				local pAnim = Instance.new("Animation")
@@ -551,8 +550,20 @@ susprmpt.Triggered:Connect(function()
     bodyPrompt.Enabled = true
 	bodyPrompt.Triggered:Connect(function()
 		bodyPrompt.Enabled= false
+		
+		--[[ **commented this part as it is of no use now but can be useful afterwads**
+		local cheryhum = workspace.CherryMainDED:WaitForChild("Humanoid")
+		local anmt = cheryhum:WaitForChild("Animator")
+		local anima = Instance.new("Animation")
+		anima.AnimationId = "rbxassetid://124865660803880"
+		local a = anmt:LoadAnimation(anima)]]
+		
+		local leftarm = workspace:WaitForChild("Left Arm")
+		local pivt = workspace:WaitForChild("Armpivot") 
+		leftarm.PivotOffset = pivt.CFrame:Inverse()*leftarm.CFrame
+		leftarm.CFrame  = leftarm.CFrame*CFrame.Angles(math.rad(70),0,0)
 
-		label.Text="<Me: Checks if alive>"
+		label.Text="<Checks if alive>"
 		label.Visible =true
 		nxt.Visible=true
 
@@ -563,6 +574,7 @@ susprmpt.Triggered:Connect(function()
 				press = true
 			end
 		end
+		leftarm.CFrame = leftarm.CFrame*CFrame.Angles(math.rad(-70),0,0)
 		label.Text = "<Me: She's dead , call the police!>"
 
 		press = false
@@ -651,7 +663,7 @@ susprmpt.Triggered:Connect(function()
 				press = true
 			end
 		end
-		label.Text= "<Police: I will have some discussion and then state the decision>"
+		label.Text= "<Police: After a short descussion , we will let you know what to do!>"
 		press = false
 		while press == false do
 			local input = UserIS.InputBegan:Wait()
@@ -660,14 +672,20 @@ susprmpt.Triggered:Connect(function()
 			end
 		end
 		
+		label.Text= "<Me: Ok ...but... I think there's something more >"
+		press= false
+		while press == false do
+			local input=UserIS.InputBegan:Wait()
+			if input.KeyCode==Enum.KeyCode.F then
+				press =true
+			end
+		end
+		
 		label.Visible = false
 		nxt.Visible = false 
 		
 		
-		local pthFolder = workspace:FindFirstChild("Pol1path")
-		local j = #pthFolder:GetChildren()
 		local pol1hum = workspace.Police1:WaitForChild("Humanoid")
-		local pol1root = workspace.Police1:WaitForChild("HumanoidRootPart")
 		local animtr = pol1hum:WaitForChild("Animator")
 		local pol_wl = Instance.new("Animation")
 		pol_wl.AnimationId = "rbxassetid://180426354"
@@ -688,18 +706,17 @@ susprmpt.Triggered:Connect(function()
 		polTr.Looped =true
 		polTr:Play()
 		
-		for i=1, j do
-			local pt = pthFolder:FindFirstChild(tostring(i))
-			local d2 = (pol1root.Position-pt.Position).Magnitude
-			while d2>=2 do
-				pol1hum:MoveTo(pt.Position)
-				local reach2 = pol1hum.MoveToFinished:Wait()
-				d2 = (pol1root.Position - pt.Position).Magnitude
-			end
-		end     
+		local trgtpol1 = Vector3.new(847.9, 1.32, 551.5)
+		
+		pol1hum:MoveTo(trgtpol1)
+		pol1hum.MoveToFinished:Wait()
+		
+		local trgtpol2 = Vector3.new(852.7, 1.62, 548.5)
+		pol1hum:MoveTo(trgtpol2)
+		pol1hum.MoveToFinished:Wait()
 		
 		polTr:Stop()                                                                          
-		  
+		 
 	end)	                                                                                                   
 	
 end)                                                                         
