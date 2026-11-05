@@ -715,48 +715,83 @@ susprmpt.Triggered:Connect(function()
 		pol1hum:MoveTo(trgtpol2)
 		pol1hum.MoveToFinished:Wait()
 		
-		polTr:Stop()                                                                          
-		 
-	end)
-	
-	local MainE_paper = workspace:WaitForChild("ME_paper")
-	local Pmt_MEp = MainE_paper:WaitForChild("ProximityPrompt")
-	local lockp = workspace.bthdoor.bathdoormur.lockcc:WaitForChild("ProximityPrompt")
-	local cdprm = workspace.cardboard:WaitForChild("ProximityPrompt")
-	local MainE_tape = workspace.ME_cdtape:WaitForChild("ProximityPrompt")
-	
-	Pmt_MEp.Enabled=true
-	bodyPrompt.Enabled = true
-	lockp.Enabled = true
-	
-	Pmt_MEp.Triggered:Connect(function()
-		Pmt_MEp.Enabled=false
-		label.Text = "<A peice of paper.. can be a evidence ... tell police about this >"
-		label.Visible=true
-		nxt.Visible =true
+		polTr:Stop()  
 		
-		local polprmpt = workspace.Police1.Torso:WaitForChild("ProximityPrompt")
-		
-		press = false
-		while press == false do
-			local input = UserIS.InputBegan:Wait()
-			if input.KeyCode == Enum.KeyCode.F then
-				press = true
-			end
-		end
-		
-		label.Visible=false
-		nxt.Visible = false
-		
-		polprmpt.Enabled = true
-		
-		polprmpt.Triggered:Connect(function()
-			label.Text = "<Police: Thanks for telling us ... we will find out if its useful!"
+		--This part is all the script of the evidences
+		local MainE_paper = workspace:WaitForChild("ME_paper")
+		local Pmt_MEp = MainE_paper:WaitForChild("ProximityPrompt")
+		local lockp = workspace.bthdoor.bathdoormur.lockcc:WaitForChild("ProximityPrompt")
+		local cdprm = workspace.cardboard:WaitForChild("ProximityPrompt")
+		local MainE_tape = workspace.ME_cdtape:WaitForChild("ProximityPrompt")
+		local bspot = workspace.BloodSpot:WaitForChild("ProximityPrompt")
+		local chem = workspace.chemicals:WaitForChild("ProximityPrompt")
+		local bodyEv = workspace.CherryMainDED.HumanoidRootPart:WaitForChild("ProximityPrompt")
+
+
+		Pmt_MEp.Enabled=true
+		lockp.Enabled = true
+		cdprm.Enabled = true
+		MainE_tape.Enabled = true
+		bspot.Enabled = true
+		chem.Enabled = true
+		bodyEv.Enabled = true
+
+		Pmt_MEp.Triggered:Connect(function()
+			Pmt_MEp.Enabled=false
+			label.Text = "<A peice of paper.. can be a evidence ... tell police about this >"
 			label.Visible=true
+			nxt.Visible =true
+
+			local polprmpt = workspace.Police1.Torso:WaitForChild("ProximityPrompt")
+
+			press = false
+			while press == false do
+				local input = UserIS.InputBegan:Wait()
+				if input.KeyCode == Enum.KeyCode.F then
+					press = true
+				end
+			end
+
+			label.Visible=false
+			nxt.Visible = false
+
+			polprmpt.Enabled = true
+
+			polprmpt.Triggered:Connect(function()
+				polprmpt.Enabled = false
+				label.Text = "<Police: Thanks for telling us ... we will find out if its useful!"
+				label.Visible=true
+				nxt.Visible = true
+
+				press = false
+				while press == false do
+					local input = UserIS.InputBegan:Wait()
+					if input.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				label.Visible = false
+				nxt.Visible = false
+			end)
+
+		end)
+
+		bodyEv.Triggered:Connect(function()
+			bodyEv.Enabled = false
+
+			label.Text = "<Me : The cuts ... on the hand doesn't fit quite right.. >"
+			label.Visible = true
 			nxt.Visible = true
-			
-			MainE_paper.Transparency = 1
-			
+
+			press = false
+			while press == false do
+				local input = UserIS.InputBegan:Wait()
+				if input.KeyCode == Enum.KeyCode.F then
+					press = true
+				end
+			end
+			label.Text= "<Me: A person who suicide would never cut their hands in such aggresive manner...>"
+
 			press = false
 			while press == false do
 				local input = UserIS.InputBegan:Wait()
@@ -767,70 +802,123 @@ susprmpt.Triggered:Connect(function()
 			label.Visible = false
 			nxt.Visible = false
 		end)
-		
+
+		lockp.Triggered:Connect(function()
+			lockp.Enabled = false
+			label.Text = "<Me:This door was locked from inside...>"
+			label.Visible = true
+			nxt.Visible = true
+
+			press = false
+			while press == false do
+				local input = UserIS.InputBegan:Wait()
+				if input.KeyCode == Enum.KeyCode.F then
+					press = true
+				end
+			end
+
+			label.Text = "<Me: Then after we forced the door.. the lock should have broke??>"
+
+			press = false
+			while press == false do
+				local input = UserIS.InputBegan:Wait()
+				if input.KeyCode == Enum.KeyCode.F then
+					press = true
+				end
+			end
+			label.Visible = false
+			nxt.Visible = false
+		end)
+
+		cdprm.Triggered:Connect(function()
+			cdprm.Enabled = false
+
+			label.Text = "ME: They probablly started packing stuff ..."
+			label.Visible = true
+			nxt.Visible = true
+
+			press = false
+			while press == false do
+				local input = UserIS.InputBegan:Wait()
+				if input.KeyCode == Enum.KeyCode.F then
+					press = true
+				end
+			end
+
+			label.Text ="ME: probablly to shift to the different house Sherry was mentioning before!"
+
+			press=false
+			while press == false do
+				local input = UserIS.InputBegan:Wait()
+				if input.KeyCode == Enum.KeyCode.F then
+					press = true
+				end
+			end
+
+			label.Visible = false
+			nxt.Visible = false
+
+		end)
+
+		MainE_tape.Triggered:Connect(function()
+			MainE_tape.Enabled = false
+
+			label.Text = "ME: What's this tape doing here? "
+			label.Visible = true
+			nxt.Visible =true
+
+			press=false
+			while press == false do
+				local input = UserIS.InputBegan:Wait()
+				if input.KeyCode == Enum.KeyCode.F then
+					press = true
+				end
+			end
+
+			label.Visible = false
+			nxt.Visible = false
+
+		end)
+
+		bspot.Triggered:Connect(function()
+			bspot.Enabled = false
+
+			label.Text = "ME(thought): A BLOOD SPOT?"
+			label.Visible = true
+			nxt.Visible = true
+
+			press = false
+			while press == false do
+				local input = UserIS.InputBegan:Wait()
+				if input.KeyCode == Enum.KeyCode.F then
+					press = true
+				end
+			end
+
+			label.Visible=false
+			nxt.Visible =false
+
+		end)
+
+		chem.Triggered:Connect(function()
+			chem.Enabled = false
+
+			label.Text = "ME: Why is this detergent and shampoo mixed up?"
+			label.Visible = true
+			nxt.Visible = true
+
+			press = false
+			while press == false do
+				local input = UserIS.InputBegan:Wait()
+				if input.KeyCode ==Enum.KeyCode.F then
+					press= true
+				end
+			end
+			label.Visible = false
+			nxt.Visible = false
+		end)
+		 
 	end)
 	
-	bodyPrompt.Triggered:Connect(function()
-		bodyPrompt.Enabled = false
-		
-		label.Text = "<Me : The cuts ... on the hand doesn't fit quite right.. >"
-		label.Visible = true
-		nxt.Visible = true
-		
-		press = false
-		while press == false do
-			local input = UserIS.InputBegan:Wait()
-			if input.KeyCode == Enum.KeyCode.F then
-				press = true
-			end
-		end
-		label.Text= "<Me: A person who suicide would never cut their hands in such aggresive manner...>"
-		
-		press = false
-		while press == false do
-			local input = UserIS.InputBegan:Wait()
-			if input.KeyCode == Enum.KeyCode.F then
-				press = true
-			end
-		end
-		label.Visible = false
-		nxt.Visible = false
-	end)
-	
-	lockp.Triggered:Connect(function()
-		lock.Enabled = false
-		label.Text = "<Me:This door was locked from inside...>"
-		label.Visible = true
-		nxt.Visible = true
-		
-		press = false
-		while press == false do
-			local input = UserIS.InputBegan:Wait()
-			if input.KeyCode == Enum.KeyCode.F then
-				press = true
-			end
-		end
-		
-		label.Text = "<Me: Then after we forced the door.. the lock should have broke??>"
-		
-		press = false
-		while press == false do
-			local input = UserIS.InputBegan:Wait()
-			if input.KeyCode == Enum.KeyCode.F then
-				press = true
-			end
-		end
-		label.Visible = false
-		nxxt.Visible = false
-	end)
-	
-	cdprm.Triggered:Connect(function()
-		cdprm.Enabled = false
-	end)
-	
-	MainE_tape.Triggered:Connect(function()
-		MainE_tape.Enabled = false
-		
-	end)
 	
 end)                                                                         
