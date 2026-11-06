@@ -364,6 +364,18 @@ susprmpt.Triggered:Connect(function()
 	
 	local sherryHouse= workspace:FindFirstChild("SherryHouseRig",true)
 	local houseprompt = sherryHouse:WaitForChild("HumanoidRootPart"):WaitForChild("ProximityPrompt")
+	local policetpe = workspace:WaitForChild("Police_Tape")
+	
+	local tp = {}
+	for _, den in pairs(policetpe:GetDescendants()) do
+		if den:IsA("BasePart") then
+			table.insert(tp,den)
+		end
+	end
+	for _, t in pairs(tp) do
+		t.CanCollide = false
+		t.Transparency = 1
+	end
 	
 	houseprompt.Triggered:Connect(function()
 		
@@ -587,6 +599,10 @@ susprmpt.Triggered:Connect(function()
 
 		label.Visible = false
 		nxt.Visible = false
+		
+		for _, t in pairs(tp) do
+			t.Transparency = 1
+		end
 
 		local sceneTitle=scenegui.BlackFrame.SceneTitle
 		sceneTitle.Text="Police Arrives... You explain the incident to the police"
@@ -719,13 +735,17 @@ susprmpt.Triggered:Connect(function()
 		
 		--This part is all the script of the evidences
 		local MainE_paper = workspace:WaitForChild("ME_paper")
-		local Pmt_MEp = MainE_paper:WaitForChild("ProximityPrompt")
+		local Pmt_MEp = MainE_paper.Cloud:WaitForChild("ProximityPrompt")
 		local lockp = workspace.bthdoor.bathdoormur.lockcc:WaitForChild("ProximityPrompt")
-		local cdprm = workspace.cardboard:WaitForChild("ProximityPrompt")
+		local cdprm = workspace.cardboard.Cardboard_Box:WaitForChild("ProximityPrompt")
 		local MainE_tape = workspace.ME_cdtape:WaitForChild("ProximityPrompt")
-		local bspot = workspace.BloodSpot:WaitForChild("ProximityPrompt")
-		local chem = workspace.chemicals:WaitForChild("ProximityPrompt")
+		local bspot = workspace.BloodSpot.bsm:WaitForChild("ProximityPrompt")
+		local chem = workspace.chemicals.Liquid:WaitForChild("ProximityPrompt")
 		local bodyEv = workspace.CherryMainDED.HumanoidRootPart:WaitForChild("ProximityPrompt")
+		local Poster = workspace.Poster:WaitForChild("ProximityPrompt")
+		local Colon_F= workspace.Colon:WaitForChild("ProximityPrompt")
+		local BJuice_F = workspace.Banana_Juice:WaitForChild("ProximityPrompt")
+		local Blanket_F = workspace.Blanket_F:WaitForChild("ProximityPrompt")
 
 
 		Pmt_MEp.Enabled=true
@@ -735,6 +755,11 @@ susprmpt.Triggered:Connect(function()
 		bspot.Enabled = true
 		chem.Enabled = true
 		bodyEv.Enabled = true
+		Poster.Enabled = true
+		Colon_F.Enabled = true
+		BJuice_F.Enabled = true
+		Blanket_F.Enabled = true
+		
 
 		Pmt_MEp.Triggered:Connect(function()
 			Pmt_MEp.Enabled=false
@@ -917,8 +942,91 @@ susprmpt.Triggered:Connect(function()
 			label.Visible = false
 			nxt.Visible = false
 		end)
+		
+		Poster.Triggered:Connect(function()
+			Poster.Enabled = false
+			
+			label.Text ="ME: I am missing something...."
+			label.Visible = true
+			nxt.Visible = true
+			
+			press = false
+			while press == false do 
+				local input = UserIS.InputBegan:Wait()
+				if input.KeyCode == Enum.KeyCode.F then
+					press = true
+				end
+			end
+			
+			label.Text="Or...is it just my feeling.."
+			
+			press = false
+			while press == press do
+				local input = UserIS.InputBegan:Wait()
+				if input.KeyCode == Enum.KeyCode.F then
+					press = true
+				end
+			end
+			label.Visible = false
+			nxt.Visible =false
+		end) 
+		
+		Colon_F.Triggered:Connect(function()
+			Colon_F.Enabled = false
+			
+			label.Text ="ME: Why is Colon partially filled?"
+			label.Visible = true
+			nxt.Visible = true
+			
+			press = false
+			while press == false do
+				local input = UserIS.InputBegan:Wait()
+				if input.KeyCode == Enum.KeyCode.F then
+					press = true
+				end
+			end
+			label.Visible = false
+			nxt.Visible = false
+		end)
+		 
+		BJuice_F.Triggered:Connect(function()
+			BJuice_F.Enabled = false
+			
+			label.Text = "ME: Why is this juice so yellow?"
+			label.Visible = true
+			nxt.Visible = true
+			
+			press =false
+			while press == false do
+				local input = UserIS.InputBegan:Wait()
+				if input.KeyCode==Enum.KeyCode.F then
+					press =true
+				end
+			end
+			label.Visible =false
+			nxt.Visible= false
+				
+	    end)
+		 
+		 Blanket_F.Triggered:Connect(function()
+				Blanket_F.Enabled = false
+				
+				label.Text = "Why is this blanket so scrumbled?"
+				label.Visible=true
+				nxt.Visible = true
+				
+				press=true
+				while press == false do
+					local input =UserIS.InputBegan:Wait()
+					if input.KeyCode == Enum.KeyCode.F then
+						press =true
+					end
+				end
+				label.Visible=false
+				nxt.Visible =false
+		
+		 end)
 		 
 	end)
-	
 	
 end)                                                                         
