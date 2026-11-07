@@ -1151,6 +1151,49 @@ susprmpt.Triggered:Connect(function()
 					end
 					label.Visible = false
 					nxt.Visible = false
+					
+				elseif inp.KeyCode == Enum.KeyCode.Two then
+					label.Text = "<2nd option line>"
+					label.Visible = true
+					nxt.Visible=true
+					
+					press = true
+					while press == false do
+						local ipu = UserIS.InputBegan:Wait()
+						if ipu.KeyCode== Enum.KeyCode.F then
+							press =true
+						end
+					end
+					label.Visible = false
+					nxt.Visible= false
+					
+				elseif inp.KeyCode == Enum.KeyCode.Three then
+					label.Text="<3rd option line>"
+					label.Visible = true
+					nxt.Visible = true
+					press=true
+					while press == false do
+						local ipu = UserIS.InputBegan:Wait()
+						if ipu.KeyCode== Enum.KeyCode.F then
+							press=true
+						end
+					end
+					label.Visible =false
+					nxt.Visible = false
+					
+				elseif inp.KeyCode == Enum.KeyCode.Four then
+					label.Text ="<4rd option line>"
+					label.Visible =true
+					nxt.Visible = true
+					press = true
+					while press == false do
+						local ipu = UserIS.InputBegan:Wait()
+						if ipu.KeyCode == Enum.KeyCode.F then
+							press=true
+						end
+					end
+					label.Visible =false
+					nxt= false
 				end
 			end
 
@@ -1172,6 +1215,69 @@ susprmpt.Triggered:Connect(function()
 			end
 			label.Visible = false
 			nxt.Visible = false
+			
+			press = false
+			while press == false do
+				local inp = UserIS.InputBegan:Wait()
+				if inp == Enum.KeyCode.One then
+					label.Text = "<1st option line>"
+					label.Visible=true
+					nxt.Visible = true
+					press=true
+					while press == false do
+						local ipu = UserIS.InputBegan:Wait()
+						if ipu.KeyCode == Enum.KeyCode.F then
+							press = true
+						end
+					end
+					label.Visible = false
+					nxt.Visible = false
+					
+				elseif inp ==Enum.KeyCode.Two then
+					label.Text="<2nd option line>"
+					label.Visible = true
+					nxt.Visible = true
+					press=false
+					while press==false do
+						local ipu=UserIS.InputBegan:Wait()
+						if ipu.KeyCode==Enum.KeyCode.F then
+							press=true
+						end
+					end
+					label.Visible = false
+					nxt.Visible = false
+					
+				elseif inp == Enum.KeyCode.Three then
+					label.Text = "3rd option"
+					label.Visible = true
+					nxt.Visible= true
+					press = false
+					while press == false do
+						local ipu =UserIS.InputBegan:Wait()
+						if ipu == Enum.KeyCode.F then
+							press = true
+						end
+					end
+					label.Visible =false
+					nxt.Visible = false
+					
+				elseif inp ==Enum.KeyCode.Four then
+					label.Text = "<4th option line>"
+					label.Visible = true
+					nxt.Visible =true
+					press=false
+					while press == false do
+						local ipu=UserIS.InputBegan:Wait()
+						if inp.KeyCode == Enum.KeyCode.F then
+							press = true
+						end
+					end
+					label.Visible =false
+					nxt.Visible = false
+					
+				end
+			end
+			
 		end)
 		
 		Poster.Triggered:Connect(function()
@@ -1189,7 +1295,7 @@ susprmpt.Triggered:Connect(function()
 				end
 			end
 			
-			label.Text="Or...is it just my feeling.."
+			label.Text="Or...is it just my feeling..?"
 			
 			press = false
 			while press == press do
@@ -1200,6 +1306,69 @@ susprmpt.Triggered:Connect(function()
 			end
 			label.Visible = false
 			nxt.Visible =false
+			
+			press=false
+			while press==false do
+				local inp=UserIS.InputBegan:Wait()
+				if inp==Enum.KeyCode.One then
+					label.Text="<1st option line>"
+					label.Visible =true
+					nxt.Visible=true
+					press=false
+					while press==false do
+						local ipu=UserIS.InputBegan:Wait()
+						if ipu.KeyCode==Enum.KeyCode.F then
+							press=true
+						end
+					end
+					label.Visible= false
+					nxt.Visible = false
+					
+				elseif inp == Enum.KeyCode.Two then
+					label.Text="<2nd option line>"
+					label.Visible = true
+					nxt.Visible=true
+					press=false
+					while press==false do
+						local ipu =UserIS.InputBegan:Wait()
+						if ipu.KeyCode== Enum.KeyCode.F then
+							press=true
+						end
+					end
+					label.Visible=false
+					nxt.Visible = false
+					
+				elseif inp == Enum.KeyCode.Three then
+					label.Text ="<3rd option line>"
+					label.Visible=true
+					nxt.Visible=true
+					press=true
+					while press==false do
+						local ipu = UserIS.InputBegan:Wait()
+						if ipu.KeyCode==Enum.KeyCode.F then
+							press=true
+						end
+					end
+					label.Visible=false
+					nxt.Visible=false
+					
+				elseif inp == Enum.KeyCode.Four then
+					label.Text="<4th option line>"
+					label.Visible =true
+					nxt.Visible = true
+					press = false
+					while press==false do
+						local ipu = UserIS.InputBegan:Wait()
+						if ipu.KeyCode==Enum.KeyCode.F then
+							press = true
+						end
+					end
+					label.Visible = false
+					nxt.Visible = false
+					
+				end
+			end
+			
 		end) 
 		
 		Colon_F.Triggered:Connect(function()
@@ -1218,6 +1387,68 @@ susprmpt.Triggered:Connect(function()
 			end
 			label.Visible = false
 			nxt.Visible = false
+			
+			press=false
+			while press == false do
+				local inp=UserIS.InputBegan:Wait()
+				if inp == Enum.KeyCode.One then
+					label.Text="<1st option line>"
+					label.Visible = true
+					nxt.Visible =true
+					press=false
+					while press == false do
+						local ipu = UserIS.InputBegan:Wait()
+						if ipu == Enum.KeyCode.F then
+							press=true
+						end
+					end
+					label.Visible = false
+					nxt.Visible = false
+					
+				elseif inp==Enum.KeyCode.F then
+					label.Text="<2nd option>"
+					label.Visible = true
+					nxt.Visible = true
+					press = false
+					while press == false do
+						local ipu = UserIS.InputBegan:Wait()
+						if ipu.KeyCode==Enum.KeyCode.F then
+							press=true
+						end
+					end
+					label.Visible= false
+					nxt.Visible=false
+					
+				elseif inp==Enum.KeyCode.Three then
+					label.Text = "<3rd option line>"
+					label.Visible = true
+					nxt.Visible = true
+					press = false
+					while press==false do
+						local ipu = UserIS.InputBegan:Wait()
+						if ipu.KeyCode==Enum.KeyCode.F then
+							press = true
+						end
+					end
+					label.Visible = false
+					nxt.Visible=false
+					
+				elseif inp==Enum.KeyCode.Four then
+					label.Text="<4th option line>"
+					label.Visible = true
+					nxt.Visible =true
+					press = false
+					while press == false do
+						local ipu = UserIS.InputBegan:Wait()
+						if ipu.KeyCode == Enum.KeyCode.F then
+							press = true
+						end
+					end
+					label.Visible = true
+					nxt.Visible =true
+				end
+			end
+			
 		end)
 		 
 		BJuice_F.Triggered:Connect(function()
@@ -1236,6 +1467,67 @@ susprmpt.Triggered:Connect(function()
 			end
 			label.Visible =false
 			nxt.Visible= false
+			
+			press=true
+			while press == false do
+				local inp=UserIS.InputBegan:Wait()
+				if inp == Enum.KeyCode.One then
+					label.Text = "<1st option lone>"
+					label.Visible= true
+					nxt.Visible = true
+					press=false
+					while press==false do
+						local ipu=UserIS.InputBegan:Wait()
+						if ipu.KeyCode ==Enum.KeyCode.F then
+							press=true
+						end
+					end
+					label.Visible = false
+					nxt.Visible = false
+					
+				elseif inp==Enum.KeyCode.Two then
+					label.Text = "<2nd option line>"
+					label.Visible =true
+					nxt.Visible = true
+					press = false
+					while press==false do
+						local ipu = UserIS.InputBegan:Wait()
+						if ipu.KeyCode == Enum.KeyCode.F then
+							press=true
+						end
+					end
+					label.Visible = false 
+					nxt.Visible = false
+					
+				elseif inp==Enum.KeyCode.Three then
+					label.Text = "<3rd option line>"
+					label.Visible=true
+					nxt.Visible=true
+					press=false
+					while press==false do
+						local ipu=UserIS.InputBegan:Wait()
+						if ipu == Enum.KeyCode.F then
+							press=true
+						end
+					end
+					label.Visible = false
+					nxt.Visible = false
+					
+				elseif inp==Enum.KeyCode.Four then
+					label.Text="<4th option line>"
+					label.Visible=true
+					nxt.Visible=true
+					press=false
+					while press == false do
+						local ipu=UserIS.InputBegan:Wait()
+						if ipu.KeyCode==Enum.KeyCode.F then
+							press=true
+						end
+					end
+					label.Visible=true
+					nxt.Visible=true
+				end
+			end
 				
 	    end)
 		 
@@ -1255,6 +1547,16 @@ susprmpt.Triggered:Connect(function()
 			end
 			label.Visible=false
 			nxt.Visible =false
+			
+			press=false
+			while press == false do
+				local inp = UserIS.InputBegan:Wait()
+				if inp==Enum.KeyCode.One then
+					label.Text = "<1st option>"
+					label.Visible=true
+					nxt.Visible=true
+				end
+			end
 		
 		 end)
 		 
