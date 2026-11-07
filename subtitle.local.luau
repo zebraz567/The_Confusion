@@ -746,7 +746,18 @@ susprmpt.Triggered:Connect(function()
 		local Colon_F= workspace.Colon:WaitForChild("ProximityPrompt")
 		local BJuice_F = workspace.Banana_Juice:WaitForChild("ProximityPrompt")
 		local Blanket_F = workspace.Blanket_F:WaitForChild("ProximityPrompt")
-
+		
+		--This is for the show of the option screen!
+		local repSt=game:GetService("ReplicatedStorage")
+		local Players =game:GetService("Players")
+		local pl = Players.LocalPlayer
+		local playergui=pl:WaitForChild("PlayerGui")
+		local Options = playergui:WaitForChild("OptionsGui")
+		local frame1 = Options:WaitForChild("OneOption")
+		local frame2 = Options:WaitForChild("TwoOption")
+		local frame3 = Options:WaitForChild("ThreeOption")
+		local frame4 = Options:WaitForChild("FourOption")
+		
 
 		Pmt_MEp.Enabled=true
 		lockp.Enabled = true
@@ -780,15 +791,18 @@ susprmpt.Triggered:Connect(function()
 			label.Visible=false
 			nxt.Visible = false
 			
-			label.Text="<Press the number from your keyboard to choose the respective option!>"
-			label.Visible = true
-			nxt.Visible = true
+			Options.Enabled=true
+			frame2.Visible = true
+			frame3.Visible =true
 			
 			press =false
 			while press == false do
 				local inp = UserIS.InputBegan:Wait()
 				if inp.KeyCode == Enum.KeyCode.One then
 					polprmpt.Enabled = true
+					frame2.Visible=false
+					frame3.Visible=false
+					Options.Enabled =false
 
 					polprmpt.Triggered:Connect(function()
 						polprmpt.Enabled = false
@@ -809,6 +823,9 @@ susprmpt.Triggered:Connect(function()
 				
 				elseif inp.KeyCode == Enum.KeyCode.Two then
 					
+					frame2.Visible =false
+					frame3.Visible = false
+					Options.Enabled=true
 					label.Text = "<I guess I would be inturepting the police! >"
 					label.Visible = true
 					nxt.Visible =true
@@ -1555,6 +1572,58 @@ susprmpt.Triggered:Connect(function()
 					label.Text = "<1st option>"
 					label.Visible=true
 					nxt.Visible=true
+					press= true
+					while press==false do
+						local ipu = UserIS.InputBegan:Wait()
+						if ipu.KeyCode == Enum.KeyCode.F then
+							press=true
+						end
+					end
+					label.Visible = false
+					nxt.Visible =false
+					
+				elseif inp==Enum.KeyCode.Two then
+					label.Text ="<2nd optionline>"
+					label.Visible=true
+					nxt.Visible=true
+					press=false
+					while press == false do
+						local ipu = UserIS.InputBegan:Wait()
+						if ipu == Enum.KeyCode.F then
+							press=true
+						end
+					end
+					label.Visible=false
+					nxt.Visible = false
+					
+				elseif inp == Enum.KeyCode.Three then
+					label.Text = "<3rd option line>"
+					label.Visible = true
+					nxt.Visible=true
+					press = false
+					while press == false do
+						local ipu = UserIS.InputBegan:Wait()
+						if ipu == Enum.KeyCode.F then
+							press=true
+						end
+					end
+					label.Visible=false
+					nxt.Visible = false
+					
+				elseif inp==Enum.KeyCode.Four then
+					label.Text="<4th option line>"
+					label.Visible=true
+					nxt.Visible = true
+					press=false
+					while press == false do
+						local ipu = UserIS.InputBegan:Wait()
+						if ipu == Enum.KeyCode.F then
+							press=true
+						end
+					end
+					label.Visible = false
+					nxt.Visible = false
+					
 				end
 			end
 		
