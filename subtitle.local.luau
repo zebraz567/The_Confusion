@@ -754,9 +754,15 @@ susprmpt.Triggered:Connect(function()
 		local playergui=pl:WaitForChild("PlayerGui")
 		local Options = playergui:WaitForChild("OptionsGui")
 		local frame1 = Options:WaitForChild("OneOption")
+		local op1 = frame1:WaitForChild("opOne")
 		local frame2 = Options:WaitForChild("TwoOption")
+		local op2 = frame2:WaitForChild("opTwo")
 		local frame3 = Options:WaitForChild("ThreeOption")
+		local op3 = frame3:WaitForChild("opThree")
 		local frame4 = Options:WaitForChild("FourOption")
+		local op4 = frame4:WaitForChild("opFour")
+		local QFrame = Options:WaitForChild("Question")
+		local q= QFrame:WaitForChild("Qna")
 		
 
 		Pmt_MEp.Enabled=true
@@ -792,8 +798,12 @@ susprmpt.Triggered:Connect(function()
 			nxt.Visible = false
 			
 			Options.Enabled=true
+			q.Text = "Do you want to tell the police ?"
+			QFrame.Visible =true
+			op1.Text = "Yes"
+			op2.Text = "No"
 			frame2.Visible = true
-			frame3.Visible =true
+			frame1.Visible =true
 			
 			press =false
 			while press == false do
@@ -801,7 +811,8 @@ susprmpt.Triggered:Connect(function()
 				if inp.KeyCode == Enum.KeyCode.One then
 					polprmpt.Enabled = true
 					frame2.Visible=false
-					frame3.Visible=false
+					frame1.Visible=false
+					QFrame.Visible=false
 					Options.Enabled =false
 
 					polprmpt.Triggered:Connect(function()
@@ -823,9 +834,11 @@ susprmpt.Triggered:Connect(function()
 				
 				elseif inp.KeyCode == Enum.KeyCode.Two then
 					
-					frame2.Visible =false
-					frame3.Visible = false
+					frame1.Visible =false
+					frame2.Visible = false
+					QFrame.Visible=false
 					Options.Enabled=true
+					
 					label.Text = "<I guess I would be inturepting the police! >"
 					label.Visible = true
 					nxt.Visible =true
@@ -872,10 +885,30 @@ susprmpt.Triggered:Connect(function()
 			label.Visible = false
 			nxt.Visible = false
 			
+			Options.Enabled = true
+			frame1.Visible = true
+			op1.Text = "BodyEv 1st line"
+			frame2.Visible = true
+			op2.Text = "BodyEv 2nd line"
+			frame3.Visible = true
+			op3.Text = "Bodyev 3rd line "
+			frame4.Visible = true
+			op4.Text = "BodyEv 4th line"
+			QFrame.Visible = true
+			q.Text = "BodyEv question?"
+			
 			press = false
 			while press == false do
 				local inp = UserIS.InputBegan:Wait()
 				if inp.KeyCode == Enum.KeyCode.One then
+					
+					Option.Enabled = false
+					frame1.Visible = false
+					frame2.Visible = false
+					frame3.Visible = false
+					frame4.Visible = false
+					QFrame.Visible = false
+					
 					label.Text = "<1st option line!>"
 					label.Visible = true
 					nxt.Visible = true
@@ -890,6 +923,13 @@ susprmpt.Triggered:Connect(function()
 					nxt.Visible =false
 					
 				elseif inp.KeyCode == Enum.KeyCode.Two then
+					Options.Enabled = false
+					frame1.Visible = false
+					frame2.Visible = false
+					frame3.Visible = false
+					frame4.Visible = false
+					QFrame.Visible = false
+					
 					label.Text ="<2nd option line!>"
 					label.Visible = true
 					nxt.Visible =true
@@ -904,6 +944,13 @@ susprmpt.Triggered:Connect(function()
 					nxt.Visible = false
 					
 				elseif inp.KeyCode == Enum.KeyCode.Three then
+					Options.Enabled = false
+					QFrame.Visible = false
+					frame1.Visible = false
+					frame2.Visible = false
+					frame3.Visible = false
+					frame4.Visible = false
+					
 					label.Text = "<3rd option line>"
 					label.Visible = true
 					nxt.Visible =true
@@ -918,6 +965,13 @@ susprmpt.Triggered:Connect(function()
 					nxt.Visible =false
 				
 				elseif inp.KeyCode == Enum.KeyCode.Four then
+					Options.Visible = false
+					QFrame.Visible = false
+					frame1.Visible = false
+					frame2.Visible = false
+					frame3.Visible = false
+					frame4.Visible = false
+					
 					label.Text = "<4th option line>"
 					label.Visible =true
 					nxt.Visible = true
@@ -961,10 +1015,30 @@ susprmpt.Triggered:Connect(function()
 			label.Visible = false
 			nxt.Visible = false
 			
+			Options.Visible = true
+			QFrame.Visible = true
+			q.Text="doorhandle quetion?"
+			frame1.Visible = true
+			op1.Text = "lockc 1st option"
+			frame2.Visible= true
+			op2.Text = "lockc 2nd option"
+			frame3.Visible = true
+			op3.Text = "lockc 3rd option"
+			frame4.Visible = true
+			op4.Text = "lockc 4th option"
+			
+			
 			press = false
 			while press == false do
 				local inp = UserIS.InputBegan:Wait()
 				if inp.KeyCode == Enum.KeyCode.One then
+					Options.Enabled = false
+					frame1.Visible = false
+					frame2.Visible = false
+					frame3.Visible = false
+					frame4.Visible = false
+					QFrame.Visible = false
+					
 					label.Text = "<1st option line>"
 					label.Visible=true
 					nxt.Visible= true
@@ -977,6 +1051,13 @@ susprmpt.Triggered:Connect(function()
 					end
 					
 				elseif inp.KeyCode == Enum.KeyCode.Two then
+					Options.Enabled = false
+					frame1.Visible = false
+					frame2.Visible = false
+					frame3.Visible = false
+					frame4.Visible = false
+					QFrame.Visible = false
+					
 					label.Text = "<2nd option line>"
 					label.Visible = true
 					nxt.Visible = true
@@ -991,6 +1072,13 @@ susprmpt.Triggered:Connect(function()
 					nxt.Visible = false
 					
 				elseif inp.KeyCode == Enum.KeyCode.Three then
+					Options.Enabled = false
+					frame1.Visible = false
+					frame2.Visible = false
+					frame3.Visible = false
+					frame4.Visible = false
+					QFrame.Visible = false
+					
 					label.Text = "<3rd option line>"
 					label.Visible= true
 					nxt.Visible = true
@@ -1005,6 +1093,13 @@ susprmpt.Triggered:Connect(function()
 					nxt.Visible =false
 					
 				elseif inp.KeyCode == Enum.KeyCode.Four then
+					Options.Enabled = false
+					QFrame.Visible = false
+					frame1.Visible = false
+					frame2.Visible = false
+					frame3.Visible = false
+					frame4.Visible = false
+					
 					label.Text = "<4th option line>"
 					label.Visible = true
 					nxt.Visible = true
@@ -1071,10 +1166,29 @@ susprmpt.Triggered:Connect(function()
 			label.Visible = false
 			nxt.Visible = false
 			
+			Options.Enabled = true
+			frame1.Visible = true
+			op1.Text = "Tape 1st option"
+			frame2.Visible = true
+			op2.Text = "Tape 2nd option"
+			frame3.Visible = true
+			op3.Text = "Tape 3rd option"
+			frame4.Visible = true
+			op4.Text = "Tape 4th option"
+			QFrame.Visible = true
+			q.Text = "Tape Question?"
+			
 			press=false
 			while press == false do
 				local inp = UserIS.InputBegan:Wait()
 				if inp.KeyCode == Enum.KeyCode.One then
+					Options.Enabled = false
+					frame1.Visible = false
+					frame2.Visible = false
+					frame3.Visible =false
+					farme4.Visible = false
+					QFrame.Visible =false
+					
 					label.Text ="<1st option lne>"
 					label.Visible=true
 					nxt.Visible = true
@@ -1089,6 +1203,13 @@ susprmpt.Triggered:Connect(function()
 					nxt.Visible = false
 					
 				elseif inp.KeyCode == Enum.KeyCode.Two then
+					Options.Enabled = false
+					frame1.Visible = false
+					frame2.Visible = false
+					frame3.Visible = false
+					frame4.Visible = false
+					QFrame.Visible = false
+					
 					label.Text = "<2nd option line>"
 					label.Visible = true
 					nxt.Visible =true
@@ -1103,6 +1224,13 @@ susprmpt.Triggered:Connect(function()
 					nxt.Visible = false
 					
 				elseif inp.KeyCode == Enum.KeyCode.Three then
+					Options.Enabled= false
+					QFrame.Visible = false
+					frame1.Visible = false
+					frame2.Visible = false
+					frame3.Visible = false
+					frame4.Visible = false
+					
 					label.Text="<3rd option line"
 					label.Visible = true
 					nxt.Visible =true
@@ -1117,6 +1245,13 @@ susprmpt.Triggered:Connect(function()
 					nxt.Visible =false
 					
 				elseif inp.KeyCode == Enum.KeyCode.Four then
+					Options.Enabled = false
+					QFrame.Visible = false
+					frame1.Visible = false
+					frame2.Visible = false
+					frame3.Visible = false
+					frame4.Visible = false
+					
 					label.Text ="<4th  option line>"
 					label.Visible = true
 					nxt.Visible = true
@@ -1152,10 +1287,29 @@ susprmpt.Triggered:Connect(function()
 			label.Visible=false
 			nxt.Visible =false
 			
+			Options.Enabled = true
+			QFrame.Visible = true
+			q.Text = "Bspot Question?"
+			frame1.Visible = true
+			op1.Text = "Bspot 1st otpion"
+			frame2.Visible = true
+			op2.Text = "Bspot 2nd option"
+			frame3.Visible = true
+			op3.Text = "Bspot 3rd option"
+			frame4.Visible = true
+			op4.Text = "Bspot 4th option"
+			
 			press=false
 			while press==false do
 				local inp = UserIS.InputBegan:Wait()
 				if inp.KeyCode == Enum.KeyCode.One then
+					Options.Visible = false
+					QFrame.Visible = false
+					frame1.Visible = false
+					frame2.Visible = false
+					frame3.Visible = false
+					frame4.Visible = false
+					
 					label.Text="<1st option line>"
 					label.Visible=true
 					nxt.Visible = true
@@ -1170,6 +1324,13 @@ susprmpt.Triggered:Connect(function()
 					nxt.Visible = false
 					
 				elseif inp.KeyCode == Enum.KeyCode.Two then
+					Options.Enabled = false
+					QFrame.Visible = false
+					frame1.Visible = false
+					frame2.Visible = false
+					frame3.Visible = false
+					frame4.Visible = false
+					
 					label.Text = "<2nd option line>"
 					label.Visible = true
 					nxt.Visible=true
@@ -1185,6 +1346,13 @@ susprmpt.Triggered:Connect(function()
 					nxt.Visible= false
 					
 				elseif inp.KeyCode == Enum.KeyCode.Three then
+					Options.Enabled = false
+					frame1.Visible = false
+					frame2.Visible = false
+					frame3.Visible = false
+					frame4.Visible = false
+					QFrame.Visible = false
+					
 					label.Text="<3rd option line>"
 					label.Visible = true
 					nxt.Visible = true
@@ -1199,6 +1367,13 @@ susprmpt.Triggered:Connect(function()
 					nxt.Visible = false
 					
 				elseif inp.KeyCode == Enum.KeyCode.Four then
+					Options.Enabled = false
+					frame1.Visible = false
+					frame2.Visible = false
+					frame3.Visible = false
+					frame4.Visible = false
+					QFrame.Visible = false
+					
 					label.Text ="<4rd option line>"
 					label.Visible =true
 					nxt.Visible = true
@@ -1233,10 +1408,29 @@ susprmpt.Triggered:Connect(function()
 			label.Visible = false
 			nxt.Visible = false
 			
+			Options.Enabled = true
+			q.Text = "Chem question ?"
+			QFrame.Visible = true
+			op1.Text = "Chem option 1"
+			frame1.Visible  = true
+			op2.Text = "Chem option 2"
+			frame2.Visible = true
+			op3.Text = "Chem option 3"
+			frame3.Visible = true
+			op4.Text = "Chem option 4"
+			frame4.Visible = true
+			
 			press = false
 			while press == false do
 				local inp = UserIS.InputBegan:Wait()
 				if inp == Enum.KeyCode.One then
+					Options.Enabled = false
+					QFrame.Visible = false
+					frame1.Visible = false
+					frame2.Visible = false
+					frame3.Visible = false
+					frame4.Visible = false
+					
 					label.Text = "<1st option line>"
 					label.Visible=true
 					nxt.Visible = true
@@ -1251,6 +1445,13 @@ susprmpt.Triggered:Connect(function()
 					nxt.Visible = false
 					
 				elseif inp ==Enum.KeyCode.Two then
+					Options.Enabled = false
+					QFrame.Visible = false
+					frame1.Visible = false
+					frame2.Visible = false
+					frame3.Visible = false
+					frame4.Visible = false
+					
 					label.Text="<2nd option line>"
 					label.Visible = true
 					nxt.Visible = true
@@ -1265,6 +1466,13 @@ susprmpt.Triggered:Connect(function()
 					nxt.Visible = false
 					
 				elseif inp == Enum.KeyCode.Three then
+					Options.Enabled = false
+					QFrame.Visible = false
+					frame1.Visible = false
+					frame2.Visible = false
+					frame3.Visible = false
+					frame4.Visible = false
+					
 					label.Text = "3rd option"
 					label.Visible = true
 					nxt.Visible= true
@@ -1279,6 +1487,13 @@ susprmpt.Triggered:Connect(function()
 					nxt.Visible = false
 					
 				elseif inp ==Enum.KeyCode.Four then
+					Options.Enabled = false
+					QFrame.Visible = false
+					frame1.Visible= false
+					frame2.Visible = false
+					frame3.Visible = false
+					frame4.Visible = false
+					
 					label.Text = "<4th option line>"
 					label.Visible = true
 					nxt.Visible =true
@@ -1324,10 +1539,29 @@ susprmpt.Triggered:Connect(function()
 			label.Visible = false
 			nxt.Visible =false
 			
+			Options.Enabled = true
+			q.Text="Poster Question?"
+			Qframe.Visible = true
+			op1.Text = "Poster option 1"
+			frame1.Visible = true
+			op2.Text = "Poster option 2"
+			frame2.Visible = true
+			op3.Text = "Poster option 3"
+			frame3.Visible = true
+			op4.Text = "Poster option 4"
+			frame4.Visible = true
+			
 			press=false
 			while press==false do
 				local inp=UserIS.InputBegan:Wait()
 				if inp==Enum.KeyCode.One then
+					Options.Enabled = false
+					QFrame.Visible = false
+					frame1.Visible = false
+					frame2.Visible = false
+					frame3.Visible = false
+					frame4.Visible = false
+					
 					label.Text="<1st option line>"
 					label.Visible =true
 					nxt.Visible=true
@@ -1342,6 +1576,13 @@ susprmpt.Triggered:Connect(function()
 					nxt.Visible = false
 					
 				elseif inp == Enum.KeyCode.Two then
+					Options.Enabled = false
+					QFrame.Visible = false
+					frame1.Visible = false
+					frame2.Visible = false
+					frame3.Visible = false
+					frame4.Visible = false
+					
 					label.Text="<2nd option line>"
 					label.Visible = true
 					nxt.Visible=true
@@ -1356,6 +1597,13 @@ susprmpt.Triggered:Connect(function()
 					nxt.Visible = false
 					
 				elseif inp == Enum.KeyCode.Three then
+					Options.Enabled = false
+					QFrame.Visible = false
+					frame1.Visible = false
+					frame2.Visible = false
+					frame3.Visible = false
+					frame4.Visible = false
+					
 					label.Text ="<3rd option line>"
 					label.Visible=true
 					nxt.Visible=true
@@ -1370,6 +1618,13 @@ susprmpt.Triggered:Connect(function()
 					nxt.Visible=false
 					
 				elseif inp == Enum.KeyCode.Four then
+					Options.Enabled = false
+					QFrame.Visible = false
+					frame1.Visible = false
+					frame2.Visible = false
+					frame3.Visible = false
+					frame4.Visible = false
+					
 					label.Text="<4th option line>"
 					label.Visible =true
 					nxt.Visible = true
@@ -1405,10 +1660,29 @@ susprmpt.Triggered:Connect(function()
 			label.Visible = false
 			nxt.Visible = false
 			
+			Options.Enabled = true
+			op1.Text = "Colon option 1"
+			frame1.Visible = true
+			op2.Visible = "Colon option 2"
+			frame2.Visible = true
+			op3.Text = "Colon option 3"
+			frame3.Visible = true
+			op4.Text = "Colon option 4"
+			frame4.Visible = true
+			q.Text = "Colon question ?"
+			QFrame.Visible = true
+			
 			press=false
 			while press == false do
 				local inp=UserIS.InputBegan:Wait()
 				if inp == Enum.KeyCode.One then
+					Options.Enabled = false
+					QFrame.Visible = false
+					frame1.Visible = false
+					frame2.Visible = false
+					frame3.Visible =false
+					frame4.Visible = false
+					
 					label.Text="<1st option line>"
 					label.Visible = true
 					nxt.Visible =true
@@ -1423,6 +1697,13 @@ susprmpt.Triggered:Connect(function()
 					nxt.Visible = false
 					
 				elseif inp==Enum.KeyCode.F then
+					Options.Enabled = false
+					QFrame.Visible = false
+					frame1.Visible =false
+					frame2.Visible =false
+					frame3.Visible =false
+					frame4.Visible =false
+					
 					label.Text="<2nd option>"
 					label.Visible = true
 					nxt.Visible = true
@@ -1437,6 +1718,13 @@ susprmpt.Triggered:Connect(function()
 					nxt.Visible=false
 					
 				elseif inp==Enum.KeyCode.Three then
+					Options.Enabled = false
+					QFrame.Visible= false
+					frame1.Visible =false
+					frame2.Visible =false
+					frame3.Visible =false
+					frame4.Visible = false
+					
 					label.Text = "<3rd option line>"
 					label.Visible = true
 					nxt.Visible = true
@@ -1451,6 +1739,13 @@ susprmpt.Triggered:Connect(function()
 					nxt.Visible=false
 					
 				elseif inp==Enum.KeyCode.Four then
+					Options.Enabled = false
+					QFrame.Visible =false
+					frame1.Visible =false
+					frame2.Visible =false
+					frame3.Visible = false
+					frame4.Visible =false
+					
 					label.Text="<4th option line>"
 					label.Visible = true
 					nxt.Visible =true
@@ -1485,10 +1780,29 @@ susprmpt.Triggered:Connect(function()
 			label.Visible =false
 			nxt.Visible= false
 			
+			Options.Enabled = true
+			op1.Text = "Bjuice option 1"
+			frame1.Visible = true
+			op2.Text = "Bjuice option 2"
+			frame2.Visible =true
+			op3.Text  = "Bjuice option 3"
+			frame3.Visible = true
+			op4.Text = "Bjuice option 4"
+			frame4.Visible =true
+			q.Text = "Bjuice question ?"
+			QFrame.Visible =true
+			
 			press=true
 			while press == false do
 				local inp=UserIS.InputBegan:Wait()
 				if inp == Enum.KeyCode.One then
+					Options.Enabled = false
+					QFrame.Visible =false
+					frame1.Visible =false
+					frame2.Visible =false
+					frame3.Visible = false
+					frame4.Visible =false
+					
 					label.Text = "<1st option lone>"
 					label.Visible= true
 					nxt.Visible = true
@@ -1503,6 +1817,13 @@ susprmpt.Triggered:Connect(function()
 					nxt.Visible = false
 					
 				elseif inp==Enum.KeyCode.Two then
+					Options.Enabled =false
+					QFrame.Visible =false
+					frame1.Visible = false
+					frame2.Visible =false
+					frame3.Visible =false
+					frame4.Visible =false
+					
 					label.Text = "<2nd option line>"
 					label.Visible =true
 					nxt.Visible = true
@@ -1517,6 +1838,13 @@ susprmpt.Triggered:Connect(function()
 					nxt.Visible = false
 					
 				elseif inp==Enum.KeyCode.Three then
+					Options.Enabled =false
+					QFrame.Visible =false
+					frame1.Visible =false
+					frame2.Visible =false
+					frame3.Visible =false
+					frame4.Visible = false
+					
 					label.Text = "<3rd option line>"
 					label.Visible=true
 					nxt.Visible=true
@@ -1531,6 +1859,13 @@ susprmpt.Triggered:Connect(function()
 					nxt.Visible = false
 					
 				elseif inp==Enum.KeyCode.Four then
+					Options.Enabled =false
+					QFrame.Visible =false
+					frame1.Visible =false
+					frame2.Visible =false
+					frame3.Visible =false
+					frame4.Visible=false
+					
 					label.Text="<4th option line>"
 					label.Visible=true
 					nxt.Visible=true
@@ -1565,10 +1900,29 @@ susprmpt.Triggered:Connect(function()
 			label.Visible=false
 			nxt.Visible =false
 			
+			Options.Enabled =true
+			op1.Text = "Blanket otpion 1"
+			frame1.Visible =true
+			op2.Text = "Blanket option 2"
+			frame2.Visible = true
+			op3.Text = "Blanket otpion 3"
+			frame3.Visible =true
+			op4.Text = "Blanket option 4"
+			frame4.Visible =true
+			q.Text = "Blanket question ?"
+			QFrame.Visible =true
+			
 			press=false
 			while press == false do
 				local inp = UserIS.InputBegan:Wait()
 				if inp==Enum.KeyCode.One then
+					Options.Enabled =false
+					frame1.Visible =false
+					frame2.Visible =false
+					frame3.Visible =false
+					frame4.Visible =false
+					QFrame.Visible =false
+					
 					label.Text = "<1st option>"
 					label.Visible=true
 					nxt.Visible=true
@@ -1583,6 +1937,13 @@ susprmpt.Triggered:Connect(function()
 					nxt.Visible =false
 					
 				elseif inp==Enum.KeyCode.Two then
+					Options.Enabled =false
+					frame1.Visible = false
+					frame2.Visible =false
+					frame3.Visible =false
+					frame4.Visible = false
+					QFrame.Visible =false
+					
 					label.Text ="<2nd optionline>"
 					label.Visible=true
 					nxt.Visible=true
@@ -1597,6 +1958,14 @@ susprmpt.Triggered:Connect(function()
 					nxt.Visible = false
 					
 				elseif inp == Enum.KeyCode.Three then
+					Options.Enabled = false
+					frame1.Visible =false
+					frame2.Visible =false
+					frame3.Visible =false
+					frame4.Visible =false
+					QFrame.Visible =false
+	
+					
 					label.Text = "<3rd option line>"
 					label.Visible = true
 					nxt.Visible=true
@@ -1611,6 +1980,13 @@ susprmpt.Triggered:Connect(function()
 					nxt.Visible = false
 					
 				elseif inp==Enum.KeyCode.Four then
+					Options.Enabled =false
+					QFrame.Visible =false
+					frame1.Visible =false
+					frame2.Visible =false
+					frame3.Visible =false
+					frame4.Visible =false
+					
 					label.Text="<4th option line>"
 					label.Visible=true
 					nxt.Visible = true
