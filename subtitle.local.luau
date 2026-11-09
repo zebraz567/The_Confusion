@@ -763,23 +763,34 @@ susprmpt.Triggered:Connect(function()
 		local op4 = frame4:WaitForChild("opFour")
 		local QFrame = Options:WaitForChild("Question")
 		local q= QFrame:WaitForChild("Qna")
+		local back = Options:WaitForChild("BackF")
+		local b = back:WaitForChild("back")
 		
+		local opCorrect = 0 
+		local opWrong = 0
+		local opStry = 0
 
-		Pmt_MEp.Enabled=true
-		lockp.Enabled = true
-		cdprm.Enabled = true
-		MainE_tape.Enabled = true
-		bspot.Enabled = true
-		chem.Enabled = true
-		bodyEv.Enabled = true
-		Poster.Enabled = true
-		Colon_F.Enabled = true
-		BJuice_F.Enabled = true
-		Blanket_F.Enabled = true
+		Pmt_MEp.Enabled   =true
+		lockp.Enabled     =true
+		cdprm.Enabled     =true
+		MainE_tape.Enabled=true
+		bspot.Enabled     =true
+		chem.Enabled      =true
+		bodyEv.Enabled    =true
+		Poster.Enabled    =true
+		Colon_F.Enabled   =true
+		BJuice_F.Enabled  =true
+		Blanket_F.Enabled =true
 		
+		local plr1 = game.Players.LocalPlayer
+		local ch1 = plr1.Character or plr1.CharecterAdded:Wait()
+		local hum1 = ch1:WaitForChild("Humanoid")
 
 		Pmt_MEp.Triggered:Connect(function()
 			Pmt_MEp.Enabled=false
+			hum1.WalkSpeed = 0
+			hum1.JumpPower =0
+			
 			label.Text = "<A peice of paper.. can be a evidence ... should I tell police about this ?>"
 			label.Visible=true
 			nxt.Visible =true
@@ -800,10 +811,11 @@ susprmpt.Triggered:Connect(function()
 			Options.Enabled=true
 			q.Text = "Do you want to tell the police ?"
 			QFrame.Visible =true
-			op1.Text = "Yes"
-			op2.Text = "No"
+			op1.Text = "1. Yes"
+			op2.Text = "2. No"
 			frame2.Visible = true
 			frame1.Visible =true
+			back.Visible = true
 			
 			press =false
 			while press == false do
@@ -814,6 +826,7 @@ susprmpt.Triggered:Connect(function()
 					frame1.Visible=false
 					QFrame.Visible=false
 					Options.Enabled =false
+					back.Visible =false
 
 					polprmpt.Triggered:Connect(function()
 						polprmpt.Enabled = false
@@ -831,13 +844,16 @@ susprmpt.Triggered:Connect(function()
 						label.Visible = false
 						nxt.Visible = false
 					end)
+					hum1.WalkSpeed = 16
+					hum1.JumpPower = 40
 				
 				elseif inp.KeyCode == Enum.KeyCode.Two then
 					
 					frame1.Visible =false
 					frame2.Visible = false
 					QFrame.Visible=false
-					Options.Enabled=true
+					Options.Enabled=false
+					back.Visible=false
 					
 					label.Text = "<I guess I would be inturepting the police! >"
 					label.Visible = true
@@ -852,15 +868,28 @@ susprmpt.Triggered:Connect(function()
 					end
 					label.Visible = false
 					nxt.Visible = false
+					hum1.WalkSpeed = 16
+					hum1.JumpPower = 40
 					
-	            end
+				elseif inp.KeyCode == Enum.KeyCode.Five then
+					frame1.Visible = false
+					frame2.Visible =false
+					QFrame.Visible = false
+					back.Visible = false
+					Options.Enabled = false
+					Pmt_MEp.Enabled = true
+					hum1.WalkSpeed = 16
+					hum1.JumpPower = 40
+				end	
 				
-	        end
+			end
 
 		end)
 
 		bodyEv.Triggered:Connect(function()
 			bodyEv.Enabled = false
+			hum1.WalkSpeed = 0
+			hum1.JumpPower = 0
 
 			label.Text = "<Me : The cuts ... on the hand doesn't fit quite right.. >"
 			label.Visible = true
@@ -886,6 +915,7 @@ susprmpt.Triggered:Connect(function()
 			nxt.Visible = false
 			
 			Options.Enabled = true
+			back.Visible =true
 			frame1.Visible = true
 			op1.Text = "BodyEv 1st line"
 			frame2.Visible = true
@@ -901,13 +931,13 @@ susprmpt.Triggered:Connect(function()
 			while press == false do
 				local inp = UserIS.InputBegan:Wait()
 				if inp.KeyCode == Enum.KeyCode.One then
-					
-					Option.Enabled = false
+					Options.Enabled = false
 					frame1.Visible = false
 					frame2.Visible = false
 					frame3.Visible = false
 					frame4.Visible = false
 					QFrame.Visible = false
+					back.Visible =false
 					
 					label.Text = "<1st option line!>"
 					label.Visible = true
@@ -921,6 +951,8 @@ susprmpt.Triggered:Connect(function()
 					end
 					label.Visible = false
 					nxt.Visible =false
+					hum1.WalkSpeed = 16
+					hum1.JumpPower = 40
 					
 				elseif inp.KeyCode == Enum.KeyCode.Two then
 					Options.Enabled = false
@@ -929,6 +961,7 @@ susprmpt.Triggered:Connect(function()
 					frame3.Visible = false
 					frame4.Visible = false
 					QFrame.Visible = false
+					back.Visible =false
 					
 					label.Text ="<2nd option line!>"
 					label.Visible = true
@@ -942,14 +975,17 @@ susprmpt.Triggered:Connect(function()
 					end
 					label.Visible = false
 					nxt.Visible = false
+					hum1.WalkSpeed = 16
+					hum1.JumpPower = 40
 					
 				elseif inp.KeyCode == Enum.KeyCode.Three then
 					Options.Enabled = false
-					QFrame.Visible = false
 					frame1.Visible = false
 					frame2.Visible = false
 					frame3.Visible = false
 					frame4.Visible = false
+					QFrame.Visible = false
+					back.Visible =false
 					
 					label.Text = "<3rd option line>"
 					label.Visible = true
@@ -963,14 +999,17 @@ susprmpt.Triggered:Connect(function()
 					end
 					label.Visible=false
 					nxt.Visible =false
+					hum1.WalkSpeed = 16
+					hum1.JumpPower = 40
 				
 				elseif inp.KeyCode == Enum.KeyCode.Four then
-					Options.Visible = false
-					QFrame.Visible = false
+					Options.Enabled = false
 					frame1.Visible = false
 					frame2.Visible = false
 					frame3.Visible = false
 					frame4.Visible = false
+					QFrame.Visible = false
+					back.Visible =false
 					
 					label.Text = "<4th option line>"
 					label.Visible =true
@@ -983,7 +1022,22 @@ susprmpt.Triggered:Connect(function()
 						end
 					end
 					label.Visible = false
-				
+					nxt.Visible = false
+					hum1.WalkSpeed = 16
+					hum1.JumpPower = 40
+					
+				elseif inp.KeyCode == Enum.KeyCode.Five then
+					Options.Visible = false
+					frame1.Visible = false
+					frame2.Visible = false
+					frame3.Visible = false
+					frame4.Visible = false
+					QFrame.Visible = false
+					back.Visible = false
+					bodyEv.Enabled = true
+					hum1.WalkSpeed = 16
+					hum1.JumpPower = 40
+					
 				end
 			end
 			
@@ -991,6 +1045,9 @@ susprmpt.Triggered:Connect(function()
 
 		lockp.Triggered:Connect(function()
 			lockp.Enabled = false
+			hum1.WalkSpeed = 0
+			hum1.JumpPower =0
+			
 			label.Text = "<Me:This door was locked from inside...>"
 			label.Visible = true
 			nxt.Visible = true
@@ -1016,6 +1073,7 @@ susprmpt.Triggered:Connect(function()
 			nxt.Visible = false
 			
 			Options.Visible = true
+			back.Visible =true
 			QFrame.Visible = true
 			q.Text="doorhandle quetion?"
 			frame1.Visible = true
@@ -1038,6 +1096,7 @@ susprmpt.Triggered:Connect(function()
 					frame3.Visible = false
 					frame4.Visible = false
 					QFrame.Visible = false
+					back.Visible =false
 					
 					label.Text = "<1st option line>"
 					label.Visible=true
@@ -1049,6 +1108,10 @@ susprmpt.Triggered:Connect(function()
 							press = true
 						end
 					end
+					label.Visible =false
+					nxt.Visible =false
+					hum1.WalkSpeed = 16
+					hum1.JumpPower =40
 					
 				elseif inp.KeyCode == Enum.KeyCode.Two then
 					Options.Enabled = false
@@ -1057,6 +1120,7 @@ susprmpt.Triggered:Connect(function()
 					frame3.Visible = false
 					frame4.Visible = false
 					QFrame.Visible = false
+					back.Visible =false
 					
 					label.Text = "<2nd option line>"
 					label.Visible = true
@@ -1070,6 +1134,8 @@ susprmpt.Triggered:Connect(function()
 					end
 					label.Visible = false
 					nxt.Visible = false
+					hum1.WalkSpeed = 16
+					hum1.JumpPower =40
 					
 				elseif inp.KeyCode == Enum.KeyCode.Three then
 					Options.Enabled = false
@@ -1078,6 +1144,7 @@ susprmpt.Triggered:Connect(function()
 					frame3.Visible = false
 					frame4.Visible = false
 					QFrame.Visible = false
+					back.Visible =false
 					
 					label.Text = "<3rd option line>"
 					label.Visible= true
@@ -1091,14 +1158,17 @@ susprmpt.Triggered:Connect(function()
 					end
 					label.Visible =false
 					nxt.Visible =false
+					hum1.WalkSpeed = 16
+					hum1.JumpPower =40
 					
 				elseif inp.KeyCode == Enum.KeyCode.Four then
 					Options.Enabled = false
-					QFrame.Visible = false
 					frame1.Visible = false
 					frame2.Visible = false
 					frame3.Visible = false
 					frame4.Visible = false
+					QFrame.Visible = false
+					back.Visible =false
 					
 					label.Text = "<4th option line>"
 					label.Visible = true
@@ -1112,6 +1182,20 @@ susprmpt.Triggered:Connect(function()
 					end
 					label.Visible = false
 					nxt.Visible =false
+					hum1.WalkSpeed = 16
+					hum1.JumpPower =40
+					
+				elseif inp.KeyCode == Enum.KeyCode.Five then
+					Options.Enabled = false
+					frame1.Visible=false
+					frame2.Visible= false
+					frame3.Visible = false
+					frame4.Visible =false
+					QFrame.Visible = false
+					back.Visible =false
+					lockp.Enabled = true
+					hum1.WalkSpeed = 16
+					hum1.JumpPower =40
 				end
 				
 			end
@@ -1120,6 +1204,8 @@ susprmpt.Triggered:Connect(function()
 
 		cdprm.Triggered:Connect(function()
 			cdprm.Enabled = false
+			hum1.WalkSpeed = 0
+			hum1.JumpPower =0
 
 			label.Text = "ME: They probablly started packing stuff ..."
 			label.Visible = true
@@ -1145,11 +1231,15 @@ susprmpt.Triggered:Connect(function()
 
 			label.Visible = false
 			nxt.Visible = false
+			hum1.WalkSpeed = 16
+			hum1.JumpPower =40
 
 		end)
 
 		MainE_tape.Triggered:Connect(function()
 			MainE_tape.Enabled = false
+			hum1.WalkSpeed = 0
+			hum1.JumpPower = 0
 
 			label.Text = "ME: What's this tape doing here? "
 			label.Visible = true
@@ -1167,6 +1257,7 @@ susprmpt.Triggered:Connect(function()
 			nxt.Visible = false
 			
 			Options.Enabled = true
+			back.Visible =true
 			frame1.Visible = true
 			op1.Text = "Tape 1st option"
 			frame2.Visible = true
@@ -1185,9 +1276,10 @@ susprmpt.Triggered:Connect(function()
 					Options.Enabled = false
 					frame1.Visible = false
 					frame2.Visible = false
-					frame3.Visible =false
-					farme4.Visible = false
-					QFrame.Visible =false
+					frame3.Visible = false
+					frame4.Visible = false
+					QFrame.Visible = false
+					back.Visible =false
 					
 					label.Text ="<1st option lne>"
 					label.Visible=true
@@ -1201,6 +1293,8 @@ susprmpt.Triggered:Connect(function()
 					end
 					label.Visible =false
 					nxt.Visible = false
+					hum1.WalkSpeed = 16
+					hum1.JumpPower = 40
 					
 				elseif inp.KeyCode == Enum.KeyCode.Two then
 					Options.Enabled = false
@@ -1209,6 +1303,7 @@ susprmpt.Triggered:Connect(function()
 					frame3.Visible = false
 					frame4.Visible = false
 					QFrame.Visible = false
+					back.Visible =false
 					
 					label.Text = "<2nd option line>"
 					label.Visible = true
@@ -1222,14 +1317,17 @@ susprmpt.Triggered:Connect(function()
 					end
 					label.Visible = false
 					nxt.Visible = false
+					hum1.WalkSpeed = 16
+					hum1.JumpPower = 40
 					
 				elseif inp.KeyCode == Enum.KeyCode.Three then
-					Options.Enabled= false
-					QFrame.Visible = false
+					Options.Enabled = false
 					frame1.Visible = false
 					frame2.Visible = false
 					frame3.Visible = false
 					frame4.Visible = false
+					QFrame.Visible = false
+					back.Visible =false
 					
 					label.Text="<3rd option line"
 					label.Visible = true
@@ -1243,14 +1341,17 @@ susprmpt.Triggered:Connect(function()
 					end
 					label.Visible = false
 					nxt.Visible =false
+					hum1.WalkSpeed = 16
+					hum1.JumpPower = 40
 					
 				elseif inp.KeyCode == Enum.KeyCode.Four then
 					Options.Enabled = false
-					QFrame.Visible = false
 					frame1.Visible = false
 					frame2.Visible = false
 					frame3.Visible = false
 					frame4.Visible = false
+					QFrame.Visible = false
+					back.Visible =false
 					
 					label.Text ="<4th  option line>"
 					label.Visible = true
@@ -1264,6 +1365,21 @@ susprmpt.Triggered:Connect(function()
 					end
 					label.Visible = false
 					nxt.Visible = false
+					hum1.WalkSpeed = 16
+					hum1.JumpPower = 40
+					
+				elseif inp.KeyCode == Enum.KeyCode.Five then
+					Options.Enabled = false
+					QFrame.Visible = false
+					frame1.Visible = false
+					frame2.Visible = false
+					frame3.Visible =false
+					frame4.Visible = false
+					back.Visible = false
+					MainE_tape.Enabled =true
+					hum1.WalkSpeed = 16
+					hum1.JumpPower = 40
+					
 				end
 			end
 			
@@ -1271,6 +1387,8 @@ susprmpt.Triggered:Connect(function()
 
 		bspot.Triggered:Connect(function()
 			bspot.Enabled = false
+			hum1.WalkSpeed = 0
+			hum1.JumpPower = 0
 
 			label.Text = "ME(thought): A BLOOD SPOT?"
 			label.Visible = true
@@ -1288,6 +1406,7 @@ susprmpt.Triggered:Connect(function()
 			nxt.Visible =false
 			
 			Options.Enabled = true
+			back.Visible =true
 			QFrame.Visible = true
 			q.Text = "Bspot Question?"
 			frame1.Visible = true
@@ -1303,12 +1422,13 @@ susprmpt.Triggered:Connect(function()
 			while press==false do
 				local inp = UserIS.InputBegan:Wait()
 				if inp.KeyCode == Enum.KeyCode.One then
-					Options.Visible = false
-					QFrame.Visible = false
+					Options.Enabled = false
 					frame1.Visible = false
 					frame2.Visible = false
 					frame3.Visible = false
 					frame4.Visible = false
+					QFrame.Visible = false
+					back.Visible =false
 					
 					label.Text="<1st option line>"
 					label.Visible=true
@@ -1322,14 +1442,17 @@ susprmpt.Triggered:Connect(function()
 					end
 					label.Visible = false
 					nxt.Visible = false
+					hum1.WalkSpeed = 16
+					hum1.JumpPower = 40
 					
 				elseif inp.KeyCode == Enum.KeyCode.Two then
 					Options.Enabled = false
-					QFrame.Visible = false
 					frame1.Visible = false
 					frame2.Visible = false
 					frame3.Visible = false
 					frame4.Visible = false
+					QFrame.Visible = false
+					back.Visible =false
 					
 					label.Text = "<2nd option line>"
 					label.Visible = true
@@ -1344,6 +1467,8 @@ susprmpt.Triggered:Connect(function()
 					end
 					label.Visible = false
 					nxt.Visible= false
+					hum1.WalkSpeed = 16
+					hum1.JumpPower = 40
 					
 				elseif inp.KeyCode == Enum.KeyCode.Three then
 					Options.Enabled = false
@@ -1352,6 +1477,7 @@ susprmpt.Triggered:Connect(function()
 					frame3.Visible = false
 					frame4.Visible = false
 					QFrame.Visible = false
+					back.Visible =false
 					
 					label.Text="<3rd option line>"
 					label.Visible = true
@@ -1365,6 +1491,8 @@ susprmpt.Triggered:Connect(function()
 					end
 					label.Visible =false
 					nxt.Visible = false
+					hum1.WalkSpeed = 16
+					hum1.JumpPower = 40
 					
 				elseif inp.KeyCode == Enum.KeyCode.Four then
 					Options.Enabled = false
@@ -1373,6 +1501,7 @@ susprmpt.Triggered:Connect(function()
 					frame3.Visible = false
 					frame4.Visible = false
 					QFrame.Visible = false
+					back.Visible =false
 					
 					label.Text ="<4rd option line>"
 					label.Visible =true
@@ -1385,12 +1514,28 @@ susprmpt.Triggered:Connect(function()
 						end
 					end
 					label.Visible =false
-					nxt= false
+					nxt.Visible= false
+					hum1.WalkSpeed = 16
+					hum1.JumpPower = 40
+					
+				elseif inp.KeyCode == Enum.KeyCode.Five then
+					Options.Enabled = false
+					frame1.Visible = false
+					frame2.Visible = false
+					frame3.Visible = false
+					frame4.Visible = false
+					QFrame.Visible = false
+					back.Visible =false
+					bspot.Enabled = true
+					hum1.WalkSpeed = 16
+					hum1.JumpPower = 40
 				end
 			end
 
 		end)
 
+
+        --// 9.11.2026 
 		chem.Triggered:Connect(function()
 			chem.Enabled = false
 
