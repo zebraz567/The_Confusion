@@ -371,7 +371,7 @@ susprmpt.Triggered:Connect(function()
 		if den:IsA("BasePart") then
 			table.insert(tp,den)
 		end
-	end
+	end 
 	for _, t in pairs(tp) do
 		t.CanCollide = false
 		t.Transparency = 1
@@ -827,6 +827,7 @@ susprmpt.Triggered:Connect(function()
 					QFrame.Visible=false
 					Options.Enabled =false
 					back.Visible =false
+					opStry = opStry+1
 
 					polprmpt.Triggered:Connect(function()
 						polprmpt.Enabled = false
@@ -854,6 +855,7 @@ susprmpt.Triggered:Connect(function()
 					QFrame.Visible=false
 					Options.Enabled=false
 					back.Visible=false
+					opWrong=opWrong + 1
 					
 					label.Text = "<I guess I would be inturepting the police! >"
 					label.Visible = true
@@ -938,6 +940,7 @@ susprmpt.Triggered:Connect(function()
 					frame4.Visible = false
 					QFrame.Visible = false
 					back.Visible =false
+					opCorrect = opCorrect + 1
 					
 					label.Text = "<1st option line!>"
 					label.Visible = true
@@ -962,6 +965,7 @@ susprmpt.Triggered:Connect(function()
 					frame4.Visible = false
 					QFrame.Visible = false
 					back.Visible =false
+					opWrong = opWrong +1
 					
 					label.Text ="<2nd option line!>"
 					label.Visible = true
@@ -986,6 +990,7 @@ susprmpt.Triggered:Connect(function()
 					frame4.Visible = false
 					QFrame.Visible = false
 					back.Visible =false
+					opWrong = opWrong+1
 					
 					label.Text = "<3rd option line>"
 					label.Visible = true
@@ -1010,6 +1015,7 @@ susprmpt.Triggered:Connect(function()
 					frame4.Visible = false
 					QFrame.Visible = false
 					back.Visible =false
+					opWrong = opWrong +1
 					
 					label.Text = "<4th option line>"
 					label.Visible =true
@@ -1097,6 +1103,7 @@ susprmpt.Triggered:Connect(function()
 					frame4.Visible = false
 					QFrame.Visible = false
 					back.Visible =false
+					opCorrect = opCorrect+1
 					
 					label.Text = "<1st option line>"
 					label.Visible=true
@@ -1121,6 +1128,7 @@ susprmpt.Triggered:Connect(function()
 					frame4.Visible = false
 					QFrame.Visible = false
 					back.Visible =false
+					opWrong = opWrong+1
 					
 					label.Text = "<2nd option line>"
 					label.Visible = true
@@ -1145,6 +1153,7 @@ susprmpt.Triggered:Connect(function()
 					frame4.Visible = false
 					QFrame.Visible = false
 					back.Visible =false
+					opWrong = opWrong + 1
 					
 					label.Text = "<3rd option line>"
 					label.Visible= true
@@ -1169,6 +1178,7 @@ susprmpt.Triggered:Connect(function()
 					frame4.Visible = false
 					QFrame.Visible = false
 					back.Visible =false
+					opWrong = opWrong + 1
 					
 					label.Text = "<4th option line>"
 					label.Visible = true
@@ -1280,6 +1290,7 @@ susprmpt.Triggered:Connect(function()
 					frame4.Visible = false
 					QFrame.Visible = false
 					back.Visible =false
+					opWrong = opWrong+1
 					
 					label.Text ="<1st option lne>"
 					label.Visible=true
@@ -1304,6 +1315,7 @@ susprmpt.Triggered:Connect(function()
 					frame4.Visible = false
 					QFrame.Visible = false
 					back.Visible =false
+					opWrong = opWrong+1
 					
 					label.Text = "<2nd option line>"
 					label.Visible = true
@@ -1328,6 +1340,7 @@ susprmpt.Triggered:Connect(function()
 					frame4.Visible = false
 					QFrame.Visible = false
 					back.Visible =false
+					opWrong = opWrong+1
 					
 					label.Text="<3rd option line"
 					label.Visible = true
@@ -1352,6 +1365,7 @@ susprmpt.Triggered:Connect(function()
 					frame4.Visible = false
 					QFrame.Visible = false
 					back.Visible =false
+					opCorrect = opCorrect + 1
 					
 					label.Text ="<4th  option line>"
 					label.Visible = true
@@ -1429,6 +1443,7 @@ susprmpt.Triggered:Connect(function()
 					frame4.Visible = false
 					QFrame.Visible = false
 					back.Visible =false
+					opWrong = opWrong + 1
 					
 					label.Text="<1st option line>"
 					label.Visible=true
@@ -1453,6 +1468,7 @@ susprmpt.Triggered:Connect(function()
 					frame4.Visible = false
 					QFrame.Visible = false
 					back.Visible =false
+					opCorrect = opCorrect + 1
 					
 					label.Text = "<2nd option line>"
 					label.Visible = true
@@ -1478,6 +1494,7 @@ susprmpt.Triggered:Connect(function()
 					frame4.Visible = false
 					QFrame.Visible = false
 					back.Visible =false
+					opWrong = opWrong + 1
 					
 					label.Text="<3rd option line>"
 					label.Visible = true
@@ -1502,6 +1519,7 @@ susprmpt.Triggered:Connect(function()
 					frame4.Visible = false
 					QFrame.Visible = false
 					back.Visible =false
+					opWrong = opWrong + 1
 					
 					label.Text ="<4rd option line>"
 					label.Visible =true
@@ -1577,6 +1595,7 @@ susprmpt.Triggered:Connect(function()
 					frame3.Visible = false
 					frame4.Visible = false
 					back.Visible = false
+					opWrong = opWrong+1
 					
 					label.Text = "<1st option line>"
 					label.Visible=true
@@ -1601,6 +1620,7 @@ susprmpt.Triggered:Connect(function()
 					frame3.Visible = false
 					frame4.Visible = false
 					back.Visible =false
+					opWrong= opWrong+1
 					
 					label.Text="<2nd option line>"
 					label.Visible = true
@@ -1625,6 +1645,7 @@ susprmpt.Triggered:Connect(function()
 					frame3.Visible = false
 					frame4.Visible = false
 					back.Visible =false
+					opWrong = opWrong+1
 					
 					label.Text = "3rd option"
 					label.Visible = true
@@ -1649,6 +1670,7 @@ susprmpt.Triggered:Connect(function()
 					frame3.Visible = false
 					frame4.Visible = false
 					back.Visible =false
+					opStry = opStry + 1
 					
 					label.Text = "<4th option line>"
 					label.Visible = true
@@ -1734,6 +1756,7 @@ susprmpt.Triggered:Connect(function()
 					frame3.Visible = false
 					frame4.Visible = false
 					back.Visible =false
+					opWrong = opWrong + 1
 					
 					label.Text="<1st option line>"
 					label.Visible =true
@@ -1758,6 +1781,7 @@ susprmpt.Triggered:Connect(function()
 					frame3.Visible = false
 					frame4.Visible = false
 					back.Visible = false
+					opWrong = opWrong + 1
 					
 					label.Text="<2nd option line>"
 					label.Visible = true
@@ -1783,6 +1807,7 @@ susprmpt.Triggered:Connect(function()
 					frame3.Visible = false
 					frame4.Visible = false
 					back.Visible =false
+					opCorrect = opCorrect+1
 					
 					label.Text ="<3rd option line>"
 					label.Visible=true
@@ -1807,6 +1832,7 @@ susprmpt.Triggered:Connect(function()
 					frame3.Visible = false
 					frame4.Visible = false
 					back.Visible = false
+					opWrong = opWrong + 1
 					
 					label.Text="<4th option line>"
 					label.Visible =true
@@ -1882,6 +1908,7 @@ susprmpt.Triggered:Connect(function()
 					frame3.Visible =false
 					frame4.Visible = false
 					back.Visible =false
+					opWrong = opWrong+1
 					
 					label.Text="<1st option line>"
 					label.Visible = true
@@ -1906,6 +1933,7 @@ susprmpt.Triggered:Connect(function()
 					frame3.Visible =false
 					frame4.Visible =false
 					back.Visible =false
+					opWrong = opWrong+1
 					
 					label.Text="<2nd option>"
 					label.Visible = true
@@ -1930,6 +1958,7 @@ susprmpt.Triggered:Connect(function()
 					frame3.Visible =false
 					frame4.Visible = false
 					back.Visible =false
+					opWrong = opWrong + 1
 					
 					label.Text = "<3rd option line>"
 					label.Visible = true
@@ -1954,6 +1983,7 @@ susprmpt.Triggered:Connect(function()
 					frame3.Visible = false
 					frame4.Visible =false
 					back.Visible =false
+					opWrong = opWrong + 1
 					
 					label.Text="<4th option line>"
 					label.Visible = true
@@ -2026,9 +2056,10 @@ susprmpt.Triggered:Connect(function()
 					QFrame.Visible =false
 					frame1.Visible =false
 					frame2.Visible =false
-					frame3.Visible = false
+					frame3.Visible =false
 					frame4.Visible =false
 					back.Visible =false
+					opWrong = opWrong + 1
 					
 					label.Text = "<1st option lone>"
 					label.Visible= true
@@ -2053,6 +2084,7 @@ susprmpt.Triggered:Connect(function()
 					frame3.Visible =false
 					frame4.Visible =false
 					back.Visible =false
+					opWrong = opWrong+1
 					
 					label.Text = "<2nd option line>"
 					label.Visible =true
@@ -2077,6 +2109,7 @@ susprmpt.Triggered:Connect(function()
 					frame3.Visible =false
 					frame4.Visible = false
 					back.Visible =false
+					opWrong = opWrong+1
 					
 					label.Text = "<3rd option line>"
 					label.Visible=true
@@ -2101,6 +2134,7 @@ susprmpt.Triggered:Connect(function()
 					frame3.Visible =false
 					frame4.Visible=false
 					back.Visible =false
+					opWrong = opWrong+1
 					
 					label.Text="<4th option line>"
 					label.Visible=true
@@ -2176,6 +2210,7 @@ susprmpt.Triggered:Connect(function()
 					frame4.Visible =false
 					QFrame.Visible =false
 					back.Visible =false
+					opWrong = opWrong+1
 					
 					label.Text = "<1st option>"
 					label.Visible=true
@@ -2200,6 +2235,7 @@ susprmpt.Triggered:Connect(function()
 					frame4.Visible = false
 					QFrame.Visible =false
 					back.Visible =false
+					opWrong = opWrong+1
 					
 					label.Text ="<2nd optionline>"
 					label.Visible=true
@@ -2223,7 +2259,8 @@ susprmpt.Triggered:Connect(function()
 					frame3.Visible =false
 					frame4.Visible =false
 					QFrame.Visible =false
-	                back.Visible =false
+					back.Visible =false
+					opWrong = opWrong+1
 					
 					label.Text = "<3rd option line>"
 					label.Visible = true
@@ -2248,6 +2285,7 @@ susprmpt.Triggered:Connect(function()
 					frame3.Visible =false
 					frame4.Visible =false
 					back.Visible = false
+					opWrong = opWrong+1
 					
 					label.Text="<4th option line>"
 					label.Visible=true
