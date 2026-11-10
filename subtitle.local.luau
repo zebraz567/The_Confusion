@@ -7,6 +7,49 @@ local promt = workspace:WaitForChild("CafeStaff"):WaitForChild("HumanoidRootPart
 local seat = workspace:FindFirstChild("CafeSeat", true)
 local player = game.Players.LocalPlayer
 
+local pl0 = game.Players.LocalPlayer
+local ch0 = pl0.Character or pl0.CharecterAdded:Wait()
+local hum0 = ch0:WaitForChild("Humanoid")
+hum0.WalkSpeed = 0
+hum0.JumpPower = 0
+local Begin = player.PlayerGui:WaitForChild("BeginGui")
+local beginF = Begin:WaitForChild("BeginFrame")
+local beginLabel = beginF:WaitForChild("BeginLabel")
+local Obj = player.PlayerGui:WaitForChild("ObjectiveGui")
+local objF = Obj:WaitForChild("objF")
+local l1 = objF:WaitForChild("Line1")
+local l2 = objF:WaitForChild("Line2")
+local l3 = objF:WaitForChild("Line3")
+local l4 = objF:WaitForChild("Line4")
+
+Begin.Enabled = true
+beginF.Visible = true
+beginLabel.Text = [[
+                    Press <1> for EASY DIFFICULTY  
+                                 or  
+                    Press <2> for NORMAL DIFFICULTY       
+                  ]]
+
+local pr1 = false
+local diffi = 0
+while pr1 == false do
+	local inp1 = UserIS.InputBegan:Wait()
+	if inp1.KeyCode == Enum.KeyCode.One then
+		beginLabel.Text = "You chose EASY difficulty!"
+		diffi = 0
+		pr1 = true
+		Begin.Enabled= false
+		
+	elseif inp1.KeyCode == Enum.KeyCode.Two then
+		beginLabel.Text = "You chose NORMAL difficulty!"
+		diffi = 1
+		pr1 = true
+		Begin.Enabled = false
+	end
+end
+hum0.WalkSpeed = 16
+hum0.JumpPower = 40
+
 local c1 = workspace:WaitForChild("cus1"):WaitForChild("HumanoidRootPart"):WaitForChild("ProximityPrompt")
 local c2 = workspace:WaitForChild("cus2"):WaitForChild("HumanoidRootPart"):WaitForChild("ProximityPrompt")
 local c3 = workspace:WaitForChild("Cus3"):WaitForChild("HumanoidRootPart"):WaitForChild("ProximityPrompt")
@@ -25,6 +68,13 @@ local scenePly = false
 label.Visible = false
 nxt.Visible = false
 
+Obj.Enabled = true
+objF.Visible = true 
+
+l3.Visible = false
+l4.Visible = false
+l1.Text = " Talk to the staff "
+l2.Text = " at the counter "
 
 promt.Triggered:Connect(function()
 	promt.Enabled = false
@@ -51,6 +101,9 @@ promt.Triggered:Connect(function()
 		end
 	end
 	
+	l1.Text = " Sit on the seat "
+	l2.Text = " assigned to you "
+	
 	label.Visible = false
 	nxt.Visible = false
 	talk2Staff=true
@@ -64,6 +117,8 @@ seat:GetPropertyChangedSignal("Occupant"):Connect(function()
 	if seat.Occupant ~= nil and talk2Staff == true and scenePly ==false and seat.Occupant.Parent == player.Character then
 		scenePly = true
 		
+		l1.Text = " No Objective "
+		l2.Visible =false
 		
 		local hum = seat.Occupant
 		local oldSpd = hum.WalkSpeed
@@ -95,10 +150,14 @@ seat:GetPropertyChangedSignal("Occupant"):Connect(function()
 			end
 		end
 		
+		l1.Text = " Ask the seated customers "
+		l2.Text = " about your concert ticket "
+		l2.Visible = true
+		
 		label.Visible = false
 		nxt.Visible = false
 		hum.WalkSpeed= oldSpd
-		hum.JumpPower = oldjmp
+		hum.JumpPower = oldjmp 
 		hum.JumpHeight = oldJmpH
 		
 		c1.Enabled = true
@@ -746,6 +805,7 @@ susprmpt.Triggered:Connect(function()
 		local Colon_F= workspace.Colon:WaitForChild("ProximityPrompt")
 		local BJuice_F = workspace.Banana_Juice:WaitForChild("ProximityPrompt")
 		local Blanket_F = workspace.Blanket_F:WaitForChild("ProximityPrompt")
+		local EndPrompt = workspace.Police1.Torso:WaitForChild("EndPrompt")
 		
 		--This is for the show of the option screen!
 		local repSt=game:GetService("ReplicatedStorage")
@@ -765,6 +825,9 @@ susprmpt.Triggered:Connect(function()
 		local q= QFrame:WaitForChild("Qna")
 		local back = Options:WaitForChild("BackF")
 		local b = back:WaitForChild("back")
+		local Ending = playergui:WaitForChild("EndGui")
+		local EndFrame = Ending:WaitForChild("EndFrame")
+		local EndLabel = EndFrame:WaitForChild("EndLabel")
 		
 		local opCorrect = 0 
 		local opWrong = 0
@@ -778,9 +841,12 @@ susprmpt.Triggered:Connect(function()
 		chem.Enabled      =true
 		bodyEv.Enabled    =true
 		Poster.Enabled    =true
-		Colon_F.Enabled   =true
-		BJuice_F.Enabled  =true
-		Blanket_F.Enabled =true
+		if diffi == 0 then
+			Colon_F.Enabled   =true
+			BJuice_F.Enabled  =true
+			Blanket_F.Enabled =true
+		end
+		EndPrompt.Enabled = true
 		
 		local plr1 = game.Players.LocalPlayer
 		local ch1 = plr1.Character or plr1.CharecterAdded:Wait()
@@ -822,6 +888,7 @@ susprmpt.Triggered:Connect(function()
 				local inp = UserIS.InputBegan:Wait()
 				if inp.KeyCode == Enum.KeyCode.One then
 					polprmpt.Enabled = true
+					EndPrompt.Enabled = false
 					frame2.Visible=false
 					frame1.Visible=false
 					QFrame.Visible=false
@@ -1600,7 +1667,7 @@ susprmpt.Triggered:Connect(function()
 					label.Text = "<1st option line>"
 					label.Visible=true
 					nxt.Visible = true
-					press=true
+					press=false
 					while press == false do
 						local ipu = UserIS.InputBegan:Wait()
 						if ipu.KeyCode == Enum.KeyCode.F then
@@ -1724,7 +1791,7 @@ susprmpt.Triggered:Connect(function()
 			label.Text="Or...is it just my feeling..?"
 			
 			press = false
-			while press == press do
+			while press == false do
 				local input = UserIS.InputBegan:Wait()
 				if input.KeyCode == Enum.KeyCode.F then
 					press = true
@@ -2309,13 +2376,41 @@ susprmpt.Triggered:Connect(function()
 					frame3.Visible =false
 					frame4.Visible =false
 					QFrame.Visible =false
-					back.Visible =false
+					back.Visible =false 
 					hum1.WalkSpeed = 16
 					hum1.JumpPower = 40
 				end
 			end
 		
-		 end)
+		end)
+		
+		EndPrompt.Triggered:Connect(function()
+			EndPrompt.Enabled = false
+			Options.Enabled = false
+			EndGui.Enabled = true
+			
+			if opCorrect == 0 and opStry==0 and opWrong==0 then
+				EndLabel.Text = " You provided the police NO evidence which left them more confused and the culprit ESCAPED! "
+				EndFrame.Visible = true
+				
+			elseif opCorrect == 5 and opStry==2 and opWrong==0 then
+				EndLabel.Text = "You were perfect with your deductions...(continue)..."
+				EndFrame.Visible = true
+				
+			elseif opCorrect<=4 and opCorrect>2 and opStry==2 and opWrong>2 then
+				EndLabel.Text = "You were great with your deductions but you missed some important points to be noticed!"
+				EndFrame.Visible = true
+				
+			elseif opCorrect<=2 then
+				EndLabel.Text = "You tried but couldn't get the result you actually wanted!"
+				EndFrame.Visible = true
+			
+			elseif opWrong>0 and opCorrect ==0 and opStry ==0 then
+				EndLabel.Text = "You were completely wrong with your evidence resulting in the escape of the culprit! "
+				EndFrame.Visible = true
+			end
+			
+		end)
 		 
 	end)
 	
