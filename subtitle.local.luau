@@ -23,25 +23,17 @@ local l3 = objF:WaitForChild("Line3")
 local l4 = objF:WaitForChild("Line4")
 
 Begin.Enabled = true
-beginF.Visible = true
-beginLabel.Text = [[
-                    Press <1> for EASY DIFFICULTY  
-                                 or  
-                    Press <2> for NORMAL DIFFICULTY       
-                  ]]
 
 local pr1 = false
 local diffi = 0
 while pr1 == false do
 	local inp1 = UserIS.InputBegan:Wait()
 	if inp1.KeyCode == Enum.KeyCode.One then
-		beginLabel.Text = "You chose EASY difficulty!"
 		diffi = 0
 		pr1 = true
 		Begin.Enabled= false
 		
 	elseif inp1.KeyCode == Enum.KeyCode.Two then
-		beginLabel.Text = "You chose NORMAL difficulty!"
 		diffi = 1
 		pr1 = true
 		Begin.Enabled = false
@@ -190,6 +182,8 @@ c1.Triggered:Connect(function()
 	
 	if cusdone==4 then
 		susprmpt.Enabled =true
+		l1.Text = " Talk to the woman "
+		l2.Text = " near the call booth "
 	end
 end)
 
@@ -215,6 +209,8 @@ c2.Triggered:Connect(function()
 	
 	if cusdone==4 then
 		susprmpt.Enabled =true
+		l1.Text = " Talk to the woman "
+		l2.Text = " near the call booth "
 	end
 end)
 
@@ -240,6 +236,8 @@ c3.Triggered:Connect(function()
 	
 	if cusdone == 4 then
 		susprmpt.Enabled = true
+		l1.Text = " Talk to the woman "
+		l2.Text = " near the call booth "
 	end
 end)
 
@@ -265,11 +263,10 @@ c4.Triggered:Connect(function()
 	
 	if cusdone == 4 then 
 		susprmpt.Enabled = true
+		l1.Text = " Talk to the woman "
+		l2.Text = " near the call booth "
 	end
 end)
-
-l1.Text = " Talk to the woman "
-l2.Text = " near the call booth "
 
 susprmpt.Triggered:Connect(function()
 	susprmpt.Enabled = false
@@ -309,6 +306,7 @@ susprmpt.Triggered:Connect(function()
 	hum.JumpHeight = 0
 	
 	scenegui.Enabled = true
+	objF.Visible = false
 	
 	press = false
 	while press == false do 
@@ -324,8 +322,10 @@ susprmpt.Triggered:Connect(function()
 	local sherry = workspace:FindFirstChild("Sherry")
 
 	scenegui.Enabled=false
+	objF.Visible = true
 	
-	
+	l1.Text = " Talk with her while "
+	l2.Text = " driving the car "
 	
 	char:PivotTo(driveseat.CFrame*CFrame.new(0,2,0))
 	driveseat:Sit(hum)
@@ -373,6 +373,7 @@ susprmpt.Triggered:Connect(function()
 	local sceneTitle=scenegui.BlackFrame.SceneTitle
 	sceneTitle.Text="SCENE 3"
 	scenegui.Enabled = true
+	objF.Visible = true
 	
 	press = false
 	while press== false do
@@ -414,7 +415,6 @@ susprmpt.Triggered:Connect(function()
 	local f = workspace.police2.Head:WaitForChild("Decal")
 	f.Transparency=1;
 	
-	
 	hum.Sit = false
 	task.wait()
 	
@@ -423,9 +423,13 @@ susprmpt.Triggered:Connect(function()
 	houseSt.Disabled=true
 	char:PivotTo(housespwn.CFrame*CFrame.new(0,3,0))
 	scenegui.Enabled = false
+	objF.Visible = true
 	hum.WalkSpeed = oldSpd
 	hum.JumpPower = oldjmp
 	hum.JumpHeight = oldJmpH
+	
+	l1.Text= " Do as directed by Sherry "
+	l2.Visible = false
 	
 	local sherryHouse= workspace:FindFirstChild("SherryHouseRig",true)
 	local houseprompt = sherryHouse:WaitForChild("HumanoidRootPart"):WaitForChild("ProximityPrompt")
@@ -473,6 +477,8 @@ susprmpt.Triggered:Connect(function()
 		label.Visible = false
 		nxt.Visible = false
 		
+		l1.Text = "Follow Sherry"
+		
 		local walkTrgt = workspace:FindFirstChild("SherryWalkTarget", true)
 		local sherryhum = sherryHouse:WaitForChild("Humanoid")
 		local rootPart = sherryHouse:WaitForChild("HumanoidRootPart")
@@ -506,6 +512,7 @@ susprmpt.Triggered:Connect(function()
 		end
 		label.Visible = false
 		nxt.Visible=false
+		l1.Text = " Take a seat "
 		
 		local hstscene = false
 		houseSt.Disabled = false
@@ -577,6 +584,8 @@ susprmpt.Triggered:Connect(function()
 				end
 				label.Text = "Sherry:(shouts) <Sherry shouting out>"
 				
+				l1.Text = " Find out why Sherry shouted "
+				
 				press = false
 				while press == false do
 					local input = UserIS.InputBegan:Wait()
@@ -600,9 +609,13 @@ susprmpt.Triggered:Connect(function()
 				if hit.Parent == player.Character and talk == false then
 					talk=true
 					
-					label.Text= "<Shery asks for hepl>"
+					label.Text= "<Shery asks for help>"
 					label.Visible = true
 					nxt.Visible = true
+					
+					l1.Text = " Help Sherry to "
+					l2.Text = " open the door "
+					l2.Visible = true
 					
 					press = false
 					while press == false do
@@ -628,17 +641,20 @@ susprmpt.Triggered:Connect(function()
 	bodyPrompt.Triggered:Connect(function()
 		bodyPrompt.Enabled= false
 		
+		l1.Text = " Check if the "
+		l2.Text = " is alive "
+		
 		--[[ **commented this part as it is of no use now but can be useful afterwads**
 		local cheryhum = workspace.CherryMainDED:WaitForChild("Humanoid")
 		local anmt = cheryhum:WaitForChild("Animator")
 		local anima = Instance.new("Animation")
 		anima.AnimationId = "rbxassetid://124865660803880"
-		local a = anmt:LoadAnimation(anima)]]
+		local a = anmt:LoadAnimation(anima)
 		
 		local leftarm = workspace:WaitForChild("Left Arm")
 		local pivt = workspace:WaitForChild("Armpivot") 
 		leftarm.PivotOffset = pivt.CFrame:Inverse()*leftarm.CFrame
-		leftarm.CFrame  = leftarm.CFrame*CFrame.Angles(math.rad(70),0,0)
+		leftarm.CFrame  = leftarm.CFrame*CFrame.Angles(math.rad(70),0,0) ]]
 
 		label.Text="<Checks if alive>"
 		label.Visible =true
@@ -651,7 +667,7 @@ susprmpt.Triggered:Connect(function()
 				press = true
 			end
 		end
-		leftarm.CFrame = leftarm.CFrame*CFrame.Angles(math.rad(-70),0,0)
+		
 		label.Text = "<Me: She's dead , call the police!>"
 
 		press = false
@@ -724,6 +740,8 @@ susprmpt.Triggered:Connect(function()
 		f.Transparency=0;
 		
 		scenegui.Enabled = false
+		l1.Text = " Talk to the police "
+		l2.Visible = false
 		
 		label.Text = "<Police: After observing all the incident ... this case seems like a su*c*de>"
 		label.Visible =true
@@ -753,7 +771,7 @@ susprmpt.Triggered:Connect(function()
 			end
 		end
 		
-		label.Text= "<Me: Ok ...but... I think there's something more >"
+		label.Text= "<To myself : I think there's something more! >"
 		press= false
 		while press == false do
 			local input=UserIS.InputBegan:Wait()
@@ -765,6 +783,13 @@ susprmpt.Triggered:Connect(function()
 		label.Visible = false
 		nxt.Visible = false 
 		
+		l1.Text = "- Investigate the house "
+		l2.Text = "- Find Evidences "
+		l3.Text = "- End this by reporting "
+		l4.Text = "  to Police"
+		l2.Visible = true
+		l3.Visible = true
+		l4.Visible = true
 		
 		local pol1hum = workspace.Police1:WaitForChild("Humanoid")
 		local animtr = pol1hum:WaitForChild("Animator")
@@ -863,7 +888,7 @@ susprmpt.Triggered:Connect(function()
 			hum1.WalkSpeed = 0
 			hum1.JumpPower =0
 			
-			label.Text = "<A peice of paper.. can be a evidence ... should I tell police about this ?>"
+			label.Text = "A peice of paper.. can be a evidence ... should I tell police about this ?"
 			label.Visible=true
 			nxt.Visible =true
             
@@ -977,30 +1002,22 @@ susprmpt.Triggered:Connect(function()
 					press = true
 				end
 			end
-			label.Text= "<Me: A person who suicide would never cut their hands in such aggresive manner...>"
-
-			press = false
-			while press == false do
-				local input = UserIS.InputBegan:Wait()
-				if input.KeyCode == Enum.KeyCode.F then
-					press = true
-				end
-			end
+			
 			label.Visible = false
 			nxt.Visible = false
 			
 			Options.Enabled = true
 			back.Visible =true
 			frame1.Visible = true
-			op1.Text = "BodyEv 1st line"
+			op1.Text = "Nobody would cut their hand so agressively"
 			frame2.Visible = true
-			op2.Text = "BodyEv 2nd line"
+			op2.Text = "I just overthinking"
 			frame3.Visible = true
-			op3.Text = "Bodyev 3rd line "
+			op3.Text = "She wasnt in proper mental state, thats why the cuts are agressive"
 			frame4.Visible = true
-			op4.Text = "BodyEv 4th line"
+			op4.Text = "Its normal for a person who suicide with a cut"
 			QFrame.Visible = true
-			q.Text = "BodyEv question?"
+			q.Text = "Is the cut normal?"
 			
 			press = false
 			while press == false do
@@ -1015,7 +1032,7 @@ susprmpt.Triggered:Connect(function()
 					back.Visible =false
 					opCorrect = opCorrect + 1
 					
-					label.Text = "<1st option line!>"
+					label.Text = "A person human who suicide would never cut their own hand like that"
 					label.Visible = true
 					nxt.Visible = true
 					press = false
@@ -1023,6 +1040,23 @@ susprmpt.Triggered:Connect(function()
 						local ipu = UserIS.InputBegan:Wait()
 						if ipu.KeyCode == Enum.KeyCode.F then
 							press =true
+						end
+					end
+					label.Text = "The person would be scared to cut their won hand like this"
+					press = false
+					while press == false do
+						local ipu= UserIS.InputBegan:Wait()
+						if ipu.KeyCode == Enum.KeyCode.F then
+							press = true
+						end
+					end
+					label.Text = "...Even if they are about to commit suicide"
+					
+					press = false
+					while press == false do
+						local ipu = UserIS.InputBegan:Wait()
+						if ipu.KeyCode == Enum.KeyCode.F then
+							press = true
 						end
 					end
 					label.Visible = false
@@ -1040,7 +1074,7 @@ susprmpt.Triggered:Connect(function()
 					back.Visible =false
 					opWrong = opWrong +1
 					
-					label.Text ="<2nd option line!>"
+					label.Text ="I am just out of my mind sometimes"
 					label.Visible = true
 					nxt.Visible =true
 					press = false
@@ -1065,7 +1099,7 @@ susprmpt.Triggered:Connect(function()
 					back.Visible =false
 					opWrong = opWrong+1
 					
-					label.Text = "<3rd option line>"
+					label.Text = "Her bad mental state is surely the reason!"
 					label.Visible = true
 					nxt.Visible =true
 					press = false
@@ -1090,9 +1124,17 @@ susprmpt.Triggered:Connect(function()
 					back.Visible =false
 					opWrong = opWrong +1
 					
-					label.Text = "<4th option line>"
+					label.Text = "This is not a topic i should care about much"
 					label.Visible =true
 					nxt.Visible = true
+					press = false
+					while press == false do
+						local ipu = UserIS.InputBegan:Wait()
+						if ipu.KeyCode == Enum.KeyCode.F then
+							press = true
+						end
+					end
+					label.Text = "There are bigger fish to fry"
 					press = false
 					while press == false do
 						local ipu = UserIS.InputBegan:Wait()
@@ -1127,7 +1169,7 @@ susprmpt.Triggered:Connect(function()
 			hum1.WalkSpeed = 0
 			hum1.JumpPower =0
 			
-			label.Text = "<Me:This door was locked from inside...>"
+			label.Text = "This door was locked from inside..."
 			label.Visible = true
 			nxt.Visible = true
 
@@ -1139,7 +1181,7 @@ susprmpt.Triggered:Connect(function()
 				end
 			end
 
-			label.Text = "<Me: Then after we forced the door.. the lock should have broke??>"
+			label.Text = "Then after we forced the door.. the lock should have broke??"
 
 			press = false
 			while press == false do
@@ -1154,15 +1196,15 @@ susprmpt.Triggered:Connect(function()
 			Options.Enabled = true
 			back.Visible =true
 			QFrame.Visible = true
-			q.Text="doorhandle quetion?"
+			q.Text="Why didn't the lock break?"
 			frame1.Visible = true
-			op1.Text = "lockc 1st option"
+			op1.Text = "Because the lock was never actually locked from inside!"
 			frame2.Visible= true
-			op2.Text = "lockc 2nd option"
+			op2.Text = "Because it was a remote controlled lock that Sherry could control from anywhere"
 			frame3.Visible = true
-			op3.Text = "lockc 3rd option"
+			op3.Text = "Because the lock is made of nickel and zinc alloy"
 			frame4.Visible = true
-			op4.Text = "lockc 4th option"
+			op4.Text = "Because the lock was turboflex"
 			
 			
 			press = false
@@ -1178,7 +1220,7 @@ susprmpt.Triggered:Connect(function()
 					back.Visible =false
 					opCorrect = opCorrect+1
 					
-					label.Text = "<1st option line>"
+					label.Text = "Wait...the lock was never actually locked from inside!"
 					label.Visible=true
 					nxt.Visible= true
 					press=false
@@ -1188,6 +1230,39 @@ susprmpt.Triggered:Connect(function()
 							press = true
 						end
 					end
+					label.Text = "It was Sherry from the beggining who was acting that door was locked"
+					press = false
+					while press==false do
+						local ipu = UserIS.InputBegan:Wait()
+						if ipu.KeyCode == Enum.KeyCode.F then
+							press = true
+						end
+					end
+					label.Text ="Sherry locked the door when we were pushing it open"
+					press = false
+					while press == false do
+						local ipu = UserIS.InputBegan:Wait()
+						if ipu.KeyCode == Enum.KeyCode.F then
+							press = true
+						end
+					end
+					label.Text ="and at a sudden she opened the lock "
+					press = false
+					while press == false do
+						local ipu = UserIS.InputBegan:Wait()
+						if ipu.KeyCode == Enum.KeyCode.F then
+							press = true
+						end
+					end
+					label.Text ="giving a illusion that we broke through the lock!"
+					press = false
+					while press == false do
+						local ipu = UserIS.InputBegan:Wait()
+						if ipu.KeyCode == Enum.KeyCode.F then
+							press = true
+						end
+					end
+					
 					label.Visible =false
 					nxt.Visible =false
 					hum1.WalkSpeed = 16
@@ -1203,7 +1278,7 @@ susprmpt.Triggered:Connect(function()
 					back.Visible =false
 					opWrong = opWrong+1
 					
-					label.Text = "<2nd option line>"
+					label.Text = "It was controlled by Sherry with a remote!"
 					label.Visible = true
 					nxt.Visible = true
 					press=false
@@ -1228,7 +1303,7 @@ susprmpt.Triggered:Connect(function()
 					back.Visible =false
 					opWrong = opWrong + 1
 					
-					label.Text = "<3rd option line>"
+					label.Text = "Nickel and zinc alloy is nearly unbreakable and unscratchable"
 					label.Visible= true
 					nxt.Visible = true
 					press=false
@@ -1253,7 +1328,7 @@ susprmpt.Triggered:Connect(function()
 					back.Visible =false
 					opWrong = opWrong + 1
 					
-					label.Text = "<4th option line>"
+					label.Text = "I am so dumb ...the lock was turboflex.."
 					label.Visible = true
 					nxt.Visible = true
 					press= false
@@ -1342,15 +1417,15 @@ susprmpt.Triggered:Connect(function()
 			Options.Enabled = true
 			back.Visible =true
 			frame1.Visible = true
-			op1.Text = "Tape 1st option"
+			op1.Text = "This is not a tape at all"
 			frame2.Visible = true
-			op2.Text = "Tape 2nd option"
+			op2.Text = "This can be here from several days!"
 			frame3.Visible = true
-			op3.Text = "Tape 3rd option"
+			op3.Text = "They were just packing stuff"
 			frame4.Visible = true
-			op4.Text = "Tape 4th option"
+			op4.Text = "This is the exact tape on the bathroom door!"
 			QFrame.Visible = true
-			q.Text = "Tape Question?"
+			q.Text = "What is this tape doing here?"
 			
 			press=false
 			while press == false do
@@ -1365,7 +1440,7 @@ susprmpt.Triggered:Connect(function()
 					back.Visible =false
 					opWrong = opWrong+1
 					
-					label.Text ="<1st option lne>"
+					label.Text ="Why am i wasting my time!"
 					label.Visible=true
 					nxt.Visible = true
 					press = true
@@ -1390,7 +1465,7 @@ susprmpt.Triggered:Connect(function()
 					back.Visible =false
 					opWrong = opWrong+1
 					
-					label.Text = "<2nd option line>"
+					label.Text = "Why am wasting time here!"
 					label.Visible = true
 					nxt.Visible =true
 					press = true
@@ -1415,7 +1490,7 @@ susprmpt.Triggered:Connect(function()
 					back.Visible =false
 					opWrong = opWrong+1
 					
-					label.Text="<3rd option line"
+					label.Text= "This might be the tape they were using to pack stuff"
 					label.Visible = true
 					nxt.Visible =true
 					press =true
@@ -1431,16 +1506,8 @@ susprmpt.Triggered:Connect(function()
 					hum1.JumpPower = 40
 					
 				elseif inp.KeyCode == Enum.KeyCode.Four then
-					Options.Enabled = false
-					frame1.Visible = false
-					frame2.Visible = false
-					frame3.Visible = false
-					frame4.Visible = false
-					QFrame.Visible = false
-					back.Visible =false
-					opCorrect = opCorrect + 1
 					
-					label.Text ="<4th  option line>"
+					label.Text ="Even if so , why is it here?"
 					label.Visible = true
 					nxt.Visible = true
 					press=true
@@ -1452,6 +1519,130 @@ susprmpt.Triggered:Connect(function()
 					end
 					label.Visible = false
 					nxt.Visible = false
+					
+					q.Text= "How did the tape come here?"
+					op3.Text= "This is why the tape didn't had fingerprints of Sherry"
+					op1.Text ="The is why the tape did't had fingerprints of Cherry"
+					op2.Text ="The tape was probably an extra peice left out"
+					op4.Text = "Cherry was probablly checking the strength of the tape!"
+					
+					press = false 
+					while press == false do
+						local inp1 = UserIS.InputBegan:Wait()
+						if inp1.KeyCode == Enum.KeyCode.One then
+							Options.Enabled = false
+							frame1.Visible = false
+							frame2.Visible = false
+							frame3.Visible = false
+							frame4.Visible = false
+							QFrame.Visible = false
+							back.Visible =false
+							opWrong = opWrong+1
+							label.Text="The tape didn't had fingerprint of Cherry cuase Sherry used it!"
+							label.Visible = true
+							nxt.Visible = true
+							press = true
+							while press == false do
+								local inpp = UserIS.InputBegan:Wait()
+								if inpp.KeyCode == Enum.KeyCode.F then
+									press =true
+								end
+							end
+							label.Visible = false
+							nxt.Visible = false
+							
+						elseif inp1.KeyCode == Enum.KeyCode.Two then
+							Options.Enabled = false
+							frame1.Visible = false
+							frame2.Visible = false
+							frame3.Visible = false
+							frame4.Visible = false
+							QFrame.Visible = false
+							back.Visible =false
+							opWrong = opWrong+1
+							label.Text="The tape was just a left out peice!"
+							label.Visible = true
+							nxt.Visible = true
+							press = true
+							while press == false do
+								local inpp = UserIS.InputBegan:Wait()
+								if inpp.KeyCode == Enum.KeyCode.F then
+									press =true
+								end
+							end
+							label.Visible = false
+							nxt.Visible = false
+							
+						elseif inp1.KeyCode == Enum.KeyCode.Three then
+							Options.Enabled = false
+							frame1.Visible = false
+							frame2.Visible = false
+							frame3.Visible = false
+							frame4.Visible = false
+							QFrame.Visible = false
+							back.Visible =false
+							opCorrect = opCorrect+1
+							label.Text="The tape didn't had fingerprint of Sherry cuase Cherry used it!"
+							label.Visible = true
+							nxt.Visible = true
+							press = true
+							while press == false do
+								local inpp = UserIS.InputBegan:Wait()
+								if inpp.KeyCode == Enum.KeyCode.F then
+									press =true
+								end
+							end
+							label.Text = "They were packing and Cherry was probablly using the tape to pack"
+							press = true
+							while press == false do
+								local inpp = UserIS.InputBegan:Wait()
+								if inpp.KeyCode == Enum.KeyCode.F then
+									press =true
+								end
+							end
+							label.Text ="And then Sherry used those tape to stick it to the inside of the door"
+							press = true
+							while press == false do
+								local inpp = UserIS.InputBegan:Wait()
+								if inpp.KeyCode == Enum.KeyCode.F then
+									press =true
+								end
+							end
+							label.Text = "Which removed the suspision from Sherry as the tape had Cherry's fingerprint!"
+							press = true
+							while press == false do
+								local inpp = UserIS.InputBegan:Wait()
+								if inpp.KeyCode == Enum.KeyCode.F then
+									press =true
+								end
+							end
+							label.Visible = false
+							nxt.Visible = false
+							
+						elseif inp1.KeyCode == Enum.KeyCode.Four then
+							Options.Enabled = false
+							frame1.Visible = false
+							frame2.Visible = false
+							frame3.Visible = false
+							frame4.Visible = false
+							QFrame.Visible = false
+							back.Visible =false
+							opWrong = opWrong+1
+							label.Text="Cherry was probally checking the reliability of the tape to tape shut the door"
+							label.Visible = true
+							nxt.Visible = true
+							press = true
+							while press == false do
+								local inpp = UserIS.InputBegan:Wait()
+								if inpp.KeyCode == Enum.KeyCode.F then
+									press =true
+								end
+							end
+							label.Visible = false
+							nxt.Visible = false	
+						end
+					end
+					
 					hum1.WalkSpeed = 16
 					hum1.JumpPower = 40
 					
@@ -1477,7 +1668,7 @@ susprmpt.Triggered:Connect(function()
 			hum1.WalkSpeed = 0
 			hum1.JumpPower = 0
 
-			label.Text = "ME(thought): A BLOOD SPOT?"
+			label.Text = "(thought) A BLOOD SPOT?"
 			label.Visible = true
 			nxt.Visible = true
 
@@ -1497,13 +1688,13 @@ susprmpt.Triggered:Connect(function()
 			QFrame.Visible = true
 			q.Text = "Bspot Question?"
 			frame1.Visible = true
-			op1.Text = "Bspot 1st otpion"
+			op1.Text = "Cherry might touched the door after hurting herself"
 			frame2.Visible = true
-			op2.Text = "Bspot 2nd option"
+			op2.Text = "It must be the main culprit's fingerprint"
 			frame3.Visible = true
-			op3.Text = "Bspot 3rd option"
+			op3.Text = "Its just tomato sauce"
 			frame4.Visible = true
-			op4.Text = "Bspot 4th option"
+			op4.Text = "Someone might've spatted a mosquito there"
 			
 			press=false
 			while press==false do
@@ -1518,7 +1709,7 @@ susprmpt.Triggered:Connect(function()
 					back.Visible =false
 					opWrong = opWrong + 1
 					
-					label.Text="<1st option line>"
+					label.Text="Cherry might have checked if someone was out after cutting her hand"
 					label.Visible=true
 					nxt.Visible = true
 					press = true
@@ -1543,7 +1734,7 @@ susprmpt.Triggered:Connect(function()
 					back.Visible =false
 					opCorrect = opCorrect + 1
 					
-					label.Text = "<2nd option line>"
+					label.Text = "It must be the culprit who checked the door after killing Sherry"
 					label.Visible = true
 					nxt.Visible=true
 					
@@ -1569,7 +1760,7 @@ susprmpt.Triggered:Connect(function()
 					back.Visible =false
 					opWrong = opWrong + 1
 					
-					label.Text="<3rd option line>"
+					label.Text="They might've touched the door after eating something with tomato sauce"
 					label.Visible = true
 					nxt.Visible = true
 					press=true
@@ -1594,7 +1785,7 @@ susprmpt.Triggered:Connect(function()
 					back.Visible =false
 					opWrong = opWrong + 1
 					
-					label.Text ="<4rd option line>"
+					label.Text ="Eww...a mosquito getting yanked here !!"
 					label.Visible =true
 					nxt.Visible = true
 					press = true
@@ -1808,7 +1999,7 @@ susprmpt.Triggered:Connect(function()
 			
 			Options.Enabled = true
 			q.Text="Poster Question?"
-			Qframe.Visible = true
+			QFrame.Visible = true
 			op1.Text = "Poster option 1"
 			frame1.Visible = true
 			op2.Text = "Poster option 2"
@@ -1998,7 +2189,7 @@ susprmpt.Triggered:Connect(function()
 					hum1.WalkSpeed = 16
 					hum1.JumpPower = 40
 					
-				elseif inp.KeyCode ==Enum.KeyCode.F then
+				elseif inp.KeyCode ==Enum.KeyCode.Two then
 					Options.Enabled = false
 					QFrame.Visible = false
 					frame1.Visible =false
@@ -2391,9 +2582,10 @@ susprmpt.Triggered:Connect(function()
 		end)
 		
 		EndPrompt.Triggered:Connect(function()
+			objF.Visible = false
 			EndPrompt.Enabled = false
 			Options.Enabled = false
-			EndGui.Enabled = true
+			Ending.Enabled = true
 			
 			if opCorrect == 0 and opStry==0 and opWrong==0 then
 				EndLabel.Text = " You provided the police NO evidence which left them more confused and the culprit ESCAPED! "
