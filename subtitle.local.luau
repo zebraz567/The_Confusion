@@ -268,6 +268,9 @@ c4.Triggered:Connect(function()
 	end
 end)
 
+l1.Text = " Talk to the woman "
+l2.Text = " near the call booth "
+
 susprmpt.Triggered:Connect(function()
 	susprmpt.Enabled = false
 	
@@ -321,9 +324,9 @@ susprmpt.Triggered:Connect(function()
 	local sherry = workspace:FindFirstChild("Sherry")
 
 	scenegui.Enabled=false
-	hum.WalkSpeed = oldSpd
-	hum.JumpPower = oldjmp
-	hum.JumpHeight = oldJmpH
+	
+	
+	
 	char:PivotTo(driveseat.CFrame*CFrame.new(0,2,0))
 	driveseat:Sit(hum)
 
@@ -420,6 +423,9 @@ susprmpt.Triggered:Connect(function()
 	houseSt.Disabled=true
 	char:PivotTo(housespwn.CFrame*CFrame.new(0,3,0))
 	scenegui.Enabled = false
+	hum.WalkSpeed = oldSpd
+	hum.JumpPower = oldjmp
+	hum.JumpHeight = oldJmpH
 	
 	local sherryHouse= workspace:FindFirstChild("SherryHouseRig",true)
 	local houseprompt = sherryHouse:WaitForChild("HumanoidRootPart"):WaitForChild("ProximityPrompt")
