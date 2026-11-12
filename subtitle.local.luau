@@ -908,10 +908,10 @@ susprmpt.Triggered:Connect(function()
 			Options.Enabled=true
 			q.Text = "Do you want to tell the police ?"
 			QFrame.Visible =true
-			op1.Text = "1. Yes"
-			op2.Text = "2. No"
-			frame2.Visible = true
-			frame1.Visible =true
+			op3.Text = "1. Yes"
+			op4.Text = "2. No"
+			frame3.Visible = true
+			frame4.Visible =true
 			back.Visible = true
 			
 			press =false
@@ -920,8 +920,8 @@ susprmpt.Triggered:Connect(function()
 				if inp.KeyCode == Enum.KeyCode.One then
 					polprmpt.Enabled = true
 					EndPrompt.Enabled = false
-					frame2.Visible=false
-					frame1.Visible=false
+					frame3.Visible=false
+					frame4.Visible=false
 					QFrame.Visible=false
 					Options.Enabled =false
 					back.Visible =false
@@ -948,8 +948,8 @@ susprmpt.Triggered:Connect(function()
 				
 				elseif inp.KeyCode == Enum.KeyCode.Two then
 					
-					frame1.Visible =false
-					frame2.Visible = false
+					frame3.Visible =false
+					frame4.Visible = false
 					QFrame.Visible=false
 					Options.Enabled=false
 					back.Visible=false
@@ -972,8 +972,8 @@ susprmpt.Triggered:Connect(function()
 					hum1.JumpPower = 40
 					
 				elseif inp.KeyCode == Enum.KeyCode.Five then
-					frame1.Visible = false
-					frame2.Visible =false
+					frame3.Visible = false
+					frame4.Visible =false
 					QFrame.Visible = false
 					back.Visible = false
 					Options.Enabled = false
@@ -1009,13 +1009,13 @@ susprmpt.Triggered:Connect(function()
 			Options.Enabled = true
 			back.Visible =true
 			frame1.Visible = true
-			op1.Text = "Nobody would cut their hand so agressively"
+			op1.Text = "1.Nobody would cut their hand so agressively"
 			frame2.Visible = true
-			op2.Text = "I just overthinking"
+			op2.Text = "2.I just overthinking"
 			frame3.Visible = true
-			op3.Text = "She wasnt in proper mental state, thats why the cuts are agressive"
+			op3.Text = "3.She wasnt in proper mental state, thats why the cuts are agressive"
 			frame4.Visible = true
-			op4.Text = "Its normal for a person who suicide with a cut"
+			op4.Text = "4.Its normal for a person who suicide with a cut"
 			QFrame.Visible = true
 			q.Text = "Is the cut normal?"
 			
@@ -1198,13 +1198,13 @@ susprmpt.Triggered:Connect(function()
 			QFrame.Visible = true
 			q.Text="Why didn't the lock break?"
 			frame1.Visible = true
-			op1.Text = "Because the lock was never actually locked from inside!"
+			op1.Text = "1.Because the lock was never actually locked from inside!"
 			frame2.Visible= true
-			op2.Text = "Because it was a remote controlled lock that Sherry could control from anywhere"
+			op2.Text = "2.Because it was a remote controlled lock that Sherry could control from anywhere"
 			frame3.Visible = true
-			op3.Text = "Because the lock is made of nickel and zinc alloy"
+			op3.Text = "3.Because the lock is made of nickel and zinc alloy"
 			frame4.Visible = true
-			op4.Text = "Because the lock was turboflex"
+			op4.Text = "4.Because the lock was turboflex"
 			
 			
 			press = false
@@ -1365,7 +1365,7 @@ susprmpt.Triggered:Connect(function()
 			hum1.WalkSpeed = 0
 			hum1.JumpPower =0
 
-			label.Text = "ME: They probablly started packing stuff ..."
+			label.Text = "They probablly started packing stuff ..."
 			label.Visible = true
 			nxt.Visible = true
 
@@ -1377,7 +1377,7 @@ susprmpt.Triggered:Connect(function()
 				end
 			end
 
-			label.Text ="ME: ...probablly to shift to the different house Sherry was mentioning before!"
+			label.Text ="...probablly to shift to the different house Sherry was mentioning before!"
 
 			press=false
 			while press == false do
@@ -1417,13 +1417,13 @@ susprmpt.Triggered:Connect(function()
 			Options.Enabled = true
 			back.Visible =true
 			frame1.Visible = true
-			op1.Text = "This is not a tape at all"
+			op1.Text = "1.This is not a tape at all"
 			frame2.Visible = true
-			op2.Text = "This can be here from several days!"
+			op2.Text = "2.This can be here from several days!"
 			frame3.Visible = true
-			op3.Text = "They were just packing stuff"
+			op3.Text = "3.They were just packing stuff"
 			frame4.Visible = true
-			op4.Text = "This is the exact tape on the bathroom door!"
+			op4.Text = "4.This is the exact tape on the bathroom door!"
 			QFrame.Visible = true
 			q.Text = "What is this tape doing here?"
 			
@@ -1521,10 +1521,10 @@ susprmpt.Triggered:Connect(function()
 					nxt.Visible = false
 					
 					q.Text= "How did the tape come here?"
-					op3.Text= "This is why the tape didn't had fingerprints of Sherry"
-					op1.Text ="The is why the tape did't had fingerprints of Cherry"
-					op2.Text ="The tape was probably an extra peice left out"
-					op4.Text = "Cherry was probablly checking the strength of the tape!"
+					op3.Text= "3.This is why the tape didn't had fingerprints of Sherry"
+					op1.Text ="1.The is why the tape did't had fingerprints of Cherry"
+					op2.Text ="2.The tape was probably an extra peice left out"
+					op4.Text = "4.Cherry was probablly checking the strength of the tape!"
 					
 					press = false 
 					while press == false do
@@ -1686,15 +1686,15 @@ susprmpt.Triggered:Connect(function()
 			Options.Enabled = true
 			back.Visible =true
 			QFrame.Visible = true
-			q.Text = "Bspot Question?"
+			q.Text = "Why there a blood spot?"
 			frame1.Visible = true
-			op1.Text = "Cherry might touched the door after hurting herself"
+			op1.Text = "1.Cherry might touched the door after hurting herself"
 			frame2.Visible = true
-			op2.Text = "It must be the main culprit's fingerprint"
+			op2.Text = "2.It must be the main culprit's fingerprint"
 			frame3.Visible = true
-			op3.Text = "Its just tomato sauce"
+			op3.Text = "3.Its just tomato sauce"
 			frame4.Visible = true
-			op4.Text = "Someone might've spatted a mosquito there"
+			op4.Text = "4.Someone might've spatted a mosquito there"
 			
 			press=false
 			while press==false do
@@ -1821,7 +1821,7 @@ susprmpt.Triggered:Connect(function()
 			hum1.WalkSpeed = 0
 			hum1.JumpPower = 0
 
-			label.Text = "ME: Why is this detergent and shampoo mixed up?"
+			label.Text = "Why is this detergent and shampoo mixed up?"
 			label.Visible = true
 			nxt.Visible = true
 
@@ -1837,15 +1837,15 @@ susprmpt.Triggered:Connect(function()
 			
 			back.Visible = true
 			Options.Enabled = true
-			q.Text = "Chem question ?"
+			q.Text = "Why are these mixed up?"
 			QFrame.Visible = true
-			op1.Text = "Chem option 1"
+			op1.Text = "1.Cherry wasn't in proper state of mind!"
 			frame1.Visible  = true
-			op2.Text = "Chem option 2"
+			op2.Text = "2.Must have been the wind!"
 			frame2.Visible = true
-			op3.Text = "Chem option 3"
+			op3.Text = "3.Wait is this fluoride toothpaste and acidic detergent!"
 			frame3.Visible = true
-			op4.Text = "Chem option 4"
+			op4.Text = "4.Wait is this chlorine bleach and acidic detergent!"
 			frame4.Visible = true
 			
 			press = false
@@ -1861,13 +1861,21 @@ susprmpt.Triggered:Connect(function()
 					back.Visible = false
 					opWrong = opWrong+1
 					
-					label.Text = "<1st option line>"
+					label.Text = "Cherry was already out of mind"
 					label.Visible=true
 					nxt.Visible = true
 					press=false
 					while press == false do
 						local ipu = UserIS.InputBegan:Wait()
 						if ipu.KeyCode == Enum.KeyCode.F then
+							press = true
+						end
+					end
+					label.Text ="She might have gone really mad !"
+					press = false
+					while press == false do
+						local ipu = UserIS.InputBegan:Wait()
+						if ipu.KeyCode == Enum.KeyCode.F then 
 							press = true
 						end
 					end
@@ -1886,7 +1894,7 @@ susprmpt.Triggered:Connect(function()
 					back.Visible =false
 					opWrong= opWrong+1
 					
-					label.Text="<2nd option line>"
+					label.Text="This must have been the wind!"
 					label.Visible = true
 					nxt.Visible = true
 					press=false
@@ -1911,13 +1919,29 @@ susprmpt.Triggered:Connect(function()
 					back.Visible =false
 					opWrong = opWrong+1
 					
-					label.Text = "3rd option"
+					label.Text = "This must have been fluoride toothpaste and acidic detergent!"
 					label.Visible = true
 					nxt.Visible= true
 					press = false
 					while press == false do
 						local ipu =UserIS.InputBegan:Wait()
-						if ipu == Enum.KeyCode.F then
+						if ipu.KeyCode == Enum.KeyCode.F then
+							press = true
+						end
+					end
+					label.Text = "They can cause cause harmful chemical reacti.."
+					press = false
+					while press == false do
+						local ipu = UserIS.InputBegan:Wait()
+						if ipu.KeyCode == Enum.KeyCode.F then
+							press = true
+						end
+					end
+					label.Text = "Oh no! this is not a acidic detergent, I've gone mad!"
+					press = false
+					while press == false do
+						local ipu = UserIS.InputBegan:Wait()
+						if ipu.KeyCode == Enum.KeyCode.F then
 							press = true
 						end
 					end
@@ -1933,16 +1957,40 @@ susprmpt.Triggered:Connect(function()
 					frame2.Visible = false
 					frame3.Visible = false
 					frame4.Visible = false
-					back.Visible =false
+					back.Visible =false 
 					opStry = opStry + 1
 					
-					label.Text = "<4th option line>"
+					label.Text = "This is chlorine bleach and acidic detergent!!"
 					label.Visible = true
 					nxt.Visible =true
+					press = false
+					while press == false do
+						local ipu=UserIS.InputBegan:Wait()
+						if ipu.KeyCode == Enum.KeyCode.F then
+							press = true
+						end
+					end
+					label.Text ="This cause a harmful chemical reac..."
 					press=false
 					while press == false do
 						local ipu=UserIS.InputBegan:Wait()
-						if inp.KeyCode == Enum.KeyCode.F then
+						if ipu.KeyCode == Enum.KeyCode.F then
+							press = true
+						end
+					end
+					label.Text ="Oh,wait..no this is not chlorine bleach!"
+					press = false
+					while press == false do
+						local ipu = UserIS.InputBegan:Wait()
+						if ipu.KeyCode == Enum.KeyCode.F then
+							press = true
+						end
+					end
+					label.Text ="I've really gone mad!!"
+					press = false
+					while press == false do
+						local ipu = UserIS.InputBegan:Wait()
+						if ipu.KeyCode == Enum.KeyCode.F then
 							press = true
 						end
 					end
@@ -1973,7 +2021,7 @@ susprmpt.Triggered:Connect(function()
 			hum1.WalkSpeed = 0
 			hum1.JumpPower = 0
 			
-			label.Text ="ME: I am missing something...."
+			label.Text ="I am missing something...."
 			label.Visible = true
 			nxt.Visible = true
 			
@@ -1998,15 +2046,15 @@ susprmpt.Triggered:Connect(function()
 			nxt.Visible =false
 			
 			Options.Enabled = true
-			q.Text="Poster Question?"
+			q.Text="Am I missing something?"
 			QFrame.Visible = true
-			op1.Text = "Poster option 1"
+			op1.Text = "1.My mind is just messing with me!"
 			frame1.Visible = true
-			op2.Text = "Poster option 2"
+			op2.Text = "2.Cherry didn't had and merch of this band!"
 			frame2.Visible = true
-			op3.Text = "Poster option 3"
+			op3.Text = "3.The 'E' of 'AMAZE' !" 
 			frame3.Visible = true
-			op4.Text = "Poster option 4"
+			op4.Text = "4.The poster is old!"
 			frame4.Visible = true
 			
 			press=false
@@ -2022,7 +2070,7 @@ susprmpt.Triggered:Connect(function()
 					back.Visible =false
 					opWrong = opWrong + 1
 					
-					label.Text="<1st option line>"
+					label.Text = "What happened to my mind!"
 					label.Visible =true
 					nxt.Visible=true
 					press=false
@@ -2047,7 +2095,7 @@ susprmpt.Triggered:Connect(function()
 					back.Visible = false
 					opWrong = opWrong + 1
 					
-					label.Text="<2nd option line>"
+					label.Text= "I didn't see any merch of this band belonging to Cherry!"
 					label.Visible = true
 					nxt.Visible=true
 					press=false
@@ -2073,7 +2121,7 @@ susprmpt.Triggered:Connect(function()
 					back.Visible =false
 					opCorrect = opCorrect+1
 					
-					label.Text ="<3rd option line>"
+					label.Text ="The 'E' from the word 'AMAZÉ' is wrong!"
 					label.Visible=true
 					nxt.Visible=true
 					press=true
@@ -2081,6 +2129,14 @@ susprmpt.Triggered:Connect(function()
 						local ipu = UserIS.InputBegan:Wait()
 						if ipu.KeyCode==Enum.KeyCode.F then
 							press=true
+						end
+					end
+					label.Text ="The dash above the accented 'E' is missing!"
+					press = false
+					while press == false do
+						local ipu = UserIS.InputBegan:Wait()
+						if ipu.KeyCode == Enum.KeyCode.F then
+							press = true
 						end
 					end
 					label.Visible=false
@@ -2098,7 +2154,7 @@ susprmpt.Triggered:Connect(function()
 					back.Visible = false
 					opWrong = opWrong + 1
 					
-					label.Text="<4th option line>"
+					label.Text="The poster should be new but its old!"
 					label.Visible =true
 					nxt.Visible = true
 					press = false
@@ -2135,7 +2191,7 @@ susprmpt.Triggered:Connect(function()
 			hum1.WalkSpeed = 0
 			hum1.JumpPower = 0
 			
-			label.Text ="ME: Why is Colon partially filled?"
+			label.Text ="Why is Colon partially filled?"
 			label.Visible = true
 			nxt.Visible = true
 			
@@ -2150,15 +2206,15 @@ susprmpt.Triggered:Connect(function()
 			nxt.Visible = false
 			
 			Options.Enabled = true
-			op1.Text = "Colon option 1"
+			op1.Text = "This colon used to remove fingerprint"
 			frame1.Visible = true
-			op2.Visible = "Colon option 2"
+			op2.Visible = "This colon was used to remove blood stains!"
 			frame2.Visible = true
-			op3.Text = "Colon option 3"
+			op3.Text = "This colon was used to drug Cherry"
 			frame3.Visible = true
-			op4.Text = "Colon option 4"
+			op4.Text = "The colon was used to freshen the air"
 			frame4.Visible = true
-			q.Text = "Colon question ?"
+			q.Text = "Why is colon partially filled?"
 			QFrame.Visible = true
 			
 			press=false
@@ -2174,14 +2230,23 @@ susprmpt.Triggered:Connect(function()
 					back.Visible =false
 					opWrong = opWrong+1
 					
-					label.Text="<1st option line>"
+					label.Text="The culprit must have used the colon.."
+					
 					label.Visible = true
 					nxt.Visible =true
 					press=false
 					while press == false do
 						local ipu = UserIS.InputBegan:Wait()
-						if ipu == Enum.KeyCode.F then
+						if ipu.KeyCode == Enum.KeyCode.F then
 							press=true
+						end
+					end
+					label.Text ="..to remove their fingerprints from the scene!"
+					press = false
+					while press == false do
+						local ipu = UserIS.InputBegan:Wait()
+						if ipu.KeyCode == Enum.KeyCode.F then
+							press = true
 						end
 					end
 					label.Visible = false
@@ -2199,7 +2264,7 @@ susprmpt.Triggered:Connect(function()
 					back.Visible =false
 					opWrong = opWrong+1
 					
-					label.Text="<2nd option>"
+					label.Text="The culprit might have used the colon to remove the bloodstains!"
 					label.Visible = true
 					nxt.Visible = true
 					press = false
@@ -2209,6 +2274,15 @@ susprmpt.Triggered:Connect(function()
 							press=true
 						end
 					end
+					label.Text = "As water would not have worked properly!"
+					press= false
+					while press == false do
+						local ipu = UserIS.InputBegan:Wait()
+						if ipu.KeyCode == Enum.KeyCode.F then
+							press= true
+						end
+					end
+	
 					label.Visible= false
 					nxt.Visible=false
 					hum1.WalkSpeed = 16
@@ -2224,7 +2298,7 @@ susprmpt.Triggered:Connect(function()
 					back.Visible =false
 					opWrong = opWrong + 1
 					
-					label.Text = "<3rd option line>"
+					label.Text = "The culprit must have used the colon to drug Sherry!"
 					label.Visible = true
 					nxt.Visible = true
 					press = false
@@ -2249,7 +2323,7 @@ susprmpt.Triggered:Connect(function()
 					back.Visible =false
 					opWrong = opWrong + 1
 					
-					label.Text="<4th option line>"
+					label.Text="The colon must have been used by the culprit..."
 					label.Visible = true
 					nxt.Visible =true
 					press = false
@@ -2259,6 +2333,15 @@ susprmpt.Triggered:Connect(function()
 							press = true
 						end
 					end
+					label.Text = "...to freshen the air disguise any odor!"
+					press = false
+					while press == false do
+						local ipu = UserIS.InputBegan:Wait()
+						if ipu.KeyCode == Enum.KeyCode.F then
+							press = true
+						end
+					end
+
 					label.Visible = true
 					nxt.Visible =true
 					hum1.WalkSpeed = 16
@@ -2286,7 +2369,7 @@ susprmpt.Triggered:Connect(function()
 			hum1.WalkSpeed =0
 			hum1.JumpPower = 0
 			
-			label.Text = "ME: Why is this juice so yellow?"
+			label.Text = "Why is this juice so yellow?"
 			label.Visible = true
 			nxt.Visible = true
 			
@@ -2301,15 +2384,15 @@ susprmpt.Triggered:Connect(function()
 			nxt.Visible= false
 			
 			Options.Enabled = true
-			op1.Text = "Bjuice option 1"
+			op1.Text = "Some substances were mixed in it"
 			frame1.Visible = true
-			op2.Text = "Bjuice option 2"
+			op2.Text = "Its not a juice"
 			frame2.Visible =true
-			op3.Text  = "Bjuice option 3"
+			op3.Text  = "Food color was mixed"
 			frame3.Visible = true
-			op4.Text = "Bjuice option 4"
+			op4.Text = "The juice is stale"
 			frame4.Visible =true
-			q.Text = "Bjuice question ?"
+			q.Text = "Why is the juice so yellow?"
 			QFrame.Visible =true
 			
 			press=true
@@ -2325,7 +2408,7 @@ susprmpt.Triggered:Connect(function()
 					back.Visible =false
 					opWrong = opWrong + 1
 					
-					label.Text = "<1st option lone>"
+					label.Text = "This juice is surely altered by something!"
 					label.Visible= true
 					nxt.Visible = true
 					press=false
@@ -2350,7 +2433,7 @@ susprmpt.Triggered:Connect(function()
 					back.Visible =false
 					opWrong = opWrong+1
 					
-					label.Text = "<2nd option line>"
+					label.Text = "The doesnt looks like a juice at all"
 					label.Visible =true
 					nxt.Visible = true
 					press = false
@@ -2375,13 +2458,13 @@ susprmpt.Triggered:Connect(function()
 					back.Visible =false
 					opWrong = opWrong+1
 					
-					label.Text = "<3rd option line>"
+					label.Text = "This color might come from food colourings"
 					label.Visible=true
 					nxt.Visible=true
 					press=false
 					while press==false do
 						local ipu=UserIS.InputBegan:Wait()
-						if ipu == Enum.KeyCode.F then
+						if ipu.KeyCode == Enum.KeyCode.F then
 							press=true
 						end
 					end
@@ -2400,7 +2483,7 @@ susprmpt.Triggered:Connect(function()
 					back.Visible =false
 					opWrong = opWrong+1
 					
-					label.Text="<4th option line>"
+					label.Text="The juice might be stale"
 					label.Visible=true
 					nxt.Visible=true
 					press=false
@@ -2437,7 +2520,7 @@ susprmpt.Triggered:Connect(function()
 			hum1.WalkSpeed = 0
 			hum1.JumpPower = 0	
 				
-			label.Text = "Why is this blanket so scrumbled?"
+			label.Text = "Why is this blanket rumpled?"
 			label.Visible=true
 			nxt.Visible = true
 			
@@ -2452,15 +2535,15 @@ susprmpt.Triggered:Connect(function()
 			nxt.Visible =false
 			
 			Options.Enabled =true
-			op1.Text = "Blanket otpion 1"
+			op1.Text = "Someone might have slept here"
 			frame1.Visible =true
-			op2.Text = "Blanket option 2"
+			op2.Text = "This was used to strangle Cherry!"
 			frame2.Visible = true
-			op3.Text = "Blanket otpion 3"
+			op3.Text = "The blanket was probably used to clean the blood stains!"
 			frame3.Visible =true
-			op4.Text = "Blanket option 4"
+			op4.Text = "The blanket was used to cover the body!"
 			frame4.Visible =true
-			q.Text = "Blanket question ?"
+			q.Text = "Why is the blanket rumpled?"
 			QFrame.Visible =true
 			
 			press=false
@@ -2476,7 +2559,8 @@ susprmpt.Triggered:Connect(function()
 					back.Visible =false
 					opWrong = opWrong+1
 					
-					label.Text = "<1st option>"
+					--[[
+					label.Text = ""
 					label.Visible=true
 					nxt.Visible=true
 					press= true
@@ -2487,9 +2571,9 @@ susprmpt.Triggered:Connect(function()
 						end
 					end
 					label.Visible = false
-					nxt.Visible =false
+					nxt.Visible =false]]
 					hum1.WalkSpeed = 16
-					hum1.JumpPower = 40
+					hum1.JumpPower = 40 
 					
 				elseif inp.KeyCode ==Enum.KeyCode.Two then
 					Options.Enabled =false
@@ -2500,19 +2584,19 @@ susprmpt.Triggered:Connect(function()
 					QFrame.Visible =false
 					back.Visible =false
 					opWrong = opWrong+1
-					
+					--[[
 					label.Text ="<2nd optionline>"
 					label.Visible=true
 					nxt.Visible=true
 					press=false
 					while press == false do
 						local ipu = UserIS.InputBegan:Wait()
-						if ipu == Enum.KeyCode.F then
+						if ipu.KeyCode == Enum.KeyCode.F then
 							press=true
 						end
 					end
 					label.Visible=false
-					nxt.Visible = false
+					nxt.Visible = false]]
 					hum1.WalkSpeed = 16
 					hum1.JumpPower = 40
 					
@@ -2525,19 +2609,19 @@ susprmpt.Triggered:Connect(function()
 					QFrame.Visible =false
 					back.Visible =false
 					opWrong = opWrong+1
-					
+					--[[
 					label.Text = "<3rd option line>"
 					label.Visible = true
 					nxt.Visible=true
 					press = false
 					while press == false do
 						local ipu = UserIS.InputBegan:Wait()
-						if ipu == Enum.KeyCode.F then
+						if ipu.KeyCode == Enum.KeyCode.F then
 							press=true
 						end
 					end
 					label.Visible=false
-					nxt.Visible = false
+					nxt.Visible = false]]
 					hum1.WalkSpeed = 16
 					hum1.JumpPower = 40
 					
@@ -2550,19 +2634,19 @@ susprmpt.Triggered:Connect(function()
 					frame4.Visible =false
 					back.Visible = false
 					opWrong = opWrong+1
-					
+					--[[
 					label.Text="<4th option line>"
 					label.Visible=true
 					nxt.Visible = true
 					press=false
 					while press == false do
 						local ipu = UserIS.InputBegan:Wait()
-						if ipu == Enum.KeyCode.F then
+						if ipu.KeyCode == Enum.KeyCode.F then
 							press=true
 						end
 					end
 					label.Visible = false
-					nxt.Visible = false
+					nxt.Visible = false]]
 					hum1.WalkSpeed = 16
 					hum1.JumpPower = 40
 					
@@ -2592,7 +2676,513 @@ susprmpt.Triggered:Connect(function()
 				EndFrame.Visible = true
 				
 			elseif opCorrect == 5 and opStry==2 and opWrong==0 then
-				EndLabel.Text = "You were perfect with your deductions...(continue)..."
+				EndLabel.Text = "You were perfect with your deductions..."
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				EndLabel.Text = "We got to know it was Sherry who killed her own sister!"
+				press=false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				EndLabel.Text = "The story begins recently when Sherry got to know Cherry was going to get married!"
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				EndLabel.Text = "Sherry was happy when she heard about this but..."
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				EndLabel.Text = " Sherry got to know that Cherry's fiancé was actually Sherry's crush!!"
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				EndLabel.Text="Sherry got angry not at only this fact rather she was always irritated by her sister because..."
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				EndLabel.Text ="...Cherry,from childhood, copied whatever Sherry did!"
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				EndLabel.Text = "Cherry wore the dress that Sherry wore, bought the cup that Sherry used!"
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				EndLabel.Text = "All that Sherry liked , Cherry liked too"
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				EndLabel.Text = "Sherry was not angry at first but when days passed but this behaviour didn't change...Sherry started getting irritated."
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				EndLabel.Text ="This irritation grew into anger ... and when Sherry got to know that..."
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				EndLabel.Text = "Cherry was going to marry HER(Sherry's) crush..."
+				local te = EndLabel.Text
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te = " Sherry couldn't hold back the anger "
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te = " Sherry started planning a conspiracy against her own sister "
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te= " Sherry planned to kill Cherry using a very unique technique "
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te = " Sherry had a great knowledge in chemistry... she knew that mixing chlorine bleach and acidic detergent causes a chemical reaction which releases chlorine "
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te=" That chlorine can easily do in a person "
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te = "She drugged Cherry with some sleeping pills and then dragged her to the bathroom "
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te=" She sat Cherry down in one corner and then mixed the chlorine bleach and acidic detergent "
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te = " After some time she thought Cherry was dead... but her heart was still beating! "
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te= "  Then she realised it was not chlorine bleach but it was normal bleach that Cherry brought from market"
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te =" She was in complete confusion what to do next so she thought to kill he by cutting her hand "
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te=" ...which would still look like a suicide! Nobody would have questioned "
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te = " She then took Cherry's hand and made deep cuts with a knife "
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te="After Sherry confirmed Cherry was dead ...  she started finishing things up by DEFINING it as a suicide "
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te= " She took the tape(with gloves) that Cherry kept ready on her dressing table to pack stuff as she was shifting! "
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te="  This way the tapes had the finger-print of Cherry ..."
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te=" ...Sherry took those peices tape and taped it to the bathroom's glass door from inside"
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te=" Thus when the door is closed ..it gave an illusion that the door was taped shut from inside which wasn't taped to the wall and frame in reality the tapes were only taped to the door "
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te=" Then Sherry sneaked out of the house and came to to the cafe where i met her where she also got a perfect opportunity to make me a witness "
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te="Another trick that Sherry used to manipulate that the door was closed was by locking the door from outside when we were pushing to break into "
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te=" This made me feel that the door was locked from inside and when she open the lock at a sudden ... it felt like we broke the lock! "
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te=" But a culprit can never leave a crime scene without some trail "
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te=" The first evidence was the small peice of tape on the dressing table that Sherry might have overlooked "
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te=" That small peice of tape gave us a big hint "
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te=" Another big hint was the door lock not being damaged letting us figure out the trick with it "
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te=" The cuts on the hand were also very aggresive which is very unatural even for a mentally disabled person as human have tendency to fear when they are hurting themself "
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te = " The Blood spot on the door proved us that this wasnt a suicide and was done by a outsider "
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te = " but all of this didn't proved Sherry as the culprit... it just pointed as it was a murder"
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te=" The only evidence that debunked all of this was , unexpectedly an 'É' or better as only 'E' !"
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te= "The band 'AMAZÉ' has a 'É' not a normal 'E ' "
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te = "Something was tickling my mind but when I saw the poster I realised it! "
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te= " It was Sherry's headband ... it had 'AMAZE' not 'AMAZÉ' "
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te= "Most of us will be confused here but if we noticed that the background color of the headband was blood red "
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te="An official merch can't have a mistake... the missing dash above the 'E' was never missing "
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te="It was hiding from us because of a blood mark which camoflauged with the background red color of headband !"
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te="When Sherry cut Cherry's hand , blood had sprayed out ... then Sherry must have changed clothes but she did'nt change the headband"
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te="Most probablly beacuse she didn't notice any blood mark over it which camo-ed with the background!"
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te=" These factors revealed that Sherry was the culprit !"
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te=" After Sherry realised that she couldn't escape anymore ...she said us why she killed her sister "
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te="Then we revealed to Sherry that we had a talk with Cherry's fiance and we got to know that..."
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te="...it was never Cherry who wanted to marry him ...it was the fiance who first proposed her!"
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te=" Also, little did she knew that Cherry knew about Sherry's plan!"
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te="She just acted along with Sherry because she wanted to keep Sherry happy even if she gets killed "
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te=" We got to know about this throught the paper I got... "
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te="It was actually the reciept of the shop from where Cherry brought the bleach and detergent"
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te=" When we went back to the shop and asked about some details ... "
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te="The shop owner answered that he heard Cherry murmuring to herself "
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te="Cherry was saying to herself :'I don't want to kill my sister with this' while holding the chlorine bleach"
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te= " This maped out that Cherry knew Sherry was going to kill her "
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te=" But the saddest part is that Cherry knew that if Sherry used the chlorine bleach reaction to kill her...Sherry would herself get killed too!!"
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te =" Thats why she was murmuring to herself all that and brought chlorine free bleach even though she was told to bring chlorine bleach "
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te=" After realizing to what she had done all the regrets and grief came booming out of Sherry but there wasn't a way to bring a dead one back! "
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te = "When people don't want the best for you, they are not the best for you.   - <i> GAYLE KING </i>"
+
 				EndFrame.Visible = true
 				
 			elseif opCorrect<=4 and opCorrect>2 and opStry==2 and opWrong>2 then
