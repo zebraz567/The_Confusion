@@ -71,7 +71,7 @@ l2.Text = " at the counter "
 promt.Triggered:Connect(function()
 	promt.Enabled = false
 	
-	label.Text = "<Your first line>"
+	label.Text = "Staff: Hi , how can i help you ?"
 	label.Visible = true
 	nxt.Visible = true
 	
@@ -83,8 +83,16 @@ promt.Triggered:Connect(function()
 		end
 	end
 	
-	label.Text = "<Your second line>"
+	label.Text = "Me: Hi... I just need a seat for a only one person!"
+	local press = false
+	while press == false do
+		local input = UserIS.InputBegan:Wait()
+		if input.KeyCode == Enum.KeyCode.F then
+			press = true
+		end
+	end
 	
+	label.Text = " Ok wait ........."
 	press = false
 	while press == false do
 		local input = UserIS.InputBegan:Wait()
@@ -93,14 +101,29 @@ promt.Triggered:Connect(function()
 		end
 	end
 	
-	l1.Text = " Sit on the seat "
-	l2.Text = " assigned to you "
+	label.Text = "...you can take seat number 2 ! "
+	local press = false
+	while press == false do
+		local input = UserIS.InputBegan:Wait()
+		if input.KeyCode == Enum.KeyCode.F then
+			press = true
+		end
+	end
+	
+	label.Text = "Ok thanks ..."
+	local press = false
+	while press == false do
+		local input = UserIS.InputBegan:Wait()
+		if input.KeyCode == Enum.KeyCode.F then
+			press = true
+		end
+	end
+	
+	l1.Text = " Sit on the seat no.2 "
 	
 	label.Visible = false
 	nxt.Visible = false
 	talk2Staff=true
-	promt.Enabled = true
-	
 	
 end)
 
@@ -120,7 +143,7 @@ seat:GetPropertyChangedSignal("Occupant"):Connect(function()
 		hum.JumpPower = 0
 		hum.JumpHeight = 0
 		
-		label.Text = "<Your first line>"
+		label.Text = "The ambiance of this cafe is so good !"
 		label.Visible = true
 		nxt.Visible = true
 		
@@ -132,7 +155,7 @@ seat:GetPropertyChangedSignal("Occupant"):Connect(function()
 			end
 		end
 		
-		label.Text = "<Your second line>"
+		label.Text = "Probablly, I would come here afterwards too !"
 		
 		press = false
 		while press == false do 
@@ -142,8 +165,65 @@ seat:GetPropertyChangedSignal("Occupant"):Connect(function()
 			end
 		end
 		
+		label.Text = "I anyways I have to eat something quickly...else I would miss the concert!"
+		press = false
+		while press == false do 
+			local input = UserIS.InputBegan:Wait()
+			if input.KeyCode == Enum.KeyCode.F then
+				press = true
+			end
+		end
+		label.Text = " I don't realize why are there so less fans of this band 'AMAZÉ'... "
+		press = false
+		while press == false do 
+			local input = UserIS.InputBegan:Wait()
+			if input.KeyCode == Enum.KeyCode.F then
+				press = true
+			end
+		end
+		label.Text = " Anyways ...I should be care about my chance to go their concert!! "
+		press = false
+		while press == false do 
+			local input = UserIS.InputBegan:Wait()
+			if input.KeyCode == Enum.KeyCode.F then
+				press = true
+			end
+		end
+		label.Text = "Wait...What .....Wher...is my ticket!?"
+		press = false
+		while press == false do 
+			local input = UserIS.InputBegan:Wait()
+			if input.KeyCode == Enum.KeyCode.F then
+				press = true
+			end
+		end
+		label.Text = "Oh no ...no this can't happen!!"
+		press = false
+		while press == false do 
+			local input = UserIS.InputBegan:Wait()
+			if input.KeyCode == Enum.KeyCode.F then
+				press = true
+			end
+		end
+		label.Text = " NO my shirt pocket is torn from below!!!!"
+		press = false
+		while press == false do 
+			local input = UserIS.InputBegan:Wait()
+			if input.KeyCode == Enum.KeyCode.F then
+				press = true
+			end
+		end
+		label.Text = "It might have had fallen here... I should ask the customers if they saw it somewhere!"
+		press = false
+		while press == false do 
+			local input = UserIS.InputBegan:Wait()
+			if input.KeyCode == Enum.KeyCode.F then
+				press = true
+			end
+		end
+		
 		l1.Text = " Ask the seated customers "
-		l2.Text = " about your concert ticket "
+		l2.Text = " about your lost concert ticket "
 		l2.Visible = true
 		
 		label.Visible = false
@@ -164,7 +244,7 @@ end)
 c1.Triggered:Connect(function()
 	c1.Enabled = false
 	
-	label.Text = "<Your first line>"
+	label.Text = "Have you seen any concert ticket falling from my pocket?"
 	label.Visible = true
 	nxt.Visible = true
 	
@@ -175,6 +255,7 @@ c1.Triggered:Connect(function()
 			press=true
 		end
 	end
+	label.Text = "Stranger: Ummmm....no...sorry I haven't seen any ticket!"
 	
 	label.Visible = false
 	nxt.Visible=false
@@ -188,10 +269,9 @@ c1.Triggered:Connect(function()
 end)
 
 c2.Triggered:Connect(function()
-	print("c2 triggered")
 	c2.Enabled = false
 	
-	label.Text="<custpmer sec line>"
+	label.Text="Did you see any ticket falling out of my pocket?"
 	label.Visible = true
 	nxt.Visible=true
 	
@@ -202,7 +282,14 @@ c2.Triggered:Connect(function()
 			press =true
 		end
 	end
-	
+	label.Text= "Strnger: No... I didn't see any ticket! I will say to you I find one!"
+	local press = false
+	while press==false do
+		local input = UserIS.InputBegan:Wait()
+		if input.KeyCode== Enum.KeyCode.F then
+			press =true
+		end
+	end
 	label.Visible=false
 	nxt.Visible=false
 	cusdone = cusdone+1
@@ -215,10 +302,10 @@ c2.Triggered:Connect(function()
 end)
 
 c3.Triggered:Connect(function()
-	print("c3 triggered")
+	
 	c3.Enabled = false
 	
-	label.Text = "<Customer3 line>"
+	label.Text = "Have you seen any ticket falling from my pocket?"
 	label.Visible = true
 	nxt.Visible = true
 	
@@ -229,6 +316,7 @@ c3.Triggered:Connect(function()
 			press = true
 		end
 	end
+	label.Text = ".....(no answer)....."
 	
 	label.Visible= false
 	nxt.Visible=false
@@ -245,7 +333,7 @@ c4.Triggered:Connect(function()
 	print("c4 triggered")
 	c4.Enabled = false
 	
-	label.Text = "<Customer4 line>"
+	label.Text = "Hey kiddo! Did you seen any ticket falling out of my pocket?"
 	label.Visible = true
 	nxt.Visible = true
 	
@@ -256,6 +344,31 @@ c4.Triggered:Connect(function()
 			press = true
 		end
 	end
+	label.Text = "Kid: Yesn't !"
+	local press = false
+	while press == false do
+		local input = UserIS.InputBegan:Wait()
+		if input.KeyCode == Enum.KeyCode.F then
+			press = true
+		end
+	end
+	label.Text ="Me: What??"
+	local press = false
+	while press == false do
+		local input = UserIS.InputBegan:Wait()
+		if input.KeyCode == Enum.KeyCode.F then
+			press = true
+		end
+	end
+	label.Text = "Nooo...hehehe"
+	local press = false
+	while press == false do
+		local input = UserIS.InputBegan:Wait()
+		if input.KeyCode == Enum.KeyCode.F then
+			press = true
+		end
+	end
+	label.Text="Kids nowadays..ehh"
 	
 	label.Visible= false
 	nxt.Visible = false
@@ -271,7 +384,7 @@ end)
 susprmpt.Triggered:Connect(function()
 	susprmpt.Enabled = false
 	
-	label.Text = "<Sherry's intecation>"
+	label.Text = "Hello mam!"
 	label.Visible =true
 	nxt.Visible = true
 	
@@ -283,9 +396,113 @@ susprmpt.Triggered:Connect(function()
 		end
 	end
 	
-	label.Text = "<Sherry offers me a free ticket butt for a favor :o>"
+	label.Text = "Stanger: Yes? ... "
 	
 	press = false
+	while press == false do
+		local input = UserIS.InputBegan:Wait()
+		if input.KeyCode == Enum.KeyCode.F then
+			press = true
+		end
+	end
+	label.Text = "Did you see any concert ticket falling out of my pocket?"
+	local press = false
+	while press == false do
+		local input = UserIS.InputBegan:Wait()
+		if input.KeyCode == Enum.KeyCode.F then
+			press = true
+		end
+	end
+	label.Text = "No...sorry! But whose concert?? "
+	local press = false
+	while press == false do
+		local input = UserIS.InputBegan:Wait()
+		if input.KeyCode == Enum.KeyCode.F then
+			press = true
+		end
+	end
+	label.Text= "'AMAZÉ' ... Do you them?"
+	local press = false
+	while press == false do
+		local input = UserIS.InputBegan:Wait()
+		if input.KeyCode == Enum.KeyCode.F then
+			press = true
+		end
+	end
+	label.Text = "Stranger: Yes...I am a huge fan of them!!"
+	local press = false
+	while press == false do
+		local input = UserIS.InputBegan:Wait()
+		if input.KeyCode == Enum.KeyCode.F then
+			press = true
+		end
+	end
+	label.Text= "Ohh...great.."
+	local press = false
+	while press == false do
+		local input = UserIS.InputBegan:Wait()
+		if input.KeyCode == Enum.KeyCode.F then
+			press = true
+		end
+	end
+	label.Text= "Stranger: I didn't know the ticket that you lost but...."
+	local press = false
+	while press == false do
+		local input = UserIS.InputBegan:Wait()
+		if input.KeyCode == Enum.KeyCode.F then
+			press = true
+		end
+	end
+	label.Text = "Stranger: I can give you a spare ticket for free!"
+	local press = false
+	while press == false do
+		local input = UserIS.InputBegan:Wait()
+		if input.KeyCode == Enum.KeyCode.F then
+			press = true
+		end
+	end
+	label.Text = " WHAT!! Why would you give it to me for free!"
+	local press = false
+	while press == false do
+		local input = UserIS.InputBegan:Wait()
+		if input.KeyCode == Enum.KeyCode.F then
+			press = true
+		end
+	end
+	label.Text = "Stranger: Actually it was for my sister but she didn't wanted to go..so i just have it but..."
+	local press = false
+	while press == false do
+		local input = UserIS.InputBegan:Wait()
+		if input.KeyCode == Enum.KeyCode.F then
+			press = true
+		end
+	end
+	label.Text = "Stranger: You have me do me a favour !!"
+	local press = false
+	while press == false do
+		local input = UserIS.InputBegan:Wait()
+		if input.KeyCode == Enum.KeyCode.F then
+			press = true
+		end
+	end
+	label.Text = "Yeah sure ..."
+	local press = false
+	while press == false do
+		local input = UserIS.InputBegan:Wait()
+		if input.KeyCode == Enum.KeyCode.F then
+			press = true
+		end
+	end
+	label.Text = "Stranger: You have to drop me to my house as the ticket is in my house!!"
+	local press = false
+	while press == false do
+		local input = UserIS.InputBegan:Wait()
+		if input.KeyCode == Enum.KeyCode.F then
+			press = true
+		end
+	end
+	label.Text = "Ok no problem!! Lets go now ..else we may miss the concert!"
+	local press = false
 	while press == false do
 		local input = UserIS.InputBegan:Wait()
 		if input.KeyCode == Enum.KeyCode.F then
@@ -320,17 +537,12 @@ susprmpt.Triggered:Connect(function()
 	local driveseat = car:FindFirstChild("DriveSeat",true)
 	local pseat = car:FindFirstChild("PassSeat",true)
 	local sherry = workspace:FindFirstChild("Sherry")
-
-	scenegui.Enabled=false
-	objF.Visible = true
 	
 	l1.Text = " Talk with her while "
 	l2.Text = " driving the car "
 	
 	char:PivotTo(driveseat.CFrame*CFrame.new(0,2,0))
 	driveseat:Sit(hum)
-
-	task.wait(1)
 
     local sherryRig = workspace:FindFirstChild("SherryCarRig", true)
 
@@ -342,9 +554,12 @@ susprmpt.Triggered:Connect(function()
 	   end
 	end
 	
+	scenegui.Enabled=false
+	objF.Visible = true
+	
 	task.wait(1)
 	
-	label.Text = "<Sherry in car 1st line>"
+	label.Text = "So I forgot to ask you ... whats your name?"
 	label.Visible = true
 	nxt.Visible = true
 	
@@ -356,8 +571,103 @@ susprmpt.Triggered:Connect(function()
 		end
 	end
 	
-	label.Text = "<Sherry in car 2nd line>"
-	
+	label.Text = "Stranger: Ohh...My name is Sherry."
+	press = false
+	while press == false do
+		local input= UserIS.InputBegan:Wait()
+		if input.KeyCode == Enum.KeyCode.F then
+			press = true
+		end
+	end
+	label.Text= "Great...I can see that you are a big fan of AMAZÉ ..."
+	press = false
+	while press == false do
+		local input= UserIS.InputBegan:Wait()
+		if input.KeyCode == Enum.KeyCode.F then
+			press = true
+		end
+	end
+	label.Text = " ... Your headband is a really rare merch! "
+	press = false
+	while press == false do
+		local input= UserIS.InputBegan:Wait()
+		if input.KeyCode == Enum.KeyCode.F then
+			press = true
+		end
+	end
+	label.Text = "Sherry: Yeah it was a real pain to get one..."
+	press = false
+	while press == false do
+		local input= UserIS.InputBegan:Wait()
+		if input.KeyCode == Enum.KeyCode.F then
+			press = true
+		end
+	end
+	label.Text = "Me: Why is your sister not going to the concert? "
+	press = false
+	while press == false do
+		local input= UserIS.InputBegan:Wait()
+		if input.KeyCode == Enum.KeyCode.F then
+			press = true
+		end
+	end
+	label.Text = " Sherry: She is getting married after a few days...but became sad after her engagement... "
+	press = false
+	while press == false do
+		local input= UserIS.InputBegan:Wait()
+		if input.KeyCode == Enum.KeyCode.F then
+			press = true
+		end
+	end
+	label.Text="Sherry: ...to lift her mood from whatever she was getting sad...I thought of taking her to the concert!"
+	press = false
+	while press == false do
+		local input= UserIS.InputBegan:Wait()
+		if input.KeyCode == Enum.KeyCode.F then
+			press = true
+		end
+	end
+	label.Text = "But suddenly she is not agreeing to go now!"
+	press = false
+	while press == false do
+		local input= UserIS.InputBegan:Wait()
+		if input.KeyCode == Enum.KeyCode.F then
+			press = true
+		end
+	end
+	label.Text = "Her name is Cherry and we are twins... but she is not like before now! "
+	press = false
+	while press == false do
+		local input= UserIS.InputBegan:Wait()
+		if input.KeyCode == Enum.KeyCode.F then
+			press = true
+		end
+	end
+	label.Text = "Its really sad to hear that..."
+	press = false
+	while press == false do
+		local input= UserIS.InputBegan:Wait()
+		if input.KeyCode == Enum.KeyCode.F then
+			press = true
+		end
+	end
+	label.Text = "Sherry: We are also shifting from our house after someday ..so there will be some cartoons for packing..please don't mind!"
+	press = false
+	while press == false do
+		local input= UserIS.InputBegan:Wait()
+		if input.KeyCode == Enum.KeyCode.F then
+			press = true
+		end
+	end
+	label.Text = " Yeah , I have no problem with that!"
+	press = false
+	while press == false do
+		local input= UserIS.InputBegan:Wait()
+		if input.KeyCode == Enum.KeyCode.F then
+			press = true
+		end
+	end
+	label.Text = "...(silence faded in till we reached Sherry's house)..."
 	press = false
 	while press == false do
 		local input= UserIS.InputBegan:Wait()
@@ -435,16 +745,12 @@ susprmpt.Triggered:Connect(function()
 	local houseprompt = sherryHouse:WaitForChild("HumanoidRootPart"):WaitForChild("ProximityPrompt")
 	local policetpe = workspace:WaitForChild("Police_Tape")
 	
-	local tp = {}
-	for _, den in pairs(policetpe:GetDescendants()) do
-		if den:IsA("BasePart") then
-			table.insert(tp,den)
-		end
-	end 
-	for _, t in pairs(tp) do
-		t.CanCollide = false
-		t.Transparency = 1
-	end
+	local ptpe1 = workspace.Police_Tape:WaitForChild("Part")
+	local ptpe2 = workspace.Police_Tape:WaitForChild("Parto")
+	local ptpe3 = workspace.Police_Tape:WaitForChild("RopeShaftSquareSharpBase")
+	ptpe1.Visible = false
+	ptpe2.Visible = false
+	ptpe3.Visible = false
 	
 	houseprompt.Triggered:Connect(function()
 		
@@ -459,7 +765,7 @@ susprmpt.Triggered:Connect(function()
 			pts.Anchored = true
 		end
 		
-		label.Text="<Sherry in house ...First line>"
+		label.Text="Follow me ... and have a seat!"
 		label.Visible=true
 		nxt.Visible=true
 		
@@ -499,7 +805,7 @@ susprmpt.Triggered:Connect(function()
 		
 		walkTrack:Stop()
 		
-		label.Text="<Sherry in house ...Second line>"
+		label.Text="Please sit in this till I bring the ticket!"
 		label.Visible = true
 		nxt.Visible= true
 		
@@ -563,7 +869,7 @@ susprmpt.Triggered:Connect(function()
 				pTr.Looped = true
 				pTr:Play()
 				
-				label.Text = "<selftalk>"
+				label.Text = "(selftalk)The house is so big for only two people...its so gorgeous"
 				label.Visible=true
 				nxt.Visible=true
 				
@@ -574,7 +880,16 @@ susprmpt.Triggered:Connect(function()
 						press = true
 					end
 				end
-				label.Text = "<s-Talk>"
+				label.Text = "The I would have never expected such a luck..."
+				label.Text = "...(silence faded in till we reached Sherry's house)..."
+				press = false
+				while press == false do
+					local input= UserIS.InputBegan:Wait()
+					if input.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				label.Text = "It alwa...(Sherry shouts)CHERRY!CHERRY!"
 				press=false
 					while press == false do
 						local input = UserIS.InputBegan:Wait()
@@ -582,7 +897,7 @@ susprmpt.Triggered:Connect(function()
 							press = true
 					end
 				end
-				label.Text = "Sherry:(shouts) <Sherry shouting out>"
+				label.Text = "What is that shout for ??"
 				
 				l1.Text = " Find out why Sherry shouted "
 				
@@ -609,7 +924,7 @@ susprmpt.Triggered:Connect(function()
 				if hit.Parent == player.Character and talk == false then
 					talk=true
 					
-					label.Text= "<Shery asks for help>"
+					label.Text= "HELP ME OPEN THIS DOOR!!"
 					label.Visible = true
 					nxt.Visible = true
 					
@@ -656,7 +971,7 @@ susprmpt.Triggered:Connect(function()
 		leftarm.PivotOffset = pivt.CFrame:Inverse()*leftarm.CFrame
 		leftarm.CFrame  = leftarm.CFrame*CFrame.Angles(math.rad(70),0,0) ]]
 
-		label.Text="<Checks if alive>"
+		label.Text="What happened to her??"
 		label.Visible =true
 		nxt.Visible=true
 
@@ -668,7 +983,7 @@ susprmpt.Triggered:Connect(function()
 			end
 		end
 		
-		label.Text = "<Me: She's dead , call the police!>"
+		label.Text = "Me: She's dead , call the police!"
 
 		press = false
 		while press == false do
@@ -681,9 +996,9 @@ susprmpt.Triggered:Connect(function()
 		label.Visible = false
 		nxt.Visible = false
 		
-		for _, t in pairs(tp) do
-			t.Transparency = 1
-		end
+		ptpe1.Visible = true
+		ptpe2.Visible = true
+		ptpe3.Visible = true
 
 		local sceneTitle=scenegui.BlackFrame.SceneTitle
 		sceneTitle.Text="Police Arrives... You explain the incident to the police"
@@ -743,7 +1058,7 @@ susprmpt.Triggered:Connect(function()
 		l1.Text = " Talk to the police "
 		l2.Visible = false
 		
-		label.Text = "<Police: After observing all the incident ... this case seems like a su*c*de>"
+		label.Text = "Police: After observing all the incident ... this case seems like a su*c*de"
 		label.Visible =true
 		nxt.Visible= true
 		
@@ -754,7 +1069,7 @@ susprmpt.Triggered:Connect(function()
 				press =true
 			end
 		end
-		label.Text= "<Police: But we still have to investigate it for confimation>"
+		label.Text= "Police: But we still have to investigate it for confimation"
 		press = false
 		while press == false do
 			local input=UserIS.InputBegan:Wait()
@@ -762,7 +1077,7 @@ susprmpt.Triggered:Connect(function()
 				press = true
 			end
 		end
-		label.Text= "<Police: After a short descussion , we will let you know what to do!>"
+		label.Text= "Police: After a short descussion , we will let you know what to do!"
 		press = false
 		while press == false do
 			local input = UserIS.InputBegan:Wait()
@@ -771,7 +1086,7 @@ susprmpt.Triggered:Connect(function()
 			end
 		end
 		
-		label.Text= "<To myself : I think there's something more! >"
+		label.Text= "<To myself> I think there's something more! "
 		press= false
 		while press == false do
 			local input=UserIS.InputBegan:Wait()
@@ -784,9 +1099,9 @@ susprmpt.Triggered:Connect(function()
 		nxt.Visible = false 
 		
 		l1.Text = "- Investigate the house "
-		l2.Text = "- Find Evidences "
+		l2.Text = "- Find        Evidences "
 		l3.Text = "- End this by reporting "
-		l4.Text = "  to Police"
+		l4.Text = "  to      Police        "
 		l2.Visible = true
 		l3.Visible = true
 		l4.Visible = true
@@ -929,7 +1244,7 @@ susprmpt.Triggered:Connect(function()
 
 					polprmpt.Triggered:Connect(function()
 						polprmpt.Enabled = false
-						label.Text = "<Police: Thanks for telling us ... we will find out if its useful!"
+						label.Text = "Police: Thanks for telling us ... we will find out if its useful!"
 						label.Visible=true
 						nxt.Visible = true
 
@@ -955,7 +1270,7 @@ susprmpt.Triggered:Connect(function()
 					back.Visible=false
 					opWrong=opWrong + 1
 					
-					label.Text = "<I guess I would be inturepting the police! >"
+					label.Text = "I guess I would be inturepting the police! "
 					label.Visible = true
 					nxt.Visible =true
 					
@@ -991,7 +1306,7 @@ susprmpt.Triggered:Connect(function()
 			hum1.WalkSpeed = 0
 			hum1.JumpPower = 0
 
-			label.Text = "<Me : The cuts ... on the hand doesn't fit quite right.. >"
+			label.Text = "Me : The cuts ... on the hand doesn't fit quite right.. "
 			label.Visible = true
 			nxt.Visible = true
 
@@ -1524,7 +1839,7 @@ susprmpt.Triggered:Connect(function()
 					op3.Text= "3.This is why the tape didn't had fingerprints of Sherry"
 					op1.Text ="1.The is why the tape did't had fingerprints of Cherry"
 					op2.Text ="2.The tape was probably an extra peice left out"
-					op4.Text = "4.Cherry was probablly checking the strength of the tape!"
+					op4.Text ="4.Cherry was probablly checking the strength of the tape!"
 					
 					press = false 
 					while press == false do
@@ -2206,13 +2521,13 @@ susprmpt.Triggered:Connect(function()
 			nxt.Visible = false
 			
 			Options.Enabled = true
-			op1.Text = "This colon used to remove fingerprint"
+			op1.Text = "1.This colon used to remove fingerprint"
 			frame1.Visible = true
-			op2.Visible = "This colon was used to remove blood stains!"
+			op2.Visible = "2.This colon was used to remove blood stains!"
 			frame2.Visible = true
-			op3.Text = "This colon was used to drug Cherry"
+			op3.Text = "3.This colon was used to drug Cherry"
 			frame3.Visible = true
-			op4.Text = "The colon was used to freshen the air"
+			op4.Text = "4.The colon was used to freshen the air"
 			frame4.Visible = true
 			q.Text = "Why is colon partially filled?"
 			QFrame.Visible = true
@@ -2384,13 +2699,13 @@ susprmpt.Triggered:Connect(function()
 			nxt.Visible= false
 			
 			Options.Enabled = true
-			op1.Text = "Some substances were mixed in it"
+			op1.Text = "1.Some substances were mixed in it"
 			frame1.Visible = true
-			op2.Text = "Its not a juice"
+			op2.Text = "2.Its not a juice"
 			frame2.Visible =true
-			op3.Text  = "Food color was mixed"
+			op3.Text  = "3.Food color was mixed"
 			frame3.Visible = true
-			op4.Text = "The juice is stale"
+			op4.Text = "4.The juice is stale"
 			frame4.Visible =true
 			q.Text = "Why is the juice so yellow?"
 			QFrame.Visible =true
@@ -2535,13 +2850,13 @@ susprmpt.Triggered:Connect(function()
 			nxt.Visible =false
 			
 			Options.Enabled =true
-			op1.Text = "Someone might have slept here"
+			op1.Text = "1.Someone might have slept here"
 			frame1.Visible =true
-			op2.Text = "This was used to strangle Cherry!"
+			op2.Text = "2.This was used to strangle Cherry!"
 			frame2.Visible = true
-			op3.Text = "The blanket was probably used to clean the blood stains!"
+			op3.Text = "3.The blanket was probably used to clean the blood stains!"
 			frame3.Visible =true
-			op4.Text = "The blanket was used to cover the body!"
+			op4.Text = "4.The blanket was used to cover the body!"
 			frame4.Visible =true
 			q.Text = "Why is the blanket rumpled?"
 			QFrame.Visible =true
@@ -2674,6 +2989,9 @@ susprmpt.Triggered:Connect(function()
 			if opCorrect == 0 and opStry==0 and opWrong==0 then
 				EndLabel.Text = " You provided the police NO evidence which left them more confused and the culprit ESCAPED! "
 				EndFrame.Visible = true
+				
+				
+				
 				
 			elseif opCorrect == 5 and opStry==2 and opWrong==0 then
 				EndLabel.Text = "You were perfect with your deductions..."
@@ -3077,7 +3395,7 @@ susprmpt.Triggered:Connect(function()
 						press = true
 					end
 				end
-				te="Then we revealed to Sherry that we had a talk with Cherry's fiance and we got to know that..."
+				te="Then we revealed to Sherry that we had a talk with Cherry's fiance and where got to know that..."
 				press = false
 				while press == false do
 					local inp = UserIS.InputBegan:Wait()
@@ -3181,21 +3499,868 @@ susprmpt.Triggered:Connect(function()
 						press = true
 					end
 				end
-				te = "When people don't want the best for you, they are not the best for you.   - <i> GAYLE KING </i>"
+				te = "When people don't want the best for you, they are not the best for you.   - <i>GAYLE KING</i>"
 
 				EndFrame.Visible = true
+				
+				
 				
 			elseif opCorrect<=4 and opCorrect>2 and opStry==2 and opWrong>2 then
 				EndLabel.Text = "You were great with your deductions but you missed some important points to be noticed!"
 				EndFrame.Visible = true
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				EndLabel.Text = "We got to know it was Sherry who killed her own sister!"
+				press=false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				EndLabel.Text = "The story begins recently when Sherry got to know Cherry was going to get married!"
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				EndLabel.Text = "Sherry was happy when she heard about this but..."
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				EndLabel.Text = " Sherry got to know that Cherry's fiancé was actually Sherry's crush!!"
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				EndLabel.Text="Sherry got angry not at only this fact rather she was always irritated by her sister because..."
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				EndLabel.Text ="...Cherry,from childhood, copied whatever Sherry did!"
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				EndLabel.Text = "Cherry wore the dress that Sherry wore, bought the cup that Sherry used!"
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				EndLabel.Text = "All that Sherry liked , Cherry liked too"
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				EndLabel.Text = "Sherry was not angry at first but when days passed but this behaviour didn't change...Sherry started getting irritated."
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				EndLabel.Text ="This irritation grew into anger ... and when Sherry got to know that..."
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				EndLabel.Text = "Cherry was going to marry HER(Sherry's) crush..."
+				local te = EndLabel.Text
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				local te = EndLabel.Text
+				te = " Sherry couldn't hold back the anger "
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te = " Sherry started planning a conspiracy against her own sister "
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te= " Sherry planned to kill Cherry using a very unique technique "
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te = " Sherry had a great knowledge in chemistry... she knew that mixing chlorine bleach and acidic detergent causes a chemical reaction which releases chlorine "
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te=" That chlorine can easily do in a person "
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te = "She drugged Cherry with some sleeping pills and then dragged her to the bathroom "
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te=" She sat Cherry down in one corner and then mixed the chlorine bleach and acidic detergent "
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te = " After some time she thought Cherry was dead... but her heart was still beating! "
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te= "  Then she realised it was not chlorine bleach but it was normal bleach that Cherry brought from market"
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te =" She was in complete confusion what to do next so she thought to kill he by cutting her hand "
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te=" ...which would still look like a suicide! Nobody would have questioned "
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te = " She then took Cherry's hand and made deep cuts with a knife "
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te="After Sherry confirmed Cherry was dead ...  she started finishing things up by DEFINING it as a suicide "
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te= " She took the tape(with gloves) that Cherry kept ready on her dressing table to pack stuff as she was shifting! "
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te="  This way the tapes had the finger-print of Cherry ..."
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te=" ...Sherry took those peices tape and taped it to the bathroom's glass door from inside"
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te=" Thus when the door is closed ..it gave an illusion that the door was taped shut from inside which wasn't taped to the wall and frame in reality the tapes were only taped to the door "
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te=" Then Sherry sneaked out of the house and came to to the cafe where i met her where she also got a perfect opportunity to make me a witness "
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te="Another trick that Sherry used to manipulate that the door was closed was by locking the door from outside when we were pushing to break into "
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te=" This made me feel that the door was locked from inside and when she open the lock at a sudden ... it felt like we broke the lock! "
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te=" But a culprit can never leave a crime scene without some trail "
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te=" The first evidence was the small peice of tape on the dressing table that Sherry might have overlooked "
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te=" That small peice of tape gave us a big hint "
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te=" Another big hint was the door lock not being damaged letting us figure out the trick with it "
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te=" The cuts on the hand were also very aggresive which is very unatural even for a mentally disabled person as human have tendency to fear when they are hurting themself "
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te = " The Blood spot on the door proved us that this wasnt a suicide and was done by a outsider "
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te = " but all of this didn't proved Sherry as the culprit... it just pointed as it was a murder"
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te=" The only evidence that debunked all of this was , unexpectedly an 'É' or better as only 'E' !"
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te= "The band 'AMAZÉ' has a 'É' not a normal 'E ' "
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te = "Something was tickling my mind but when I saw the poster I realised it! "
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te= " It was Sherry's headband ... it had 'AMAZE' not 'AMAZÉ' "
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te= "Most of us will be confused here but if we noticed that the background color of the headband was blood red "
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te="An official merch can't have a mistake... the missing dash above the 'E' was never missing "
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te="It was hiding from us because of a blood mark which camoflauged with the background red color of headband !"
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te="When Sherry cut Cherry's hand , blood had sprayed out ... then Sherry must have changed clothes but she did'nt change the headband"
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te="Most probablly beacuse she didn't notice any blood mark over it which camo-ed with the background!"
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te=" These factors revealed that Sherry was the culprit !"
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te=" After Sherry realised that she couldn't escape anymore ...she said us why she killed her sister "
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te="Then we revealed to Sherry that we had a talk with Cherry's fiance and where got to know that..."
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te="...it was never Cherry who wanted to marry him ...it was the fiance who first proposed her!"
+				
+				
+				
 				
 			elseif opCorrect<=2 then
 				EndLabel.Text = "You tried but couldn't get the result you actually wanted!"
 				EndFrame.Visible = true
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				EndLabel.Text = "You missed too many important evidence!"
+				
+				
+			
+			elseif opStry == 0 and opCorrect == 5 then
+				EndLabel.Text = "You were great with your deductions but you missed some important points to be noticed!"
+				EndFrame.Visible = true
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				EndLabel.Text = "We got to know it was Sherry who killed her own sister!"
+				press=false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				EndLabel.Text = "The story begins recently when Sherry got to know Cherry was going to get married!"
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				EndLabel.Text = "Sherry was happy when she heard about this but..."
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				EndLabel.Text = " Sherry got to know that Cherry's fiancé was actually Sherry's crush!!"
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				EndLabel.Text="Sherry got angry not at only this fact rather she was always irritated by her sister because..."
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				EndLabel.Text ="...Cherry,from childhood, copied whatever Sherry did!"
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				EndLabel.Text = "Cherry wore the dress that Sherry wore, bought the cup that Sherry used!"
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				EndLabel.Text = "All that Sherry liked , Cherry liked too"
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				EndLabel.Text = "Sherry was not angry at first but when days passed but this behaviour didn't change...Sherry started getting irritated."
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				EndLabel.Text ="This irritation grew into anger ... and when Sherry got to know that..."
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				EndLabel.Text = "Cherry was going to marry HER(Sherry's) crush..."
+				local te = EndLabel.Text
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				local te = EndLabel.Text
+				te = " Sherry couldn't hold back the anger "
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te = " Sherry started planning a conspiracy against her own sister "
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te= " Sherry planned to kill Cherry using a very unique technique "
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te = " Sherry had a great knowledge in chemistry... she knew that mixing chlorine bleach and acidic detergent causes a chemical reaction which releases chlorine "
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te=" That chlorine can easily do in a person "
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te = "She drugged Cherry with some sleeping pills and then dragged her to the bathroom "
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te=" She sat Cherry down in one corner and then mixed the chlorine bleach and acidic detergent "
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te = " After some time she thought Cherry was dead... but her heart was still beating! "
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te= "  Then she realised it was not chlorine bleach but it was normal bleach that Cherry brought from market"
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te =" She was in complete confusion what to do next so she thought to kill he by cutting her hand "
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te=" ...which would still look like a suicide! Nobody would have questioned "
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te = " She then took Cherry's hand and made deep cuts with a knife "
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te="After Sherry confirmed Cherry was dead ...  she started finishing things up by DEFINING it as a suicide "
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te= " She took the tape(with gloves) that Cherry kept ready on her dressing table to pack stuff as she was shifting! "
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te="  This way the tapes had the finger-print of Cherry ..."
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te=" ...Sherry took those peices tape and taped it to the bathroom's glass door from inside"
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te=" Thus when the door is closed ..it gave an illusion that the door was taped shut from inside which wasn't taped to the wall and frame in reality the tapes were only taped to the door "
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te=" Then Sherry sneaked out of the house and came to to the cafe where i met her where she also got a perfect opportunity to make me a witness "
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te="Another trick that Sherry used to manipulate that the door was closed was by locking the door from outside when we were pushing to break into "
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te=" This made me feel that the door was locked from inside and when she open the lock at a sudden ... it felt like we broke the lock! "
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te=" But a culprit can never leave a crime scene without some trail "
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te=" The first evidence was the small peice of tape on the dressing table that Sherry might have overlooked "
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te=" That small peice of tape gave us a big hint "
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te=" Another big hint was the door lock not being damaged letting us figure out the trick with it "
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te=" The cuts on the hand were also very aggresive which is very unatural even for a mentally disabled person as human have tendency to fear when they are hurting themself "
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te = " The Blood spot on the door proved us that this wasnt a suicide and was done by a outsider "
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te = " but all of this didn't proved Sherry as the culprit... it just pointed as it was a murder"
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te=" The only evidence that debunked all of this was , unexpectedly an 'É' or better as only 'E' !"
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te= "The band 'AMAZÉ' has a 'É' not a normal 'E ' "
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te = "Something was tickling my mind but when I saw the poster I realised it! "
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te= " It was Sherry's headband ... it had 'AMAZE' not 'AMAZÉ' "
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te= "Most of us will be confused here but if we noticed that the background color of the headband was blood red "
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te="An official merch can't have a mistake... the missing dash above the 'E' was never missing "
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te="It was hiding from us because of a blood mark which camoflauged with the background red color of headband !"
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te="When Sherry cut Cherry's hand , blood had sprayed out ... then Sherry must have changed clothes but she did'nt change the headband"
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te="Most probablly beacuse she didn't notice any blood mark over it which camo-ed with the background!"
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te=" These factors revealed that Sherry was the culprit !"
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te=" After Sherry realised that she couldn't escape anymore ...she said us why she killed her sister "
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te="Then we revealed to Sherry that we had a talk with Cherry's fiance and where got to know that..."
+				press = false
+				while press == false do
+					local inp = UserIS.InputBegan:Wait()
+					if inp.KeyCode == Enum.KeyCode.F then
+						press = true
+					end
+				end
+				te="...it was never Cherry who wanted to marry him ...it was the fiance who first proposed her!"
+				
+			
 			
 			elseif opWrong>0 and opCorrect ==0 and opStry ==0 then
 				EndLabel.Text = "You were completely wrong with your evidence resulting in the escape of the culprit! "
 				EndFrame.Visible = true
+				
+				
+			
+			else
+				EndLabel.Text = "You tried your best but it wasn't enough for this case to solve !!"
+			    EndFrame.Visible = true
 			end
 			
 		end)
