@@ -1,10 +1,5 @@
 local UserIS = game:GetService("UserInputService")
 
-local gui = script.Parent
-local label = gui.SubtitleLabel
-local nxt = gui.NextButton
-local promt = workspace:WaitForChild("CafeStaff"):WaitForChild("HumanoidRootPart"):WaitForChild("ProximityPrompt")
-local seat = workspace:FindFirstChild("CafeSeat", true)
 local player = game.Players.LocalPlayer
 
 local pl0 = game.Players.LocalPlayer
@@ -21,8 +16,13 @@ local l1 = objF:WaitForChild("Line1")
 local l2 = objF:WaitForChild("Line2")
 local l3 = objF:WaitForChild("Line3")
 local l4 = objF:WaitForChild("Line4")
-
 Begin.Enabled = true
+
+local gui = script.Parent
+local label = gui.SubtitleLabel
+local nxt = gui.NextButton
+local promt = workspace:WaitForChild("CafeStaff"):WaitForChild("HumanoidRootPart"):WaitForChild("ProximityPrompt")
+local seat = workspace:FindFirstChild("CafeSeat", true)
 
 local pr1 = false
 local diffi = 0
@@ -205,7 +205,7 @@ seat:GetPropertyChangedSignal("Occupant"):Connect(function()
 				press = true
 			end
 		end
-		label.Text = " NO my shirt pocket is torn from below!!!!"
+		label.Text = " NO ....my shirt pocket is torn from below!!!!"
 		press = false
 		while press == false do 
 			local input = UserIS.InputBegan:Wait()
@@ -240,9 +240,14 @@ seat:GetPropertyChangedSignal("Occupant"):Connect(function()
 	end
 end)
 
-
 c1.Triggered:Connect(function()
 	c1.Enabled = false
+	
+	local pat1 = workspace.cus1:WaitForChild("Head")
+	local asse = pat1.Kent:WaitForChild("Handle")
+	local rt1 = player.Character:WaitForChild("Head")
+	pat1.CFrame=CFrame.lookAt(pat1.Position, rt1.Position)
+	asse.CFrame=CFrame.lookAt(asse.Position, rt1.Position)
 	
 	label.Text = "Have you seen any concert ticket falling from my pocket?"
 	label.Visible = true
@@ -256,6 +261,12 @@ c1.Triggered:Connect(function()
 		end
 	end
 	label.Text = "Stranger: Ummmm....no...sorry I haven't seen any ticket!"
+	while press==false do
+		local input = UserIS.InputBegan:Wait()
+		if input.KeyCode== Enum.KeyCode.F then
+			press=true
+		end
+	end
 	
 	label.Visible = false
 	nxt.Visible=false
@@ -270,6 +281,11 @@ end)
 
 c2.Triggered:Connect(function()
 	c2.Enabled = false
+	local pat1 = workspace.cus2:WaitForChild("Head")
+	local rt1 = player.Character:WaitForChild("Head")
+	local asse1 = pat1.BrownFloofHair:WaitForChild("Handle")
+	pat1.CFrame=CFrame.lookAt(pat1.Position, rt1.Position)
+	asse1.CFrame=CFrame.lookAt(asse1.Position, rt1.Position)
 	
 	label.Text="Did you see any ticket falling out of my pocket?"
 	label.Visible = true
@@ -302,7 +318,6 @@ c2.Triggered:Connect(function()
 end)
 
 c3.Triggered:Connect(function()
-	
 	c3.Enabled = false
 	
 	label.Text = "Have you seen any ticket falling from my pocket?"
@@ -316,7 +331,16 @@ c3.Triggered:Connect(function()
 			press = true
 		end
 	end
+	
 	label.Text = ".....(no answer)....."
+	
+	press = false
+	while press==false do
+		local input = UserIS.InputBegan:Wait()
+		if input.KeyCode== Enum.KeyCode.F then
+			press=true
+		end
+	end
 	
 	label.Visible= false
 	nxt.Visible=false
@@ -330,8 +354,14 @@ c3.Triggered:Connect(function()
 end)
 
 c4.Triggered:Connect(function()
-	print("c4 triggered")
 	c4.Enabled = false
+	local pat1 = workspace.cus4:WaitForChild("Head")
+	local rt1 = player.Character:WaitForChild("Head")
+	local asse2 = pat1.Headphones:WaitForChild("Handle")
+	local asse3 = pat1.HairAccessory:WaitForChild("Handle")
+	pat1.CFrame=CFrame.lookAt(pat1.Position, rt1.Position)
+	asse2.CFrame=CFrame.lookAt(asse2.Position, rt1.Position)
+	asse3.CFrame=CFrame.lookAt(asse3.Position, rt1.Position)
 	
 	label.Text = "Hey kiddo! Did you seen any ticket falling out of my pocket?"
 	label.Visible = true
@@ -369,6 +399,12 @@ c4.Triggered:Connect(function()
 		end
 	end
 	label.Text="Kids nowadays..ehh"
+	while press==false do
+		local input = UserIS.InputBegan:Wait()
+		if input.KeyCode== Enum.KeyCode.F then
+			press=true
+		end
+	end
 	
 	label.Visible= false
 	nxt.Visible = false
@@ -383,6 +419,10 @@ end)
 
 susprmpt.Triggered:Connect(function()
 	susprmpt.Enabled = false
+	local rigy = workspace.Sherry
+	local chr1 = player.Character:WaitForChild("HumanoidRootPart")
+	local mposi = rigy:GetPivot().Position
+	rigy:PivotTo(CFrame.lookAt(mposi ,chr1.Position))
 	
 	label.Text = "Hello mam!"
 	label.Visible =true
@@ -544,22 +584,22 @@ susprmpt.Triggered:Connect(function()
 	char:PivotTo(driveseat.CFrame*CFrame.new(0,2,0))
 	driveseat:Sit(hum)
 
-    local sherryRig = workspace:FindFirstChild("SherryCarRig", true)
+    local sherryRig = workspace:FindFirstChild("SherryCarRig")
 
     sherry.Parent = nil
 
     for i, part in pairs(sherryRig:GetDescendants()) do
 	    if part:IsA("BasePart") then
 		    part.Transparency=0
-	   end
-	end
+		end
+		task.wait(0.01)
+	end	
+	task.wait(1.5)
 	
 	scenegui.Enabled=false
 	objF.Visible = true
 	
-	task.wait(1)
-	
-	label.Text = "So I forgot to ask you ... whats your name?"
+	label.Text = "I forgot to ask you ... whats your name?"
 	label.Visible = true
 	nxt.Visible = true
 	
@@ -679,6 +719,9 @@ susprmpt.Triggered:Connect(function()
 	label.Visible=false
 	nxt.Visible = false
 	
+	local bl = workspace:WaitForChild("block")
+	bl.CanCollide = true
+	
 	
 	local sceneTitle=scenegui.BlackFrame.SceneTitle
 	sceneTitle.Text="SCENE 3"
@@ -748,9 +791,9 @@ susprmpt.Triggered:Connect(function()
 	local ptpe1 = workspace.Police_Tape:WaitForChild("Part")
 	local ptpe2 = workspace.Police_Tape:WaitForChild("Parto")
 	local ptpe3 = workspace.Police_Tape:WaitForChild("RopeShaftSquareSharpBase")
-	ptpe1.Visible = false
-	ptpe2.Visible = false
-	ptpe3.Visible = false
+	ptpe1.Transparency = 1
+	ptpe2.Transparency = 1
+	ptpe3.Transparency = 1
 	
 	houseprompt.Triggered:Connect(function()
 		
@@ -805,9 +848,13 @@ susprmpt.Triggered:Connect(function()
 		
 		walkTrack:Stop()
 		
-		label.Text="Please sit in this till I bring the ticket!"
+		label.Text="Please sit here till I bring the ticket!"
 		label.Visible = true
 		nxt.Visible= true
+		local rigy = workspace.SherryHouseRig
+		local chr1 = player.Character:WaitForChild("HumanoidRootPart")
+		local mposi = rigy:GetPivot().Position
+		rigy:PivotTo(CFrame.lookAt(mposi ,chr1.Position))
 		
 		press = false
 		while press == false do
@@ -834,7 +881,7 @@ susprmpt.Triggered:Connect(function()
 				sitH.WalkSpeed = 0
 				sitH.JumpPower = 0
 				sitH.JumpHeight = 0
-				
+				bl.CanCollide = false
 				
 				local wkani2 = Instance.new("Animation")
 				wkani2.AnimationId = "rbxassetid://180426354"
@@ -924,7 +971,7 @@ susprmpt.Triggered:Connect(function()
 				if hit.Parent == player.Character and talk == false then
 					talk=true
 					
-					label.Text= "HELP ME OPEN THIS DOOR!!"
+					label.Text= "HELP ME OPEN THIS DOOR!!!"
 					label.Visible = true
 					nxt.Visible = true
 					
@@ -996,9 +1043,9 @@ susprmpt.Triggered:Connect(function()
 		label.Visible = false
 		nxt.Visible = false
 		
-		ptpe1.Visible = true
-		ptpe2.Visible = true
-		ptpe3.Visible = true
+		ptpe1.Transparency = 0
+		ptpe2.Transparency = 0
+		ptpe3.Transparency = 0
 
 		local sceneTitle=scenegui.BlackFrame.SceneTitle
 		sceneTitle.Text="Police Arrives... You explain the incident to the police"
