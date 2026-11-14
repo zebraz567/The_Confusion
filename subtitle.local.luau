@@ -53,6 +53,8 @@ c3.Enabled = false
 c4.Enabled = false
 
 local cusdone = 0
+susprmpt.Enabled=true
+
 
 local talk2Staff = false
 local scenePly = false
@@ -582,6 +584,7 @@ susprmpt.Triggered:Connect(function()
 	l2.Text = " driving the car "
 	
 	char:PivotTo(driveseat.CFrame*CFrame.new(0,2,0))
+	task.wait(0.2)
 	driveseat:Sit(hum)
 
     local sherryRig = workspace:FindFirstChild("SherryCarRig")
@@ -592,9 +595,8 @@ susprmpt.Triggered:Connect(function()
 	    if part:IsA("BasePart") then
 		    part.Transparency=0
 		end
-		task.wait(0.01)
+		task.wait(0.0175)
 	end	
-	task.wait(1.5)
 	
 	scenegui.Enabled=false
 	objF.Visible = true
@@ -791,9 +793,17 @@ susprmpt.Triggered:Connect(function()
 	local ptpe1 = workspace.Police_Tape:WaitForChild("Part")
 	local ptpe2 = workspace.Police_Tape:WaitForChild("Parto")
 	local ptpe3 = workspace.Police_Tape:WaitForChild("RopeShaftSquareSharpBase")
+	local tex1 = ptpe3:WaitForChild("Back")
+	local tex2 = ptpe3:WaitForChild("Front")
+	local tex3 = ptpe3:WaitForChild("Left")
+	local tex4 = ptpe3:WaitForChild("Right")
 	ptpe1.Transparency = 1
 	ptpe2.Transparency = 1
 	ptpe3.Transparency = 1
+	tex1.Transparency = 1
+	tex2.Transparency = 1
+	tex3.Transparency = 1
+	tex4.Transparency = 1
 	
 	houseprompt.Triggered:Connect(function()
 		
@@ -962,6 +972,8 @@ susprmpt.Triggered:Connect(function()
 				sitH.JumpHeight = sitJ
 				sitH.JumpHeight = sitJH
 				
+				workspace.SherryHouseRig.Head.face.Texture = "rbxassetid://121602047"
+				
 				local drZn = workspace:FindFirstChild("DoorZone", true)
 				local drprmt = workspace.bthdoor.bathdoormur:FindFirstChild("DoorPrompt")
 				local talk = false
@@ -986,10 +998,21 @@ susprmpt.Triggered:Connect(function()
 							press = true
 						end
 					end
+					pTr:Stop()
+					
+					local pAnim2 = Instance.new("Animation")
+					pAnim2.AnimationId = "rbxassetid://85397595447611"
+					local pTr1 = animator:LoadAnimation(pAnim2)
+					pTr1.Priority = Enum.AnimationPriority.Action
+					pTr1.Looped = true
+					pTr1:Play()
 					label.Visible = false
 					nxt.Visible = false
+					local anist = workspace:WaitForChild("Anistop")
+					anist.Touched:Connect(function()
+						pTr1:Stop()
+					end)
 					
-					pTr:Stop()
 					drprmt.Enabled = true
 				end
 				end)
@@ -1043,9 +1066,63 @@ susprmpt.Triggered:Connect(function()
 		label.Visible = false
 		nxt.Visible = false
 		
+		local shrs  = workspace:WaitForChild("SherryHouseRigSeated")
+		local h1    = shrs:WaitForChild("Head")
+		local hnl   = shrs:WaitForChild("Left Arm")
+		local hnr   = shrs:WaitForChild("Right Arm")
+		local tor1  = shrs:WaitForChild("Torso")
+		local le1    = shrs:WaitForChild("Left Leg")
+		local r1    = shrs:WaitForChild("Right Leg")
+		local hrp   = shrs:WaitForChild("HumanoidRootPart")
+		local hair1 = shrs.LongHairHeadBandBrown:WaitForChild("Handle")
+		local bn1   = shrs.PunkRat:WaitForChild("Handle")
+		local texu1 = bn1:WaitForChild("Decal")
+		local fc1   = h1:WaitForChild("face")
+		
+		h1.Transparency    =0
+		hnl.Transparency   =0
+		hnr.Transparency   =0
+		tor1.Transparency  =0
+		le1.Transparency    =0
+		r1.Transparency    =0
+		hrp.Transparency   =0
+		hair1.Transparency  =0
+		bn1.Transparency   =0
+		texu1.Transparency  =0
+		fc1.Transparency   =0
+		
+		local shr  = workspace:WaitForChild("SherryHouseRig")
+		local h2    = shrs:WaitForChild("Head")
+		local hnl2  = shrs:WaitForChild("Left Arm")
+		local hnr3  = shrs:WaitForChild("Right Arm")
+		local tor3  = shrs:WaitForChild("Torso")
+		local le2  = shrs:WaitForChild("Left Leg")
+		local r2   = shrs:WaitForChild("Right Leg")
+		local hrp2   = shrs:WaitForChild("HumanoidRootPart")
+		local hair2 = shrs.LongHairHeadBandBrown:WaitForChild("Handle")
+		local bn2   = shrs.PunkRat:WaitForChild("Handle")
+		local texu2 = bn1:WaitForChild("Decal")
+		local fc2   = h1:WaitForChild("face")
+
+		h2.Transparency    =1
+		hnl2.Transparency   =1
+		hnr3.Transparency   =1
+		tor3.Transparency  =1
+		le2.Transparency    =1
+		r2.Transparency    =1
+		hrp2.Transparency   =1
+		hair2.Transparency =1
+		bn2.Transparency   =1
+		texu2.Transparency =1
+		fc2.Transparency   =1
+		
 		ptpe1.Transparency = 0
 		ptpe2.Transparency = 0
 		ptpe3.Transparency = 0
+		tex1.Transparency = 0
+		tex2.Transparency = 0
+		tex3.Transparency = 0
+		tex4.Transparency = 0
 
 		local sceneTitle=scenegui.BlackFrame.SceneTitle
 		sceneTitle.Text="Police Arrives... You explain the incident to the police"
@@ -2757,7 +2834,7 @@ susprmpt.Triggered:Connect(function()
 			q.Text = "Why is the juice so yellow?"
 			QFrame.Visible =true
 			
-			press=true
+			press=false
 			while press == false do
 				local inp=UserIS.InputBegan:Wait()
 				if inp.KeyCode == Enum.KeyCode.One then
