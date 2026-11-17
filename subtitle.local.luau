@@ -1,22 +1,28 @@
 local UserIS = game:GetService("UserInputService")
 
-local player = game.Players.LocalPlayer
 
-local pl0 = game.Players.LocalPlayer
-local ch0 = pl0.Character or pl0.CharecterAdded:Wait()
-local hum0 = ch0:WaitForChild("Humanoid")
-hum0.WalkSpeed = 0
-hum0.JumpPower = 0
+local player = game.Players.LocalPlayer
 local Begin = player.PlayerGui:WaitForChild("BeginGui")
 local beginF = Begin:WaitForChild("BeginFrame")
 local beginLabel = beginF:WaitForChild("BeginLabel")
 local Obj = player.PlayerGui:WaitForChild("ObjectiveGui")
+
+local story = player.PlayerGui:WaitForChild("StoryGui")
+local storyF = story:WaitForChild("StFrame")
+local stLabel = storyF:WaitForChild("StLabel")
+
 local objF = Obj:WaitForChild("objF")
 local l1 = objF:WaitForChild("Line1")
 local l2 = objF:WaitForChild("Line2")
 local l3 = objF:WaitForChild("Line3")
 local l4 = objF:WaitForChild("Line4")
 Begin.Enabled = true
+
+local pl0 = game.Players.LocalPlayer
+local ch0 = pl0.Character or pl0.CharecterAdded:Wait()
+local hum0 = ch0:WaitForChild("Humanoid")
+hum0.WalkSpeed = 0
+hum0.JumpPower = 0
 
 local gui = script.Parent
 local label = gui.SubtitleLabel
@@ -39,6 +45,61 @@ while pr1 == false do
 		Begin.Enabled = false
 	end
 end
+
+story.Enabled = true
+storyF.Visible = true
+
+stLabel.Text = " You are were going to a concert but you got to know .. "
+press = false
+while press == false do
+	local inp2 = UserIS.InputBegan:Wait()
+	if inp2.KeyCode == Enum.KeyCode.E then
+		press = true
+	end
+end
+
+stLabel.Text = " that the concert was going to start after nearly 2 hours! "
+press = false
+while press == false do
+	local inp2 = UserIS.InputBegan:Wait()
+	if inp2.KeyCode == Enum.KeyCode.E then
+		press = true
+	end
+end
+stLabel.Text = " The name of the band was AMAZÉ ... it was not that famous in your town but u liked their songs! "
+press = false
+while press == false do
+	local inp2 = UserIS.InputBegan:Wait()
+	if inp2.KeyCode == Enum.KeyCode.E then
+		press = true
+	end
+end
+stLabel.Text= " So you decided to do something to pass your time "
+press = false
+while press == false do
+	local inp2 = UserIS.InputBegan:Wait()
+	if inp2.KeyCode == Enum.KeyCode.E then
+		press = true
+	end
+end
+stLabel.Text = " You stopped at a nearby cafe to eat something "
+press = false
+while press == false do
+	local inp2 = UserIS.InputBegan:Wait()
+	if inp2.KeyCode == Enum.KeyCode.E then
+		press = true
+	end
+end
+stLabel.Text=" but something very unexpected happened afterwards! "
+press = false
+while press == false do
+	local inp2 = UserIS.InputBegan:Wait()
+	if inp2.KeyCode == Enum.KeyCode.E then
+		press = true
+	end
+end
+story.Enabled=false
+
 hum0.WalkSpeed = 16
 hum0.JumpPower = 40
 
@@ -511,7 +572,7 @@ susprmpt.Triggered:Connect(function()
 			press = true
 		end
 	end
-	label.Text = "Stranger: Actually it was for my sister but she didn't wanted to go..so i just have it but..."
+	label.Text = "Stranger: Actually it was for my sister but she didn't wanted to go..so i just have it ..."
 	local press = false
 	while press == false do
 		local input = UserIS.InputBegan:Wait()
@@ -519,7 +580,7 @@ susprmpt.Triggered:Connect(function()
 			press = true
 		end
 	end
-	label.Text = "Stranger: You have me do me a favour !!"
+	label.Text = "Stranger: But you have to do me a favour !!"
 	local press = false
 	while press == false do
 		local input = UserIS.InputBegan:Wait()
@@ -543,6 +604,39 @@ susprmpt.Triggered:Connect(function()
 			press = true
 		end
 	end
+	
+	local car = workspace:FindFirstChild("car")
+	local driveseat = car:FindFirstChild("DriveSeat",true)
+	local pseat = car:FindFirstChild("PassSeat",true)
+	
+	local scenegui = gui.Parent:FindFirstChild("SceneGui")
+	local char = player.Character
+	local hum = char:WaitForChild("Humanoid")
+
+
+	--local sherry = workspace:FindFirstChild("Sherry")
+	local oldSpd = hum.WalkSpeed
+	local oldjmp = hum.JumpPower
+	local oldJmpH = hum.JumpHeight
+	hum.WalkSpeed = 0
+	hum.JumpPower = 0
+	hum.JumpHeight = 0
+
+	local sherryRig = workspace:FindFirstChild("SherryCarRig")
+	local sherryHum = sherryRig:WaitForChild("Humanoid")
+	local sherryRoot = sherryRig:WaitForChild("HumanoidRootPart")
+
+	--sherry.Parent = nil
+
+	for i, part in pairs(sherryRig:GetDescendants()) do
+		if part:IsA("BasePart") then
+			part.Transparency=0
+			task.wait(0.02)
+		end
+	end	
+
+	task.wait(3)
+	
 	label.Text = "Ok no problem!! Lets go now ..else we may miss the concert!"
 	local press = false
 	while press == false do
@@ -554,15 +648,6 @@ susprmpt.Triggered:Connect(function()
 	label.Visible = false
 	nxt.Visible = false
 	
-	local scenegui = gui.Parent:FindFirstChild("SceneGui")
-	local char = player.Character
-	local hum = char:WaitForChild("Humanoid")
-	local oldSpd = hum.WalkSpeed
-	local oldjmp = hum.JumpPower
-	local oldJmpH = hum.JumpHeight
-	hum.WalkSpeed = 0
-	hum.JumpPower = 0
-	hum.JumpHeight = 0
 	
 	scenegui.Enabled = true
 	objF.Visible = false
@@ -575,31 +660,18 @@ susprmpt.Triggered:Connect(function()
 		end
     end
 
-	local car = workspace:FindFirstChild("car")
-	local driveseat = car:FindFirstChild("DriveSeat",true)
-	local pseat = car:FindFirstChild("PassSeat",true)
-	local sherry = workspace:FindFirstChild("Sherry")
-	
-	l1.Text = " Talk with her while "
-	l2.Text = " driving the car "
+	task.wait(3)
+	scenegui.Enabled=false
+	objF.Visible = true
 	
 	char:PivotTo(driveseat.CFrame*CFrame.new(0,2,0))
 	task.wait(0.2)
 	driveseat:Sit(hum)
-
-    local sherryRig = workspace:FindFirstChild("SherryCarRig")
-
-    sherry.Parent = nil
-
-    for i, part in pairs(sherryRig:GetDescendants()) do
-	    if part:IsA("BasePart") then
-		    part.Transparency=0
-		end
-		task.wait(0.0175)
-	end	
 	
-	scenegui.Enabled=false
-	objF.Visible = true
+
+	l1.Text = " Talk with her while "
+	l2.Text = " driving the car "
+
 	
 	label.Text = "I forgot to ask you ... whats your name?"
 	label.Visible = true
@@ -748,7 +820,7 @@ susprmpt.Triggered:Connect(function()
 	end
 	for _, part in pairs(parts) do
 		part.Transparency=1
-		part.CanCollide = false
+		--part.CanCollide = false
 		part.Anchored = true
 	end
 	local k =workspace.Police1.Head:WaitForChild("Decal")
@@ -764,7 +836,7 @@ susprmpt.Triggered:Connect(function()
 	end
 	for _, part in pairs(p) do
 		part.Transparency=1
-		part.CanCollide = false
+		--part.CanCollide = false
 		part.Anchored = true
 	end 
 	local f = workspace.police2.Head:WaitForChild("Decal")
@@ -1066,12 +1138,14 @@ susprmpt.Triggered:Connect(function()
 		label.Visible = false
 		nxt.Visible = false
 		
+
+        --[[
 		local shrs  = workspace:WaitForChild("SherryHouseRigSeated")
 		local h1    = shrs:WaitForChild("Head")
 		local hnl   = shrs:WaitForChild("Left Arm")
 		local hnr   = shrs:WaitForChild("Right Arm")
 		local tor1  = shrs:WaitForChild("Torso")
-		local le1    = shrs:WaitForChild("Left Leg")
+		local le1   = shrs:WaitForChild("Left Leg")
 		local r1    = shrs:WaitForChild("Right Leg")
 		local hrp   = shrs:WaitForChild("HumanoidRootPart")
 		local hair1 = shrs.LongHairHeadBandBrown:WaitForChild("Handle")
@@ -1079,6 +1153,7 @@ susprmpt.Triggered:Connect(function()
 		local texu1 = bn1:WaitForChild("Decal")
 		local fc1   = h1:WaitForChild("face")
 		
+		print("Transparency doing")
 		h1.Transparency    =0
 		hnl.Transparency   =0
 		hnr.Transparency   =0
@@ -1090,6 +1165,12 @@ susprmpt.Triggered:Connect(function()
 		bn1.Transparency   =0
 		texu1.Transparency  =0
 		fc1.Transparency   =0
+		for _, obj in pairs(shrs:GetDescendants()) do
+			if obj:IsA("BasePart") then
+				obj.LocalTransparencyModifier = 0
+			end
+		end
+		print("Transparency done")
 		
 		local shr  = workspace:WaitForChild("SherryHouseRig")
 		local h2    = shrs:WaitForChild("Head")
@@ -1114,7 +1195,7 @@ susprmpt.Triggered:Connect(function()
 		hair2.Transparency =1
 		bn2.Transparency   =1
 		texu2.Transparency =1
-		fc2.Transparency   =1
+		fc2.Transparency   =1]]
 		
 		ptpe1.Transparency = 0
 		ptpe2.Transparency = 0
@@ -1123,6 +1204,14 @@ susprmpt.Triggered:Connect(function()
 		tex2.Transparency = 0
 		tex3.Transparency = 0
 		tex4.Transparency = 0
+		
+		workspace.SherryHouseRig.Head.face.Texture = "rbxassetid://1269927553"
+		
+		local tpl = workspace:WaitForChild("SherryHouseRig")
+		local prtp = workspace:WaitForChild("tplast")
+		
+		tpl:PivotTo(prtp.CFrame*CFrame.new(0,3,0))
+		
 
 		local sceneTitle=scenegui.BlackFrame.SceneTitle
 		sceneTitle.Text="Police Arrives... You explain the incident to the police"
@@ -1260,7 +1349,7 @@ susprmpt.Triggered:Connect(function()
 		pol1hum:MoveTo(trgtpol2)
 		pol1hum.MoveToFinished:Wait()
 		
-		polTr:Stop()  
+		polTr:Stop() 
 		
 		--This part is all the script of the evidences
 		local MainE_paper = workspace:WaitForChild("ME_paper")
@@ -1311,7 +1400,7 @@ susprmpt.Triggered:Connect(function()
 		chem.Enabled      =true
 		bodyEv.Enabled    =true
 		Poster.Enabled    =true
-		if diffi == 0 then
+		if diffi == 1 then
 			Colon_F.Enabled   =true
 			BJuice_F.Enabled  =true
 			Blanket_F.Enabled =true
@@ -1381,9 +1470,11 @@ susprmpt.Triggered:Connect(function()
 						end
 						label.Visible = false
 						nxt.Visible = false
+						EndPrompt.Enabled=true
 					end)
 					hum1.WalkSpeed = 16
 					hum1.JumpPower = 40
+					press=true
 				
 				elseif inp.KeyCode == Enum.KeyCode.Two then
 					
@@ -1409,6 +1500,7 @@ susprmpt.Triggered:Connect(function()
 					nxt.Visible = false
 					hum1.WalkSpeed = 16
 					hum1.JumpPower = 40
+					press = true
 					
 				elseif inp.KeyCode == Enum.KeyCode.Five then
 					frame3.Visible = false
@@ -1502,6 +1594,7 @@ susprmpt.Triggered:Connect(function()
 					nxt.Visible =false
 					hum1.WalkSpeed = 16
 					hum1.JumpPower = 40
+					press = true
 					
 				elseif inp.KeyCode == Enum.KeyCode.Two then
 					Options.Enabled = false
@@ -1527,6 +1620,7 @@ susprmpt.Triggered:Connect(function()
 					nxt.Visible = false
 					hum1.WalkSpeed = 16
 					hum1.JumpPower = 40
+					press = true
 					
 				elseif inp.KeyCode == Enum.KeyCode.Three then
 					Options.Enabled = false
@@ -1552,6 +1646,7 @@ susprmpt.Triggered:Connect(function()
 					nxt.Visible =false
 					hum1.WalkSpeed = 16
 					hum1.JumpPower = 40
+					press = true
 				
 				elseif inp.KeyCode == Enum.KeyCode.Four then
 					Options.Enabled = false
@@ -1585,6 +1680,7 @@ susprmpt.Triggered:Connect(function()
 					nxt.Visible = false
 					hum1.WalkSpeed = 16
 					hum1.JumpPower = 40
+					press = true
 					
 				elseif inp.KeyCode == Enum.KeyCode.Five then
 					Options.Visible = false
@@ -1597,6 +1693,7 @@ susprmpt.Triggered:Connect(function()
 					bodyEv.Enabled = true
 					hum1.WalkSpeed = 16
 					hum1.JumpPower = 40
+					press = true
 					
 				end
 			end
@@ -1706,6 +1803,7 @@ susprmpt.Triggered:Connect(function()
 					nxt.Visible =false
 					hum1.WalkSpeed = 16
 					hum1.JumpPower =40
+					press = true
 					
 				elseif inp.KeyCode == Enum.KeyCode.Two then
 					Options.Enabled = false
@@ -1731,6 +1829,7 @@ susprmpt.Triggered:Connect(function()
 					nxt.Visible = false
 					hum1.WalkSpeed = 16
 					hum1.JumpPower =40
+					press = true
 					
 				elseif inp.KeyCode == Enum.KeyCode.Three then
 					Options.Enabled = false
@@ -1756,6 +1855,7 @@ susprmpt.Triggered:Connect(function()
 					nxt.Visible =false
 					hum1.WalkSpeed = 16
 					hum1.JumpPower =40
+					press = true
 					
 				elseif inp.KeyCode == Enum.KeyCode.Four then
 					Options.Enabled = false
@@ -1781,6 +1881,7 @@ susprmpt.Triggered:Connect(function()
 					nxt.Visible =false
 					hum1.WalkSpeed = 16
 					hum1.JumpPower =40
+					press = true
 					
 				elseif inp.KeyCode == Enum.KeyCode.Five then
 					Options.Enabled = false
@@ -1793,6 +1894,7 @@ susprmpt.Triggered:Connect(function()
 					lockp.Enabled = true
 					hum1.WalkSpeed = 16
 					hum1.JumpPower =40
+					press = true
 				end
 				
 			end
@@ -1893,6 +1995,7 @@ susprmpt.Triggered:Connect(function()
 					nxt.Visible = false
 					hum1.WalkSpeed = 16
 					hum1.JumpPower = 40
+					press = true
 					
 				elseif inp.KeyCode == Enum.KeyCode.Two then
 					Options.Enabled = false
@@ -1918,6 +2021,7 @@ susprmpt.Triggered:Connect(function()
 					nxt.Visible = false
 					hum1.WalkSpeed = 16
 					hum1.JumpPower = 40
+					press = true
 					
 				elseif inp.KeyCode == Enum.KeyCode.Three then
 					Options.Enabled = false
@@ -1943,6 +2047,7 @@ susprmpt.Triggered:Connect(function()
 					nxt.Visible =false
 					hum1.WalkSpeed = 16
 					hum1.JumpPower = 40
+					press = true
 					
 				elseif inp.KeyCode == Enum.KeyCode.Four then
 					
@@ -1989,6 +2094,7 @@ susprmpt.Triggered:Connect(function()
 							end
 							label.Visible = false
 							nxt.Visible = false
+							press = true
 							
 						elseif inp1.KeyCode == Enum.KeyCode.Two then
 							Options.Enabled = false
@@ -2011,6 +2117,7 @@ susprmpt.Triggered:Connect(function()
 							end
 							label.Visible = false
 							nxt.Visible = false
+							press = true
 							
 						elseif inp1.KeyCode == Enum.KeyCode.Three then
 							Options.Enabled = false
@@ -2024,7 +2131,7 @@ susprmpt.Triggered:Connect(function()
 							label.Text="The tape didn't had fingerprint of Sherry cuase Cherry used it!"
 							label.Visible = true
 							nxt.Visible = true
-							press = true
+							press = false
 							while press == false do
 								local inpp = UserIS.InputBegan:Wait()
 								if inpp.KeyCode == Enum.KeyCode.F then
@@ -2032,7 +2139,7 @@ susprmpt.Triggered:Connect(function()
 								end
 							end
 							label.Text = "They were packing and Cherry was probablly using the tape to pack"
-							press = true
+							press = false
 							while press == false do
 								local inpp = UserIS.InputBegan:Wait()
 								if inpp.KeyCode == Enum.KeyCode.F then
@@ -2040,7 +2147,7 @@ susprmpt.Triggered:Connect(function()
 								end
 							end
 							label.Text ="And then Sherry used those tape to stick it to the inside of the door"
-							press = true
+							press = false
 							while press == false do
 								local inpp = UserIS.InputBegan:Wait()
 								if inpp.KeyCode == Enum.KeyCode.F then
@@ -2048,7 +2155,7 @@ susprmpt.Triggered:Connect(function()
 								end
 							end
 							label.Text = "Which removed the suspision from Sherry as the tape had Cherry's fingerprint!"
-							press = true
+							press = false
 							while press == false do
 								local inpp = UserIS.InputBegan:Wait()
 								if inpp.KeyCode == Enum.KeyCode.F then
@@ -2057,6 +2164,7 @@ susprmpt.Triggered:Connect(function()
 							end
 							label.Visible = false
 							nxt.Visible = false
+							press = true
 							
 						elseif inp1.KeyCode == Enum.KeyCode.Four then
 							Options.Enabled = false
@@ -2079,11 +2187,13 @@ susprmpt.Triggered:Connect(function()
 							end
 							label.Visible = false
 							nxt.Visible = false	
+							press = true
 						end
 					end
 					
 					hum1.WalkSpeed = 16
 					hum1.JumpPower = 40
+					press = true
 					
 				elseif inp.KeyCode == Enum.KeyCode.Five then
 					Options.Enabled = false
@@ -2096,6 +2206,7 @@ susprmpt.Triggered:Connect(function()
 					MainE_tape.Enabled =true
 					hum1.WalkSpeed = 16
 					hum1.JumpPower = 40
+					press = true
 					
 				end
 			end
@@ -2162,6 +2273,7 @@ susprmpt.Triggered:Connect(function()
 					nxt.Visible = false
 					hum1.WalkSpeed = 16
 					hum1.JumpPower = 40
+					press = true
 					
 				elseif inp.KeyCode == Enum.KeyCode.Two then
 					Options.Enabled = false
@@ -2188,7 +2300,7 @@ susprmpt.Triggered:Connect(function()
 					nxt.Visible= false
 					hum1.WalkSpeed = 16
 					hum1.JumpPower = 40
-					
+					press = true
 				elseif inp.KeyCode == Enum.KeyCode.Three then
 					Options.Enabled = false
 					frame1.Visible = false
@@ -2213,7 +2325,7 @@ susprmpt.Triggered:Connect(function()
 					nxt.Visible = false
 					hum1.WalkSpeed = 16
 					hum1.JumpPower = 40
-					
+					press = true
 				elseif inp.KeyCode == Enum.KeyCode.Four then
 					Options.Enabled = false
 					frame1.Visible = false
@@ -2238,7 +2350,7 @@ susprmpt.Triggered:Connect(function()
 					nxt.Visible= false
 					hum1.WalkSpeed = 16
 					hum1.JumpPower = 40
-					
+					press = true
 				elseif inp.KeyCode == Enum.KeyCode.Five then
 					Options.Enabled = false
 					frame1.Visible = false
@@ -2250,6 +2362,7 @@ susprmpt.Triggered:Connect(function()
 					bspot.Enabled = true
 					hum1.WalkSpeed = 16
 					hum1.JumpPower = 40
+					press = true
 				end
 			end
 
@@ -2322,6 +2435,7 @@ susprmpt.Triggered:Connect(function()
 					nxt.Visible = false
 					hum1.WalkSpeed = 16
 					hum1.JumpPower = 40
+					press = true
 					
 				elseif inp.KeyCode ==Enum.KeyCode.Two then
 					Options.Enabled = false
@@ -2347,6 +2461,7 @@ susprmpt.Triggered:Connect(function()
 					nxt.Visible = false
 					hum1.WalkSpeed = 16
 					hum1.JumpPower = 40
+					press = true
 					
 				elseif inp.KeyCode == Enum.KeyCode.Three then
 					Options.Enabled = false
@@ -2388,6 +2503,7 @@ susprmpt.Triggered:Connect(function()
 					nxt.Visible = false
 					hum1.WalkSpeed = 16
 					hum1.JumpPower = 40
+					press = true
 					
 				elseif inp.KeyCode ==Enum.KeyCode.Four then
 					Options.Enabled = false
@@ -2437,6 +2553,7 @@ susprmpt.Triggered:Connect(function()
 					nxt.Visible = false
 					hum1.WalkSpeed = 16
 					hum1.JumpPower = 40
+					press = true
 					
 				elseif inp.KeyCode == Enum.KeyCode.Five then
 					Options.Enabled = false
@@ -2449,6 +2566,7 @@ susprmpt.Triggered:Connect(function()
 					chem.Enabled =true
 					hum1.WalkSpeed = 16
 					hum1.JumpPower = 40
+					press = true
 					
 				end
 			end
@@ -2523,6 +2641,7 @@ susprmpt.Triggered:Connect(function()
 					nxt.Visible = false
 					hum1.WalkSpeed = 16
 					hum1.JumpPower = 40
+					press = true
 					
 				elseif inp.KeyCode == Enum.KeyCode.Two then
 					Options.Enabled = false
@@ -2548,6 +2667,7 @@ susprmpt.Triggered:Connect(function()
 					nxt.Visible = false
 					hum1.WalkSpeed = 16
 					hum1.JumpPower = 40
+					press = true
 					
 					
 				elseif inp.KeyCode == Enum.KeyCode.Three then
@@ -2582,6 +2702,7 @@ susprmpt.Triggered:Connect(function()
 					nxt.Visible=false
 					hum1.WalkSpeed = 16
 					hum1.JumpPower = 40
+					press = true
 					
 				elseif inp.KeyCode == Enum.KeyCode.Four then
 					Options.Enabled = false
@@ -2607,6 +2728,7 @@ susprmpt.Triggered:Connect(function()
 					nxt.Visible = false
 					hum1.WalkSpeed = 16
 					hum1.JumpPower = 40
+					press = true
 					
 				elseif inp.KeyCode == Enum.KeyCode.Five then
 					Options.Enabled = false
@@ -2619,6 +2741,7 @@ susprmpt.Triggered:Connect(function()
 					Poster.Enabled =true
 					hum1.WalkSpeed = 16
 					hum1.JumpPower = 40
+					press = true
 					
 				end
 			end
@@ -2692,6 +2815,7 @@ susprmpt.Triggered:Connect(function()
 					nxt.Visible = false
 					hum1.WalkSpeed = 16
 					hum1.JumpPower = 40
+					press = true
 					
 				elseif inp.KeyCode ==Enum.KeyCode.Two then
 					Options.Enabled = false
@@ -2726,6 +2850,7 @@ susprmpt.Triggered:Connect(function()
 					nxt.Visible=false
 					hum1.WalkSpeed = 16
 					hum1.JumpPower = 40
+					press = true
 					
 				elseif inp.KeyCode ==Enum.KeyCode.Three then
 					Options.Enabled = false
@@ -2751,6 +2876,7 @@ susprmpt.Triggered:Connect(function()
 					nxt.Visible=false
 					hum1.WalkSpeed = 16
 					hum1.JumpPower = 40
+					press = true
 					
 				elseif inp.KeyCode ==Enum.KeyCode.Four then
 					Options.Enabled = false
@@ -2785,7 +2911,7 @@ susprmpt.Triggered:Connect(function()
 					nxt.Visible =true
 					hum1.WalkSpeed = 16
 					hum1.JumpPower = 40
-					
+					press = true
 				elseif inp.KeyCode == Enum.KeyCode.Five then
 					Options.Enabled = false
 					QFrame.Visible = false
@@ -2797,6 +2923,7 @@ susprmpt.Triggered:Connect(function()
 					Colon_F.Enabled=true
 					hum1.WalkSpeed = 16
 					hum1.JumpPower = 40
+					press = true
 					
 				end
 			end
@@ -2861,6 +2988,7 @@ susprmpt.Triggered:Connect(function()
 					nxt.Visible = false
 					hum1.WalkSpeed = 16
 					hum1.JumpPower = 40
+					press = true
 					
 				elseif inp.KeyCode ==Enum.KeyCode.Two then
 					Options.Enabled =false
@@ -2886,6 +3014,7 @@ susprmpt.Triggered:Connect(function()
 					nxt.Visible = false
 					hum1.WalkSpeed = 16
 					hum1.JumpPower = 40
+					press = true
 					
 				elseif inp.KeyCode ==Enum.KeyCode.Three then
 					Options.Enabled =false
@@ -2911,6 +3040,7 @@ susprmpt.Triggered:Connect(function()
 					nxt.Visible = false
 					hum1.WalkSpeed = 16
 					hum1.JumpPower = 40
+					press = true
 					
 				elseif inp.KeyCode ==Enum.KeyCode.Four then
 					Options.Enabled =false
@@ -2936,6 +3066,7 @@ susprmpt.Triggered:Connect(function()
 					nxt.Visible=false
 					hum1.WalkSpeed = 16
 					hum1.JumpPower = 40
+					press = true
 					
 				elseif inp.KeyCode == Enum.KeyCode.Five then
 					Options.Enabled =false
@@ -2948,6 +3079,7 @@ susprmpt.Triggered:Connect(function()
 					BJuice_F.Enabled=true
 					hum1.WalkSpeed = 16
 					hum1.JumpPower = 40
+					press = true
 					
 				end
 			end
@@ -3013,6 +3145,7 @@ susprmpt.Triggered:Connect(function()
 					nxt.Visible =false]]
 					hum1.WalkSpeed = 16
 					hum1.JumpPower = 40 
+					press = true
 					
 				elseif inp.KeyCode ==Enum.KeyCode.Two then
 					Options.Enabled =false
@@ -3038,6 +3171,7 @@ susprmpt.Triggered:Connect(function()
 					nxt.Visible = false]]
 					hum1.WalkSpeed = 16
 					hum1.JumpPower = 40
+					press = true
 					
 				elseif inp.KeyCode == Enum.KeyCode.Three then
 					Options.Enabled = false
@@ -3063,6 +3197,7 @@ susprmpt.Triggered:Connect(function()
 					nxt.Visible = false]]
 					hum1.WalkSpeed = 16
 					hum1.JumpPower = 40
+					press = true
 					
 				elseif inp.KeyCode ==Enum.KeyCode.Four then
 					Options.Enabled =false
@@ -3088,6 +3223,7 @@ susprmpt.Triggered:Connect(function()
 					nxt.Visible = false]]
 					hum1.WalkSpeed = 16
 					hum1.JumpPower = 40
+					press = true
 					
 				elseif inp.KeyCode == Enum.KeyCode.Five then
 					Options.Enabled =false
@@ -3099,6 +3235,7 @@ susprmpt.Triggered:Connect(function()
 					back.Visible =false 
 					hum1.WalkSpeed = 16
 					hum1.JumpPower = 40
+					press = true
 				end
 			end
 		
@@ -3109,15 +3246,17 @@ susprmpt.Triggered:Connect(function()
 			EndPrompt.Enabled = false
 			Options.Enabled = false
 			Ending.Enabled = true
+			EndFrame.Visible = true
+			print("counts:", opCorrect, opStry, opWrong)
 			
 			if opCorrect == 0 and opStry==0 and opWrong==0 then
 				EndLabel.Text = " You provided the police NO evidence which left them more confused and the culprit ESCAPED! "
-				EndFrame.Visible = true
 				
 				
 				
 				
-			elseif opCorrect == 5 and opStry==2 and opWrong==0 then
+			elseif opCorrect == 4 and opStry==2 and opWrong==0 then
+				
 				EndLabel.Text = "You were perfect with your deductions..."
 				press = false
 				while press == false do
@@ -3215,7 +3354,7 @@ susprmpt.Triggered:Connect(function()
 						press = true
 					end
 				end
-				te = " Sherry couldn't hold back the anger "
+				EndLabel.Text = " Sherry couldn't hold back the anger "
 				press = false
 				while press == false do
 					local inp = UserIS.InputBegan:Wait()
@@ -3223,7 +3362,7 @@ susprmpt.Triggered:Connect(function()
 						press = true
 					end
 				end
-				te = " Sherry started planning a conspiracy against her own sister "
+				EndLabel.Text = " Sherry started planning a conspiracy against her own sister "
 				press = false
 				while press == false do
 					local inp = UserIS.InputBegan:Wait()
@@ -3231,7 +3370,7 @@ susprmpt.Triggered:Connect(function()
 						press = true
 					end
 				end
-				te= " Sherry planned to kill Cherry using a very unique technique "
+				EndLabel.Text= " Sherry planned to kill Cherry using a very unique technique "
 				press = false
 				while press == false do
 					local inp = UserIS.InputBegan:Wait()
@@ -3239,7 +3378,7 @@ susprmpt.Triggered:Connect(function()
 						press = true
 					end
 				end
-				te = " Sherry had a great knowledge in chemistry... she knew that mixing chlorine bleach and acidic detergent causes a chemical reaction which releases chlorine "
+				EndLabel.Text = " Sherry had a great knowledge in chemistry... she knew that mixing chlorine bleach and acidic detergent causes a chemical reaction which releases chlorine "
 				press = false
 				while press == false do
 					local inp = UserIS.InputBegan:Wait()
@@ -3247,7 +3386,7 @@ susprmpt.Triggered:Connect(function()
 						press = true
 					end
 				end
-				te=" That chlorine can easily do in a person "
+				EndLabel.Text=" That chlorine can easily do in a person "
 				press = false
 				while press == false do
 					local inp = UserIS.InputBegan:Wait()
@@ -3255,7 +3394,7 @@ susprmpt.Triggered:Connect(function()
 						press = true
 					end
 				end
-				te = "She drugged Cherry with some sleeping pills and then dragged her to the bathroom "
+				EndLabel.Text= "She drugged Cherry with some sleeping pills and then dragged her to the bathroom "
 				press = false
 				while press == false do
 					local inp = UserIS.InputBegan:Wait()
@@ -3263,7 +3402,7 @@ susprmpt.Triggered:Connect(function()
 						press = true
 					end
 				end
-				te=" She sat Cherry down in one corner and then mixed the chlorine bleach and acidic detergent "
+				EndLabel.Text=" She sat Cherry down in one corner and then mixed the chlorine bleach and acidic detergent "
 				press = false
 				while press == false do
 					local inp = UserIS.InputBegan:Wait()
@@ -3271,7 +3410,7 @@ susprmpt.Triggered:Connect(function()
 						press = true
 					end
 				end
-				te = " After some time she thought Cherry was dead... but her heart was still beating! "
+				EndLabel.Text= " After some time she thought Cherry was dead... but her heart was still beating! "
 				press = false
 				while press == false do
 					local inp = UserIS.InputBegan:Wait()
@@ -3279,7 +3418,7 @@ susprmpt.Triggered:Connect(function()
 						press = true
 					end
 				end
-				te= "  Then she realised it was not chlorine bleach but it was normal bleach that Cherry brought from market"
+				EndLabel.Text= "  Then she realised it was not chlorine bleach but it was normal bleach that Cherry brought from market"
 				press = false
 				while press == false do
 					local inp = UserIS.InputBegan:Wait()
@@ -3287,7 +3426,7 @@ susprmpt.Triggered:Connect(function()
 						press = true
 					end
 				end
-				te =" She was in complete confusion what to do next so she thought to kill he by cutting her hand "
+				EndLabel.Text=" She was in complete confusion what to do next so she thought to kill he by cutting her hand "
 				press = false
 				while press == false do
 					local inp = UserIS.InputBegan:Wait()
@@ -3295,7 +3434,7 @@ susprmpt.Triggered:Connect(function()
 						press = true
 					end
 				end
-				te=" ...which would still look like a suicide! Nobody would have questioned "
+				EndLabel.Text=" ...which would still look like a suicide! Nobody would have questioned "
 				press = false
 				while press == false do
 					local inp = UserIS.InputBegan:Wait()
@@ -3303,7 +3442,7 @@ susprmpt.Triggered:Connect(function()
 						press = true
 					end
 				end
-				te = " She then took Cherry's hand and made deep cuts with a knife "
+				EndLabel.Text= " She then took Cherry's hand and made deep cuts with a knife "
 				press = false
 				while press == false do
 					local inp = UserIS.InputBegan:Wait()
@@ -3311,7 +3450,7 @@ susprmpt.Triggered:Connect(function()
 						press = true
 					end
 				end
-				te="After Sherry confirmed Cherry was dead ...  she started finishing things up by DEFINING it as a suicide "
+				EndLabel.Text="After Sherry confirmed Cherry was dead ...  she started finishing things up by DEFINING it as a suicide "
 				press = false
 				while press == false do
 					local inp = UserIS.InputBegan:Wait()
@@ -3319,7 +3458,7 @@ susprmpt.Triggered:Connect(function()
 						press = true
 					end
 				end
-				te= " She took the tape(with gloves) that Cherry kept ready on her dressing table to pack stuff as she was shifting! "
+				EndLabel.Text= " She took the tape(with gloves) that Cherry kept ready on her dressing table to pack stuff as she was shifting! "
 				press = false
 				while press == false do
 					local inp = UserIS.InputBegan:Wait()
@@ -3327,7 +3466,7 @@ susprmpt.Triggered:Connect(function()
 						press = true
 					end
 				end
-				te="  This way the tapes had the finger-print of Cherry ..."
+				EndLabel.Text="  This way the tapes had the finger-print of Cherry ..."
 				press = false
 				while press == false do
 					local inp = UserIS.InputBegan:Wait()
@@ -3335,7 +3474,7 @@ susprmpt.Triggered:Connect(function()
 						press = true
 					end
 				end
-				te=" ...Sherry took those peices tape and taped it to the bathroom's glass door from inside"
+				EndLabel.Text=" ...Sherry took those peices tape and taped it to the bathroom's glass door from inside"
 				press = false
 				while press == false do
 					local inp = UserIS.InputBegan:Wait()
@@ -3343,7 +3482,7 @@ susprmpt.Triggered:Connect(function()
 						press = true
 					end
 				end
-				te=" Thus when the door is closed ..it gave an illusion that the door was taped shut from inside which wasn't taped to the wall and frame in reality the tapes were only taped to the door "
+				EndLabel.Text=" Thus when the door is closed ..it gave an illusion that the door was taped shut from inside which wasn't taped to the wall and frame in reality the tapes were only taped to the door "
 				press = false
 				while press == false do
 					local inp = UserIS.InputBegan:Wait()
@@ -3351,7 +3490,7 @@ susprmpt.Triggered:Connect(function()
 						press = true
 					end
 				end
-				te=" Then Sherry sneaked out of the house and came to to the cafe where i met her where she also got a perfect opportunity to make me a witness "
+				EndLabel.Text=" Then Sherry sneaked out of the house and came to to the cafe where i met her where she also got a perfect opportunity to make me a witness "
 				press = false
 				while press == false do
 					local inp = UserIS.InputBegan:Wait()
@@ -3359,7 +3498,7 @@ susprmpt.Triggered:Connect(function()
 						press = true
 					end
 				end
-				te="Another trick that Sherry used to manipulate that the door was closed was by locking the door from outside when we were pushing to break into "
+				EndLabel.Text="Another trick that Sherry used to manipulate that the door was closed was by locking the door from outside when we were pushing to break into "
 				press = false
 				while press == false do
 					local inp = UserIS.InputBegan:Wait()
@@ -3367,7 +3506,7 @@ susprmpt.Triggered:Connect(function()
 						press = true
 					end
 				end
-				te=" This made me feel that the door was locked from inside and when she open the lock at a sudden ... it felt like we broke the lock! "
+				EndLabel.Text=" This made me feel that the door was locked from inside and when she open the lock at a sudden ... it felt like we broke the lock! "
 				press = false
 				while press == false do
 					local inp = UserIS.InputBegan:Wait()
@@ -3375,7 +3514,7 @@ susprmpt.Triggered:Connect(function()
 						press = true
 					end
 				end
-				te=" But a culprit can never leave a crime scene without some trail "
+				EndLabel.Text=" But a culprit can never leave a crime scene without some trail "
 				press = false
 				while press == false do
 					local inp = UserIS.InputBegan:Wait()
@@ -3383,7 +3522,7 @@ susprmpt.Triggered:Connect(function()
 						press = true
 					end
 				end
-				te=" The first evidence was the small peice of tape on the dressing table that Sherry might have overlooked "
+				EndLabel.Text=" The first evidence was the small peice of tape on the dressing table that Sherry might have overlooked "
 				press = false
 				while press == false do
 					local inp = UserIS.InputBegan:Wait()
@@ -3391,7 +3530,7 @@ susprmpt.Triggered:Connect(function()
 						press = true
 					end
 				end
-				te=" That small peice of tape gave us a big hint "
+				EndLabel.Text=" That small peice of tape gave us a big hint "
 				press = false
 				while press == false do
 					local inp = UserIS.InputBegan:Wait()
@@ -3399,7 +3538,7 @@ susprmpt.Triggered:Connect(function()
 						press = true
 					end
 				end
-				te=" Another big hint was the door lock not being damaged letting us figure out the trick with it "
+				EndLabel.Text=" Another big hint was the door lock not being damaged letting us figure out the trick with it "
 				press = false
 				while press == false do
 					local inp = UserIS.InputBegan:Wait()
@@ -3407,7 +3546,7 @@ susprmpt.Triggered:Connect(function()
 						press = true
 					end
 				end
-				te=" The cuts on the hand were also very aggresive which is very unatural even for a mentally disabled person as human have tendency to fear when they are hurting themself "
+				EndLabel.Text=" The cuts on the hand were also very aggresive which is very unatural even for a mentally disabled person as human have tendency to fear when they are hurting themself "
 				press = false
 				while press == false do
 					local inp = UserIS.InputBegan:Wait()
@@ -3415,7 +3554,7 @@ susprmpt.Triggered:Connect(function()
 						press = true
 					end
 				end
-				te = " The Blood spot on the door proved us that this wasnt a suicide and was done by a outsider "
+				EndLabel.Text = " The Blood spot on the door proved us that this wasnt a suicide and was done by a outsider "
 				press = false
 				while press == false do
 					local inp = UserIS.InputBegan:Wait()
@@ -3423,7 +3562,7 @@ susprmpt.Triggered:Connect(function()
 						press = true
 					end
 				end
-				te = " but all of this didn't proved Sherry as the culprit... it just pointed as it was a murder"
+				EndLabel.Text= " but all of this didn't proved Sherry as the culprit... it just pointed as it was a murder"
 				press = false
 				while press == false do
 					local inp = UserIS.InputBegan:Wait()
@@ -3431,7 +3570,7 @@ susprmpt.Triggered:Connect(function()
 						press = true
 					end
 				end
-				te=" The only evidence that debunked all of this was , unexpectedly an 'É' or better as only 'E' !"
+				EndLabel.Text=" The only evidence that debunked all of this was , unexpectedly an 'É' or better as only 'E' !"
 				press = false
 				while press == false do
 					local inp = UserIS.InputBegan:Wait()
@@ -3439,7 +3578,7 @@ susprmpt.Triggered:Connect(function()
 						press = true
 					end
 				end
-				te= "The band 'AMAZÉ' has a 'É' not a normal 'E ' "
+				EndLabel.Text= "The band 'AMAZÉ' has a 'É' not a normal 'E ' "
 				press = false
 				while press == false do
 					local inp = UserIS.InputBegan:Wait()
@@ -3447,7 +3586,7 @@ susprmpt.Triggered:Connect(function()
 						press = true
 					end
 				end
-				te = "Something was tickling my mind but when I saw the poster I realised it! "
+				EndLabel.Text= "Something was tickling my mind but when I saw the poster I realised it! "
 				press = false
 				while press == false do
 					local inp = UserIS.InputBegan:Wait()
@@ -3455,7 +3594,7 @@ susprmpt.Triggered:Connect(function()
 						press = true
 					end
 				end
-				te= " It was Sherry's headband ... it had 'AMAZE' not 'AMAZÉ' "
+				EndLabel.Text= " It was Sherry's headband ... it had 'AMAZE' not 'AMAZÉ' "
 				press = false
 				while press == false do
 					local inp = UserIS.InputBegan:Wait()
@@ -3463,7 +3602,7 @@ susprmpt.Triggered:Connect(function()
 						press = true
 					end
 				end
-				te= "Most of us will be confused here but if we noticed that the background color of the headband was blood red "
+				EndLabel.Text= "Most of us will be confused here but if we noticed that the background color of the headband was blood red "
 				press = false
 				while press == false do
 					local inp = UserIS.InputBegan:Wait()
@@ -3471,7 +3610,7 @@ susprmpt.Triggered:Connect(function()
 						press = true
 					end
 				end
-				te="An official merch can't have a mistake... the missing dash above the 'E' was never missing "
+				EndLabel.Text="An official merch can't have a mistake... the missing dash above the 'E' was never missing "
 				press = false
 				while press == false do
 					local inp = UserIS.InputBegan:Wait()
@@ -3479,7 +3618,7 @@ susprmpt.Triggered:Connect(function()
 						press = true
 					end
 				end
-				te="It was hiding from us because of a blood mark which camoflauged with the background red color of headband !"
+				EndLabel.Text="It was hiding from us because of a blood mark which camoflauged with the background red color of headband !"
 				press = false
 				while press == false do
 					local inp = UserIS.InputBegan:Wait()
@@ -3487,7 +3626,7 @@ susprmpt.Triggered:Connect(function()
 						press = true
 					end
 				end
-				te="When Sherry cut Cherry's hand , blood had sprayed out ... then Sherry must have changed clothes but she did'nt change the headband"
+				EndLabel.Text="When Sherry cut Cherry's hand , blood had sprayed out ... then Sherry must have changed clothes but she did'nt change the headband"
 				press = false
 				while press == false do
 					local inp = UserIS.InputBegan:Wait()
@@ -3495,7 +3634,7 @@ susprmpt.Triggered:Connect(function()
 						press = true
 					end
 				end
-				te="Most probablly beacuse she didn't notice any blood mark over it which camo-ed with the background!"
+				EndLabel.Text="Most probablly beacuse she didn't notice any blood mark over it which camo-ed with the background!"
 				press = false
 				while press == false do
 					local inp = UserIS.InputBegan:Wait()
@@ -3503,7 +3642,7 @@ susprmpt.Triggered:Connect(function()
 						press = true
 					end
 				end
-				te=" These factors revealed that Sherry was the culprit !"
+				EndLabel.Text=" These factors revealed that Sherry was the culprit !"
 				press = false
 				while press == false do
 					local inp = UserIS.InputBegan:Wait()
@@ -3511,7 +3650,7 @@ susprmpt.Triggered:Connect(function()
 						press = true
 					end
 				end
-				te=" After Sherry realised that she couldn't escape anymore ...she said us why she killed her sister "
+				EndLabel.Text=" After Sherry realised that she couldn't escape anymore ...she said us why she killed her sister "
 				press = false
 				while press == false do
 					local inp = UserIS.InputBegan:Wait()
@@ -3519,7 +3658,7 @@ susprmpt.Triggered:Connect(function()
 						press = true
 					end
 				end
-				te="Then we revealed to Sherry that we had a talk with Cherry's fiance and where got to know that..."
+				EndLabel.Text="Then we revealed to Sherry that we had a talk with Cherry's fiance and where got to know that..."
 				press = false
 				while press == false do
 					local inp = UserIS.InputBegan:Wait()
@@ -3527,7 +3666,7 @@ susprmpt.Triggered:Connect(function()
 						press = true
 					end
 				end
-				te="...it was never Cherry who wanted to marry him ...it was the fiance who first proposed her!"
+				EndLabel.Text="...it was never Cherry who wanted to marry him ...it was the fiance who first proposed her!"
 				press = false
 				while press == false do
 					local inp = UserIS.InputBegan:Wait()
@@ -3535,7 +3674,7 @@ susprmpt.Triggered:Connect(function()
 						press = true
 					end
 				end
-				te=" Also, little did she knew that Cherry knew about Sherry's plan!"
+				EndLabel.Text=" Also, little did she knew that Cherry knew about Sherry's plan!"
 				press = false
 				while press == false do
 					local inp = UserIS.InputBegan:Wait()
@@ -3543,7 +3682,7 @@ susprmpt.Triggered:Connect(function()
 						press = true
 					end
 				end
-				te="She just acted along with Sherry because she wanted to keep Sherry happy even if she gets killed "
+				EndLabel.Text="She just acted along with Sherry because she wanted to keep Sherry happy even if she gets killed "
 				press = false
 				while press == false do
 					local inp = UserIS.InputBegan:Wait()
@@ -3551,7 +3690,7 @@ susprmpt.Triggered:Connect(function()
 						press = true
 					end
 				end
-				te=" We got to know about this throught the paper I got... "
+				EndLabel.Text=" We got to know about this throught the paper I got... "
 				press = false
 				while press == false do
 					local inp = UserIS.InputBegan:Wait()
@@ -3559,7 +3698,7 @@ susprmpt.Triggered:Connect(function()
 						press = true
 					end
 				end
-				te="It was actually the reciept of the shop from where Cherry brought the bleach and detergent"
+				EndLabel.Text="It was actually the reciept of the shop from where Cherry brought the bleach and detergent"
 				press = false
 				while press == false do
 					local inp = UserIS.InputBegan:Wait()
@@ -3567,7 +3706,7 @@ susprmpt.Triggered:Connect(function()
 						press = true
 					end
 				end
-				te=" When we went back to the shop and asked about some details ... "
+				EndLabel.Text=" When we went back to the shop and asked about some details ... "
 				press = false
 				while press == false do
 					local inp = UserIS.InputBegan:Wait()
@@ -3575,7 +3714,7 @@ susprmpt.Triggered:Connect(function()
 						press = true
 					end
 				end
-				te="The shop owner answered that he heard Cherry murmuring to herself "
+				EndLabel.Text="The shop owner answered that he heard Cherry murmuring to herself "
 				press = false
 				while press == false do
 					local inp = UserIS.InputBegan:Wait()
@@ -3583,7 +3722,7 @@ susprmpt.Triggered:Connect(function()
 						press = true
 					end
 				end
-				te="Cherry was saying to herself :'I don't want to kill my sister with this' while holding the chlorine bleach"
+				EndLabel.Text="Cherry was saying to herself :'I don't want to kill my sister with this' while holding the chlorine bleach"
 				press = false
 				while press == false do
 					local inp = UserIS.InputBegan:Wait()
@@ -3591,7 +3730,7 @@ susprmpt.Triggered:Connect(function()
 						press = true
 					end
 				end
-				te= " This maped out that Cherry knew Sherry was going to kill her "
+				EndLabel.Text= " This maped out that Cherry knew Sherry was going to kill her "
 				press = false
 				while press == false do
 					local inp = UserIS.InputBegan:Wait()
@@ -3599,7 +3738,7 @@ susprmpt.Triggered:Connect(function()
 						press = true
 					end
 				end
-				te=" But the saddest part is that Cherry knew that if Sherry used the chlorine bleach reaction to kill her...Sherry would herself get killed too!!"
+				EndLabel.Text=" But the saddest part is that Cherry knew that if Sherry used the chlorine bleach reaction to kill her...Sherry would herself get killed too!!"
 				press = false
 				while press == false do
 					local inp = UserIS.InputBegan:Wait()
@@ -3607,7 +3746,7 @@ susprmpt.Triggered:Connect(function()
 						press = true
 					end
 				end
-				te =" Thats why she was murmuring to herself all that and brought chlorine free bleach even though she was told to bring chlorine bleach "
+				EndLabel.Text =" Thats why she was murmuring to herself all that and brought chlorine free bleach even though she was told to bring chlorine bleach "
 				press = false
 				while press == false do
 					local inp = UserIS.InputBegan:Wait()
@@ -3615,7 +3754,7 @@ susprmpt.Triggered:Connect(function()
 						press = true
 					end
 				end
-				te=" After realizing to what she had done all the regrets and grief came booming out of Sherry but there wasn't a way to bring a dead one back! "
+				EndLabel.Text=" After realizing to what she had done all the regrets and grief came booming out of Sherry but there wasn't a way to bring a dead one back! "
 				press = false
 				while press == false do
 					local inp = UserIS.InputBegan:Wait()
@@ -3623,15 +3762,13 @@ susprmpt.Triggered:Connect(function()
 						press = true
 					end
 				end
-				te = "When people don't want the best for you, they are not the best for you.   - <i>GAYLE KING</i>"
-
-				EndFrame.Visible = true
+				EndLabel.Text = "When people don't want the best for you, they are not the best for you.   - <i>GAYLE KING</i>"
 				
 				
 				
-			elseif opCorrect<=4 and opCorrect>2 and opStry==2 and opWrong>2 then
+			elseif opCorrect<=5 and opStry==2 and opWrong>2 then
 				EndLabel.Text = "You were great with your deductions but you missed some important points to be noticed!"
-				EndFrame.Visible = true
+				
 				press = false
 				while press == false do
 					local inp = UserIS.InputBegan:Wait()
@@ -3729,7 +3866,7 @@ susprmpt.Triggered:Connect(function()
 					end
 				end
 				local te = EndLabel.Text
-				te = " Sherry couldn't hold back the anger "
+				EndLabel.Text = " Sherry couldn't hold back the anger "
 				press = false
 				while press == false do
 					local inp = UserIS.InputBegan:Wait()
@@ -3737,7 +3874,7 @@ susprmpt.Triggered:Connect(function()
 						press = true
 					end
 				end
-				te = " Sherry started planning a conspiracy against her own sister "
+				EndLabel.Text = " Sherry started planning a conspiracy against her own sister "
 				press = false
 				while press == false do
 					local inp = UserIS.InputBegan:Wait()
@@ -3745,7 +3882,7 @@ susprmpt.Triggered:Connect(function()
 						press = true
 					end
 				end
-				te= " Sherry planned to kill Cherry using a very unique technique "
+				EndLabel.Text= " Sherry planned to kill Cherry using a very unique technique "
 				press = false
 				while press == false do
 					local inp = UserIS.InputBegan:Wait()
@@ -3753,7 +3890,7 @@ susprmpt.Triggered:Connect(function()
 						press = true
 					end
 				end
-				te = " Sherry had a great knowledge in chemistry... she knew that mixing chlorine bleach and acidic detergent causes a chemical reaction which releases chlorine "
+				EndLabel.Text= " Sherry had a great knowledge in chemistry... she knew that mixing chlorine bleach and acidic detergent causes a chemical reaction which releases chlorine "
 				press = false
 				while press == false do
 					local inp = UserIS.InputBegan:Wait()
@@ -3761,7 +3898,7 @@ susprmpt.Triggered:Connect(function()
 						press = true
 					end
 				end
-				te=" That chlorine can easily do in a person "
+				EndLabel.Text=" That chlorine can easily do in a person "
 				press = false
 				while press == false do
 					local inp = UserIS.InputBegan:Wait()
@@ -3769,7 +3906,7 @@ susprmpt.Triggered:Connect(function()
 						press = true
 					end
 				end
-				te = "She drugged Cherry with some sleeping pills and then dragged her to the bathroom "
+				EndLabel.Text= "She drugged Cherry with some sleeping pills and then dragged her to the bathroom "
 				press = false
 				while press == false do
 					local inp = UserIS.InputBegan:Wait()
@@ -3777,7 +3914,7 @@ susprmpt.Triggered:Connect(function()
 						press = true
 					end
 				end
-				te=" She sat Cherry down in one corner and then mixed the chlorine bleach and acidic detergent "
+				EndLabel.Text=" She sat Cherry down in one corner and then mixed the chlorine bleach and acidic detergent "
 				press = false
 				while press == false do
 					local inp = UserIS.InputBegan:Wait()
@@ -3785,7 +3922,7 @@ susprmpt.Triggered:Connect(function()
 						press = true
 					end
 				end
-				te = " After some time she thought Cherry was dead... but her heart was still beating! "
+				EndLabel.Text= " After some time she thought Cherry was dead... but her heart was still beating! "
 				press = false
 				while press == false do
 					local inp = UserIS.InputBegan:Wait()
@@ -3793,7 +3930,7 @@ susprmpt.Triggered:Connect(function()
 						press = true
 					end
 				end
-				te= "  Then she realised it was not chlorine bleach but it was normal bleach that Cherry brought from market"
+				EndLabel.Text= "  Then she realised it was not chlorine bleach but it was normal bleach that Cherry brought from market"
 				press = false
 				while press == false do
 					local inp = UserIS.InputBegan:Wait()
@@ -3801,7 +3938,7 @@ susprmpt.Triggered:Connect(function()
 						press = true
 					end
 				end
-				te =" She was in complete confusion what to do next so she thought to kill he by cutting her hand "
+				EndLabel.Text =" She was in complete confusion what to do next so she thought to kill he by cutting her hand "
 				press = false
 				while press == false do
 					local inp = UserIS.InputBegan:Wait()
@@ -3809,7 +3946,7 @@ susprmpt.Triggered:Connect(function()
 						press = true
 					end
 				end
-				te=" ...which would still look like a suicide! Nobody would have questioned "
+				EndLabel.Text=" ...which would still look like a suicide! Nobody would have questioned "
 				press = false
 				while press == false do
 					local inp = UserIS.InputBegan:Wait()
@@ -3817,7 +3954,7 @@ susprmpt.Triggered:Connect(function()
 						press = true
 					end
 				end
-				te = " She then took Cherry's hand and made deep cuts with a knife "
+				EndLabel.Text= " She then took Cherry's hand and made deep cuts with a knife "
 				press = false
 				while press == false do
 					local inp = UserIS.InputBegan:Wait()
@@ -3825,7 +3962,7 @@ susprmpt.Triggered:Connect(function()
 						press = true
 					end
 				end
-				te="After Sherry confirmed Cherry was dead ...  she started finishing things up by DEFINING it as a suicide "
+				EndLabel.Text="After Sherry confirmed Cherry was dead ...  she started finishing things up by DEFINING it as a suicide "
 				press = false
 				while press == false do
 					local inp = UserIS.InputBegan:Wait()
@@ -3833,7 +3970,7 @@ susprmpt.Triggered:Connect(function()
 						press = true
 					end
 				end
-				te= " She took the tape(with gloves) that Cherry kept ready on her dressing table to pack stuff as she was shifting! "
+				EndLabel.Text= " She took the tape(with gloves) that Cherry kept ready on her dressing table to pack stuff as she was shifting! "
 				press = false
 				while press == false do
 					local inp = UserIS.InputBegan:Wait()
@@ -3841,7 +3978,7 @@ susprmpt.Triggered:Connect(function()
 						press = true
 					end
 				end
-				te="  This way the tapes had the finger-print of Cherry ..."
+				EndLabel.Text="  This way the tapes had the finger-print of Cherry ..."
 				press = false
 				while press == false do
 					local inp = UserIS.InputBegan:Wait()
@@ -3849,7 +3986,7 @@ susprmpt.Triggered:Connect(function()
 						press = true
 					end
 				end
-				te=" ...Sherry took those peices tape and taped it to the bathroom's glass door from inside"
+				EndLabel.Text=" ...Sherry took those peices tape and taped it to the bathroom's glass door from inside"
 				press = false
 				while press == false do
 					local inp = UserIS.InputBegan:Wait()
@@ -3857,7 +3994,7 @@ susprmpt.Triggered:Connect(function()
 						press = true
 					end
 				end
-				te=" Thus when the door is closed ..it gave an illusion that the door was taped shut from inside which wasn't taped to the wall and frame in reality the tapes were only taped to the door "
+				EndLabel.Text=" Thus when the door is closed ..it gave an illusion that the door was taped shut from inside which wasn't taped to the wall and frame in reality the tapes were only taped to the door "
 				press = false
 				while press == false do
 					local inp = UserIS.InputBegan:Wait()
@@ -3865,7 +4002,7 @@ susprmpt.Triggered:Connect(function()
 						press = true
 					end
 				end
-				te=" Then Sherry sneaked out of the house and came to to the cafe where i met her where she also got a perfect opportunity to make me a witness "
+				EndLabel.Text=" Then Sherry sneaked out of the house and came to to the cafe where i met her where she also got a perfect opportunity to make me a witness "
 				press = false
 				while press == false do
 					local inp = UserIS.InputBegan:Wait()
@@ -3873,7 +4010,7 @@ susprmpt.Triggered:Connect(function()
 						press = true
 					end
 				end
-				te="Another trick that Sherry used to manipulate that the door was closed was by locking the door from outside when we were pushing to break into "
+				EndLabel.Text="Another trick that Sherry used to manipulate that the door was closed was by locking the door from outside when we were pushing to break into "
 				press = false
 				while press == false do
 					local inp = UserIS.InputBegan:Wait()
@@ -3881,7 +4018,7 @@ susprmpt.Triggered:Connect(function()
 						press = true
 					end
 				end
-				te=" This made me feel that the door was locked from inside and when she open the lock at a sudden ... it felt like we broke the lock! "
+				EndLabel.Text=" This made me feel that the door was locked from inside and when she open the lock at a sudden ... it felt like we broke the lock! "
 				press = false
 				while press == false do
 					local inp = UserIS.InputBegan:Wait()
@@ -3889,7 +4026,7 @@ susprmpt.Triggered:Connect(function()
 						press = true
 					end
 				end
-				te=" But a culprit can never leave a crime scene without some trail "
+				EndLabel.Text=" But a culprit can never leave a crime scene without some trail "
 				press = false
 				while press == false do
 					local inp = UserIS.InputBegan:Wait()
@@ -3897,7 +4034,7 @@ susprmpt.Triggered:Connect(function()
 						press = true
 					end
 				end
-				te=" The first evidence was the small peice of tape on the dressing table that Sherry might have overlooked "
+				EndLabel.Text=" The first evidence was the small peice of tape on the dressing table that Sherry might have overlooked "
 				press = false
 				while press == false do
 					local inp = UserIS.InputBegan:Wait()
@@ -3905,7 +4042,7 @@ susprmpt.Triggered:Connect(function()
 						press = true
 					end
 				end
-				te=" That small peice of tape gave us a big hint "
+				EndLabel.Text=" That small peice of tape gave us a big hint "
 				press = false
 				while press == false do
 					local inp = UserIS.InputBegan:Wait()
@@ -3913,7 +4050,7 @@ susprmpt.Triggered:Connect(function()
 						press = true
 					end
 				end
-				te=" Another big hint was the door lock not being damaged letting us figure out the trick with it "
+				EndLabel.Text=" Another big hint was the door lock not being damaged letting us figure out the trick with it "
 				press = false
 				while press == false do
 					local inp = UserIS.InputBegan:Wait()
@@ -3921,7 +4058,7 @@ susprmpt.Triggered:Connect(function()
 						press = true
 					end
 				end
-				te=" The cuts on the hand were also very aggresive which is very unatural even for a mentally disabled person as human have tendency to fear when they are hurting themself "
+				EndLabel.Text=" The cuts on the hand were also very aggresive which is very unatural even for a mentally disabled person as human have tendency to fear when they are hurting themself "
 				press = false
 				while press == false do
 					local inp = UserIS.InputBegan:Wait()
@@ -3929,7 +4066,7 @@ susprmpt.Triggered:Connect(function()
 						press = true
 					end
 				end
-				te = " The Blood spot on the door proved us that this wasnt a suicide and was done by a outsider "
+				EndLabel.Text= " The Blood spot on the door proved us that this wasnt a suicide and was done by a outsider "
 				press = false
 				while press == false do
 					local inp = UserIS.InputBegan:Wait()
@@ -3937,7 +4074,7 @@ susprmpt.Triggered:Connect(function()
 						press = true
 					end
 				end
-				te = " but all of this didn't proved Sherry as the culprit... it just pointed as it was a murder"
+				EndLabel.Text= " but all of this didn't proved Sherry as the culprit... it just pointed as it was a murder"
 				press = false
 				while press == false do
 					local inp = UserIS.InputBegan:Wait()
@@ -3945,7 +4082,7 @@ susprmpt.Triggered:Connect(function()
 						press = true
 					end
 				end
-				te=" The only evidence that debunked all of this was , unexpectedly an 'É' or better as only 'E' !"
+				EndLabel.Text=" The only evidence that debunked all of this was , unexpectedly an 'É' or better as only 'E' !"
 				press = false
 				while press == false do
 					local inp = UserIS.InputBegan:Wait()
@@ -3953,7 +4090,7 @@ susprmpt.Triggered:Connect(function()
 						press = true
 					end
 				end
-				te= "The band 'AMAZÉ' has a 'É' not a normal 'E ' "
+				EndLabel.Text= "The band 'AMAZÉ' has a 'É' not a normal 'E ' "
 				press = false
 				while press == false do
 					local inp = UserIS.InputBegan:Wait()
@@ -3961,7 +4098,7 @@ susprmpt.Triggered:Connect(function()
 						press = true
 					end
 				end
-				te = "Something was tickling my mind but when I saw the poster I realised it! "
+				EndLabel.Text = "Something was tickling my mind but when I saw the poster I realised it! "
 				press = false
 				while press == false do
 					local inp = UserIS.InputBegan:Wait()
@@ -3969,7 +4106,7 @@ susprmpt.Triggered:Connect(function()
 						press = true
 					end
 				end
-				te= " It was Sherry's headband ... it had 'AMAZE' not 'AMAZÉ' "
+				EndLabel.Text= " It was Sherry's headband ... it had 'AMAZE' not 'AMAZÉ' "
 				press = false
 				while press == false do
 					local inp = UserIS.InputBegan:Wait()
@@ -3977,7 +4114,7 @@ susprmpt.Triggered:Connect(function()
 						press = true
 					end
 				end
-				te= "Most of us will be confused here but if we noticed that the background color of the headband was blood red "
+				EndLabel.Text= "Most of us will be confused here but if we noticed that the background color of the headband was blood red "
 				press = false
 				while press == false do
 					local inp = UserIS.InputBegan:Wait()
@@ -3985,7 +4122,7 @@ susprmpt.Triggered:Connect(function()
 						press = true
 					end
 				end
-				te="An official merch can't have a mistake... the missing dash above the 'E' was never missing "
+				EndLabel.Text="An official merch can't have a mistake... the missing dash above the 'E' was never missing "
 				press = false
 				while press == false do
 					local inp = UserIS.InputBegan:Wait()
@@ -3993,7 +4130,7 @@ susprmpt.Triggered:Connect(function()
 						press = true
 					end
 				end
-				te="It was hiding from us because of a blood mark which camoflauged with the background red color of headband !"
+				EndLabel.Text="It was hiding from us because of a blood mark which camoflauged with the background red color of headband !"
 				press = false
 				while press == false do
 					local inp = UserIS.InputBegan:Wait()
@@ -4001,7 +4138,7 @@ susprmpt.Triggered:Connect(function()
 						press = true
 					end
 				end
-				te="When Sherry cut Cherry's hand , blood had sprayed out ... then Sherry must have changed clothes but she did'nt change the headband"
+				EndLabel.Text="When Sherry cut Cherry's hand , blood had sprayed out ... then Sherry must have changed clothes but she did'nt change the headband"
 				press = false
 				while press == false do
 					local inp = UserIS.InputBegan:Wait()
@@ -4009,7 +4146,7 @@ susprmpt.Triggered:Connect(function()
 						press = true
 					end
 				end
-				te="Most probablly beacuse she didn't notice any blood mark over it which camo-ed with the background!"
+				EndLabel.Text="Most probablly beacuse she didn't notice any blood mark over it which camo-ed with the background!"
 				press = false
 				while press == false do
 					local inp = UserIS.InputBegan:Wait()
@@ -4017,7 +4154,7 @@ susprmpt.Triggered:Connect(function()
 						press = true
 					end
 				end
-				te=" These factors revealed that Sherry was the culprit !"
+				EndLabel.Text=" These factors revealed that Sherry was the culprit !"
 				press = false
 				while press == false do
 					local inp = UserIS.InputBegan:Wait()
@@ -4025,7 +4162,7 @@ susprmpt.Triggered:Connect(function()
 						press = true
 					end
 				end
-				te=" After Sherry realised that she couldn't escape anymore ...she said us why she killed her sister "
+				EndLabel.Text=" After Sherry realised that she couldn't escape anymore ...she said us why she killed her sister "
 				press = false
 				while press == false do
 					local inp = UserIS.InputBegan:Wait()
@@ -4033,7 +4170,7 @@ susprmpt.Triggered:Connect(function()
 						press = true
 					end
 				end
-				te="Then we revealed to Sherry that we had a talk with Cherry's fiance and where got to know that..."
+				EndLabel.Text="Then we revealed to Sherry that we had a talk with Cherry's fiance and where got to know that..."
 				press = false
 				while press == false do
 					local inp = UserIS.InputBegan:Wait()
@@ -4041,7 +4178,7 @@ susprmpt.Triggered:Connect(function()
 						press = true
 					end
 				end
-				te="...it was never Cherry who wanted to marry him ...it was the fiance who first proposed her!"
+				EndLabel.Text="...it was never Cherry who wanted to marry him ...it was the fiance who first proposed her!"
 				
 				
 				
@@ -4478,13 +4615,8 @@ susprmpt.Triggered:Connect(function()
 			
 			elseif opWrong>0 and opCorrect ==0 and opStry ==0 then
 				EndLabel.Text = "You were completely wrong with your evidence resulting in the escape of the culprit! "
-				EndFrame.Visible = true
-				
 				
 			
-			else
-				EndLabel.Text = "You tried your best but it wasn't enough for this case to solve !!"
-			    EndFrame.Visible = true
 			end
 			
 		end)
