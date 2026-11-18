@@ -22,7 +22,7 @@ Anyways ... I am still happy about the facts that this game is working now!!!
 ## Features?
 - This game is mostly a story based full of converstion type of game where u mostly interact with other npcs , talk with them and then 
    at the last you get to investigate the crime scene and find some evidences and use all those covos to figure things out
-   
+- Only used ai in helping me to make a infinite road generating file   
    
 ## Difficulties?
 - Handling the animations for anything was a nightmare for me , even till now i can only do small animations
