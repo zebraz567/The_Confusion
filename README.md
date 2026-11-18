@@ -42,4 +42,7 @@ Anyways ... I am still happy about the facts that this game is working now!!!
 		
 		(if u miss chem and paper evidence ..u will still crack the case but wouldnt know the backstory!)
 
+## Installation : 
+Download the v1 from the releases and then open it with roblox studio!
+
 ## Thank you to whoever approves this game!!!
