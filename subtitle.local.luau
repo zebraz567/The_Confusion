@@ -114,8 +114,6 @@ c3.Enabled = false
 c4.Enabled = false
 
 local cusdone = 0
-susprmpt.Enabled=true
-
 
 local talk2Staff = false
 local scenePly = false
@@ -1312,9 +1310,9 @@ susprmpt.Triggered:Connect(function()
 		nxt.Visible = false 
 		
 		l1.Text = "- Investigate the house "
-		l2.Text = "- Find        Evidences "
-		l3.Text = "- End this by reporting "
-		l4.Text = "  to      Police        "
+		l2.Text = "- Find Evidences "
+		l3.Text = "- End this by reporting to police"
+		l4.Text = "- Press respective no. in keyboard to option no."
 		l2.Visible = true
 		l3.Visible = true
 		l4.Visible = true
@@ -3247,7 +3245,7 @@ susprmpt.Triggered:Connect(function()
 			Options.Enabled = false
 			Ending.Enabled = true
 			EndFrame.Visible = true
-			print("counts:", opCorrect, opStry, opWrong)
+			print(opCorrect, opStry, opWrong)
 			
 			if opCorrect == 0 and opStry==0 and opWrong==0 then
 				EndLabel.Text = " You provided the police NO evidence which left them more confused and the culprit ESCAPED! "
@@ -3255,7 +3253,7 @@ susprmpt.Triggered:Connect(function()
 				
 				
 				
-			elseif opCorrect == 4 and opStry==2 and opWrong==0 then
+			elseif opCorrect >= 4 and opStry==2 then
 				
 				EndLabel.Text = "You were perfect with your deductions..."
 				press = false
